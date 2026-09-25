@@ -834,7 +834,7 @@ MonoBehaviour:
   playerTransform: {fileID: 0}
   distanciaInteracao: 2
   teclaInteracao: 102
-  posicaoRelativa: {x: 0.8, y: 0, z: 0}
+  posicaoRelativa: {x: 1, y: 0, z: 0}
 --- !u!61 &1106729274
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1062,7 +1062,7 @@ MonoBehaviour:
   playerTransform: {fileID: 0}
   distanciaInteracao: 2
   teclaInteracao: 102
-  posicaoRelativa: {x: 0.8, y: 0, z: 0}
+  posicaoRelativa: {x: 1, y: 0, z: 0}
 --- !u!212 &1258233794
 SpriteRenderer:
   m_ObjectHideFlags: 0
