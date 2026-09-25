@@ -14,19 +14,20 @@ public class ObjetoMovimento : MonoBehaviour
     private Rigidbody2D rbCaixa;
     private Collider2D colCaixa;
 
+    // Controla se já existe ALGUM item sendo segurado no jogo para evitar pegar dois
+    public static bool playerEstaSegurandoAlgo = false;
+
     void Start()
     {
         rbCaixa = GetComponent<Rigidbody2D>();
         colCaixa = GetComponent<Collider2D>();
 
-        // Acha o player automaticamente pela Tag se não foi arrastado no Inspector
         if (playerTransform == null)
         {
             GameObject playerObj = GameObject.FindGameObjectWithTag("Player");
             if (playerObj != null) playerTransform = playerObj.transform;
         }
 
-        // Garante que a caixa nunca seja empurrada fisicamente ao esbarrar inicialmente
         if (rbCaixa != null)
         {
             rbCaixa.bodyType = RigidbodyType2D.Kinematic;
@@ -38,17 +39,16 @@ public class ObjetoMovimento : MonoBehaviour
     {
         if (playerTransform == null) return;
 
-        // Se apertar a tecla F
         if (Input.GetKeyDown(teclaInteracao))
         {
             float distancia = Vector2.Distance(transform.position, playerTransform.position);
 
-            // Se não está segurando e chegou perto o suficiente, pega
-            if (!estaSegurando && distancia <= distanciaInteracao)
+            // Só pode pegar se estiver perto, se NÃO estiver segurando este item, 
+            // e se o player NÃO estiver a segurar nenhum outro item no momento
+            if (!estaSegurando && distancia <= distanciaInteracao && !playerEstaSegurandoAlgo)
             {
                 PegarCaixa();
             }
-            // Se já está segurando, solta onde o player estiver
             else if (estaSegurando)
             {
                 SoltarCaixa();
@@ -59,11 +59,10 @@ public class ObjetoMovimento : MonoBehaviour
     void PegarCaixa()
     {
         estaSegurando = true;
+        playerEstaSegurandoAlgo = true; // Informa que o player agora está ocupado segurando algo
 
-        // Desativa a colisão para não enroscar no player enquanto carrega
         if (colCaixa != null) colCaixa.enabled = false;
 
-        // Gruda no player
         transform.SetParent(playerTransform);
         transform.localPosition = posicaoRelativa;
     }
@@ -71,18 +70,18 @@ public class ObjetoMovimento : MonoBehaviour
     void SoltarCaixa()
     {
         estaSegurando = false;
+        playerEstaSegurandoAlgo = false; // Libera o player para poder pegar itens novamente
 
-        // 1. Desanexa do Player primeiro
+        Vector3 posicaoSoltura = transform.position;
         transform.SetParent(null);
+        transform.position = posicaoSoltura;
 
-        // 2. Reseta a velocidade física para evitar bugs de movimento
         if (rbCaixa != null)
         {
             rbCaixa.linearVelocity = Vector2.zero;
             rbCaixa.angularVelocity = 0f;
         }
 
-        // 3. Reativa a colisão
         if (colCaixa != null) colCaixa.enabled = true;
     }
 
