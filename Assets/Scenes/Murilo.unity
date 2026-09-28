@@ -787,7 +787,6 @@ GameObject:
   - component: {fileID: 1106729273}
   - component: {fileID: 1106729275}
   - component: {fileID: 1106729274}
-  - component: {fileID: 1106729276}
   m_Layer: 0
   m_Name: 'Item 1 '
   m_TagString: Untagged
@@ -954,20 +953,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!114 &1106729276
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1106729270}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 37135c14d09104a4a9f0e4ffdd5082f5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  teclaLancar: 103
-  distanciaLancamento: 4
 --- !u!1 &1251459447
 GameObject:
   m_ObjectHideFlags: 0
