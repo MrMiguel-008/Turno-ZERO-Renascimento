@@ -4,63 +4,104 @@ public class LancarObjeto : MonoBehaviour
 {
     [Header("Configurações de Lançamento")]
     [SerializeField] private KeyCode teclaLancar = KeyCode.G;
-    [SerializeField][Tooltip("Ajuste aqui o quão longe o item vai ao ser lançado")] private float distanciaLancamento = 4f;
+    [SerializeField] private float forcaLancamento = 15f;
 
     private Rigidbody2D rbCaixa;
     private Collider2D colCaixa;
     private Transform playerTransform;
-    private bool estaSendoSegurado = false;
+    private Collider2D colisorPlayer;
+
+    private Vector2 ultimaDirecao = Vector2.right;
 
     void Start()
     {
         rbCaixa = GetComponent<Rigidbody2D>();
         colCaixa = GetComponent<Collider2D>();
 
+        if (rbCaixa != null)
+        {
+            rbCaixa.freezeRotation = true;
+        }
+
         GameObject playerObj = GameObject.FindGameObjectWithTag("Player");
-        if (playerObj != null) playerTransform = playerObj.transform;
+        if (playerObj != null)
+        {
+            playerTransform = playerObj.transform;
+            colisorPlayer = playerObj.GetComponent<Collider2D>();
+        }
     }
 
     void Update()
     {
         if (playerTransform == null) return;
 
-        // Verifica se a caixa está sendo segurada (se é filha do player)
-        bool segurandoAgora = transform.parent != null && transform.parent == playerTransform;
-        estaSendoSegurado = segurandoAgora;
+        // Atualiza a última direção com base nas teclas W, A, S, D
+        if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow))
+        {
+            ultimaDirecao = Vector2.up;
+        }
+        if (Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.DownArrow))
+        {
+            ultimaDirecao = Vector2.down;
+        }
+        if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow))
+        {
+            ultimaDirecao = Vector2.left; // Esquerda
+        }
+        if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow))
+        {
+            ultimaDirecao = Vector2.right; // Direita
+        }
 
-        // Se estiver sendo segurado e apertar G, lança
+        bool estaSendoSegurado = transform.parent != null && transform.parent == playerTransform;
+
         if (estaSendoSegurado && Input.GetKeyDown(teclaLancar))
         {
-            Lancar();
+            ExecutarLancamento();
         }
     }
 
-    void Lancar()
+    void ExecutarLancamento()
     {
-        // 1. Desanexa do player
-        transform.SetParent(null);
-        estaSendoSegurado = false;
+        // 1. Libera o player no script de movimento
+        ObjetoMovimento.playerEstaSegurandoAlgo = false;
 
-        // 2. Ativa a física do Rigidbody
+        // 2. Desanexa do player primeiro para podermos alterar a posição livremente
+        transform.SetParent(null);
+
+        // 3. Posiciona a caixa diretamente FORA do player na direção do tiro (resolve o travamento para a esquerda)
+        // Usamos uma distância maior (0.8f) para garantir que ela nasça totalmente livre do colisor
+        transform.position = playerTransform.position + (Vector3)(ultimaDirecao * 0.8f);
+
+        // 4. Configura a colisão: ativa a caixa, mas ignora o player temporariamente para evitar empurrões indesejados
+        if (colCaixa != null)
+        {
+            colCaixa.enabled = true;
+
+            if (colisorPlayer != null)
+            {
+                Physics2D.IgnoreCollision(colCaixa, colisorPlayer, true);
+                // Aumentei o tempo para 0.4s para dar tempo do item se afastar bem antes de poder colidir com o player de novo
+                Invoke("ReativarColisaoPlayer", 0.4f);
+            }
+        }
+
+        // 5. Aplica a física do lançamento
         if (rbCaixa != null)
         {
             rbCaixa.bodyType = RigidbodyType2D.Dynamic;
             rbCaixa.simulated = true;
+            rbCaixa.gravityScale = 0f;
 
-            // Descobre para qual lado o player está virado (direita ou esquerda)
-            float direcaoOlhar = playerTransform.localScale.x >= 0 ? 1f : -1f;
-
-            // Mantém o eixo Y em 0 para ir perfeitamente em linha reta horizontal
-            Vector2 direcaoLancamento = new Vector2(direcaoOlhar, 0f);
-
-            // Aplica a velocidade em linha reta
-            rbCaixa.linearVelocity = direcaoLancamento * distanciaLancamento;
+            rbCaixa.linearVelocity = ultimaDirecao * forcaLancamento;
         }
+    }
 
-        // 3. Reativa a colisão
-        if (colCaixa != null)
+    void ReativarColisaoPlayer()
+    {
+        if (colCaixa != null && colisorPlayer != null)
         {
-            colCaixa.enabled = true;
+            Physics2D.IgnoreCollision(colCaixa, colisorPlayer, false);
         }
     }
 }
