@@ -134,7 +134,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      botas-removebg_0: -6310197865390913195
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

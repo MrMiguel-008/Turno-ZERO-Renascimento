@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 11c6ff96261fbed40bd6d73a273a8872
+guid: 429d6f9a4742ac34e91ca9aae08cb87e
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -4916188410163962790
-    second: Bolha-removebg-preview_0
+      213: 7844011828404558521
+    second: Tapete_sanitizante_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,13 +100,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Bolha-removebg-preview_0
+      name: Tapete_sanitizante_0
       rect:
         serializedVersion: 2
-        x: 36
-        y: 29
-        width: 279
-        height: 280
+        x: 3
+        y: 1
+        width: 638
+        height: 386
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: a5cd84320b036cbb0800000000000000
-      internalID: -4916188410163962790
+      spriteID: 9ba1406d2378bdc60800000000000000
+      internalID: 7844011828404558521
       vertices: []
       indices: 
       edges: []
@@ -134,8 +134,7 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable:
-      Bolha-removebg-preview_0: -4916188410163962790
+    nameFileIdTable: {}
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

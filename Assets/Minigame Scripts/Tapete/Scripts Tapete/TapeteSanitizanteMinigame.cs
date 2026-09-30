@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-public class TapeteSanitizanteMinigame : MonoBehaviour
+public class TapeteSanitizanteMinigame : MonoBehaviour, IObjetivoMinigame
 {
     // =========================================================
     // UI
@@ -84,6 +84,8 @@ public class TapeteSanitizanteMinigame : MonoBehaviour
     private Vector2 posicaoInicialBota;
 
     private Coroutine movimentoBotaAtual;
+
+    public bool Concluido { get; private set; }
 
 
     // =========================================================
@@ -531,6 +533,7 @@ public class TapeteSanitizanteMinigame : MonoBehaviour
     private void ConcluirMinigame()
     {
         minigameConcluido = true;
+        Concluido = true;
 
         Debug.Log("TAPETE CONCLUÍDO!");
 
