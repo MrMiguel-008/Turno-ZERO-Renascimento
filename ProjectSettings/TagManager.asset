@@ -3,7 +3,12 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 3
-  tags: []
+  tags:
+  - s caixa
+  - s luva
+  - s prancheta
+  - s tablet
+  - Lixeira
   layers:
   - Default
   - TransparentFX
