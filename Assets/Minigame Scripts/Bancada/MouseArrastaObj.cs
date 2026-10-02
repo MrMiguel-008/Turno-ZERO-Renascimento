@@ -4,7 +4,8 @@ using UnityEngine.SceneManagement;
 public class MouseArrastaObj : MonoBehaviour
 {
     private static int totalSucessos = 0;
-    private const int OBJETIVOS_NECESSARIOS = 5;
+    private const int OBJETIVOS_NECESSARIOS = 7;
+    public Canvas canvas;
 
     public string tagDoAlvoCorreto;
     private Vector3 posicaoOriginal;
@@ -26,6 +27,8 @@ public class MouseArrastaObj : MonoBehaviour
         ordemInicial = spriteRenderer.sortingOrder;
 
         totalSucessos = 0;
+
+        canvas.gameObject.SetActive(false);
     }
 
     void OnMouseDown()
@@ -97,7 +100,7 @@ public class MouseArrastaObj : MonoBehaviour
 
         if (totalSucessos >= OBJETIVOS_NECESSARIOS)
         {
-            SceneManager.LoadScene(0);
+            canvas.gameObject.SetActive(true);
         }
     }
 }
