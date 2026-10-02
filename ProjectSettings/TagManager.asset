@@ -9,6 +9,7 @@ TagManager:
   - s prancheta
   - s tablet
   - Lixeira
+  - Bancada
   layers:
   - Default
   - TransparentFX
