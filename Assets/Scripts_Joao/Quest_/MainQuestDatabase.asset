@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ee8f22b89dd71ca45b562032a6472e00, type: 3}
+  m_Name: MainQuestDatabase
+  m_EditorClassIdentifier: 
+  quests:
+  - questID: m1
+    questTitle: "Entre na Recep\xE7\xE3o"
+    questDescription: literalmente
+    questType: 1
+    targetAreaName: recepcao
+  - questID: m2
+    questTitle: Fale com o Supervisor
+    questDescription: Aperte a tecla 'E'
+    questType: 0
+    targetAreaName: 
+  - questID: m3
+    questTitle: "V\xE1 para o Vesti\xE1rio"
+    questDescription: Primeira sala a Esquerda no fim do corredor
+    questType: 1
+    targetAreaName: vestiario
