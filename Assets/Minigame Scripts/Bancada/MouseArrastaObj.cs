@@ -21,6 +21,9 @@ public class MouseArrastaObj : MonoBehaviour
 
     void Start()
     {
+        PlayerPrefs.SetInt("MinigameIniciado_01", 1);
+        PlayerPrefs.Save();
+
         cameraPrincipal = Camera.main;
         posicaoOriginal = transform.position;
         spriteRenderer = GetComponent<SpriteRenderer>();
@@ -100,7 +103,7 @@ public class MouseArrastaObj : MonoBehaviour
 
         if (totalSucessos >= OBJETIVOS_NECESSARIOS)
         {
-            canvas.gameObject.SetActive(true);
+            SceneManager.LoadScene(0);
         }
     }
 }
