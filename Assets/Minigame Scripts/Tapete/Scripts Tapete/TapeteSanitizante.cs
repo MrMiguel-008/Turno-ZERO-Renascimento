@@ -27,7 +27,7 @@ public class TapeteSanitizante : MonoBehaviour
     private void Start()
     {
         // Verifica se o tapete já foi concluído anteriormente.
-        concluido = PlayerPrefs.GetInt("TapeteConcluido", 0) == 1;
+        concluido = TapeteSanitizanteMinigame.TapeteConcluidoNaPartida;
 
         // A mensagem começa escondida.
         if (mensagemInteracao != null)

@@ -11,6 +11,12 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/BancadaMinigame.unity
     guid: ab2db72b972b7294aa3f24d0d29235b4
+  - enabled: 1
+    path: Assets/Scenes/Miguel.unity
+    guid: b21b948e4579d914abe3bbfb4bc45fdb
+  - enabled: 1
+    path: Assets/Scenes/TapeteSanitizanteMinigame.unity
+    guid: d8e00ce7039f0fb43b712ae35a0056e9
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   m_UseUCBPForAssetBundles: 0

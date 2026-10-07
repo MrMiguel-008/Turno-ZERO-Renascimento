@@ -87,6 +87,8 @@ public class TapeteSanitizanteMinigame : MonoBehaviour, IObjetivoMinigame
 
     public bool Concluido { get; private set; }
 
+    public static bool TapeteConcluidoNaPartida { get; private set; }
+
 
     // =========================================================
     // UNITY
@@ -534,22 +536,13 @@ public class TapeteSanitizanteMinigame : MonoBehaviour, IObjetivoMinigame
     {
         minigameConcluido = true;
         Concluido = true;
+        TapeteConcluidoNaPartida = true;
 
         Debug.Log("TAPETE CONCLUÍDO!");
 
 
-        // Salva que o tapete foi higienizado.
-        PlayerPrefs.SetInt(
-            "TapeteConcluido",
-            1
-        );
-
-        PlayerPrefs.Save();
-
-
-        StartCoroutine(
-            VoltarParaJogoPrincipal()
-        );
+        StartCoroutine(VoltarParaJogoPrincipal());
+        
     }
 
 
