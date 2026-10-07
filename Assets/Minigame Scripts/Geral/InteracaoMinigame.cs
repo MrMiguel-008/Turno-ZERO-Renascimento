@@ -1,4 +1,4 @@
-using System.Collections;
+Ôªøusing System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
@@ -8,26 +8,27 @@ using UnityEngine.SceneManagement;
 public class InteracaoMinigame : MonoBehaviour, IObjetivoMinigame
 {
     // =========================================================
-    // IDENTIFICA«√O DO OBJETIVO
+    // IDENTIFICA√á√ÉO DO OBJETIVO
     // =========================================================
 
-    [Header("IdentificaÁ„o do Objetivo")]
-    [Tooltip("ID ˙nico deste objetivo. Exemplo: tapete_sanitizante")]
+    [Header("Identifica√ß√£o do Objetivo")]
+    [Tooltip("ID √öNICO deste objetivo. Exemplo: tapete_sanitizante")]
     [SerializeField] private string idObjetivo = "objetivo_01";
 
     // =========================================================
-    // INTERA«√O
+    // INTERA√á√ÉO
     // =========================================================
 
-    [Header("InteraÁ„o")]
-    [Tooltip("Texto mostrado quando o jogador estiver perto.")]
+    [Header("Intera√ß√£o")]
     [SerializeField] private string mensagemInteracao = "E - Interagir";
 
-    [Tooltip("Texto do Canvas global que mostrar· a mensagem.")]
+    [Tooltip("Texto do Canvas global que mostrar√° a mensagem.")]
     [SerializeField] private TMP_Text mensagemUI;
 
-    [Tooltip("PosiÁ„o da mensagem em relaÁ„o ao objeto.")]
-    [SerializeField] private Vector3 deslocamentoMensagem = new Vector3(0f, 1f, 0f);
+    [Tooltip("Posi√ß√£o da mensagem em rela√ß√£o ao objeto.")]
+    [SerializeField]
+    private Vector3 deslocamentoMensagem =
+        new Vector3(0f, 1f, 0f);
 
     // =========================================================
     // MINIGAME
@@ -37,7 +38,7 @@ public class InteracaoMinigame : MonoBehaviour, IObjetivoMinigame
     [Tooltip("Nome exato da cena do minigame.")]
     [SerializeField] private string cenaMinigame;
 
-    [Tooltip("Desativa este componente depois que o objetivo for concluÌdo.")]
+    [Tooltip("Desativa este componente depois que o objetivo for conclu√≠do.")]
     [SerializeField] private bool desativarAoConcluir = true;
 
     // =========================================================
@@ -53,38 +54,93 @@ public class InteracaoMinigame : MonoBehaviour, IObjetivoMinigame
     // ESTADO GLOBAL DA PARTIDA
     // =========================================================
 
-    // Guarda quais objetivos j· foram concluÌdos nesta execuÁ„o do jogo.
     private static readonly HashSet<string> objetivosConcluidos =
         new HashSet<string>();
 
-    // Qual interaÁ„o est· mostrando o prompt atualmente.
     private static InteracaoMinigame interacaoComPrompt;
-
-    // InteraÁ„o que iniciou o minigame.
     private static InteracaoMinigame interacaoAtual;
 
-    // Cena original onde o jogador estava.
     private static Scene cenaOrigem;
 
-    // Todas as raÌzes da cena original.
-    // Elas ser„o desativadas durante o minigame,
-    // mas N√O ser„o destruÌdas.
-    private static List<GameObject> raizesCenaOrigem;
-
-    // Cena do minigame carregada de forma aditiva.
     private static Scene cenaMinigameAtual;
 
-    // ID do objetivo que iniciou o minigame.
     private static string idObjetivoAtual;
 
-    // Evita duas transiÁıes acontecendo ao mesmo tempo.
     private static bool transicaoEmAndamento;
+
+    // =========================================================
+    // RA√çZES DA CENA
+    // =========================================================
+
+    private class EstadoRaiz
+    {
+        public GameObject objeto;
+        public bool estavaAtivo;
+    }
+
+    private static List<EstadoRaiz> estadosRaizes;
+
+    // =========================================================
+    // ESTADO DO PLAYER
+    // =========================================================
+
+    private static Transform playerTransform;
+
+    private static Vector3 playerPosicaoSalva;
+
+    private static Quaternion playerRotacaoSalva;
+
+    private static bool playerEstavaAtivo;
+
+    private static bool playerFoiSalvo;
+
+    private static Rigidbody2D playerRigidbody;
+
+    private static Vector2 playerVelocidadeSalva;
+
+    private static float playerVelocidadeAngularSalva;
+
+    // =========================================================
+    // RUNTIME MANAGER
+    // =========================================================
+
+    private static InteracaoMinigameRuntime runtimeManager;
 
     // =========================================================
     // INTERFACE
     // =========================================================
 
     public bool Concluido => concluido;
+
+    // =========================================================
+    // RESET DOS ESTADOS EST√ÅTICOS
+    // =========================================================
+
+    [RuntimeInitializeOnLoadMethod(
+        RuntimeInitializeLoadType.SubsystemRegistration)]
+    private static void ResetarEstadosEstaticos()
+    {
+        objetivosConcluidos.Clear();
+
+        interacaoComPrompt = null;
+        interacaoAtual = null;
+
+        cenaOrigem = default;
+        cenaMinigameAtual = default;
+
+        idObjetivoAtual = null;
+
+        transicaoEmAndamento = false;
+
+        estadosRaizes = null;
+
+        playerTransform = null;
+        playerRigidbody = null;
+
+        playerFoiSalvo = false;
+
+        runtimeManager = null;
+    }
 
     // =========================================================
     // CICLO DE VIDA
@@ -100,6 +156,9 @@ public class InteracaoMinigame : MonoBehaviour, IObjetivoMinigame
     private void Start()
     {
         AtualizarEstadoDoObjetivo();
+
+        ValidarID();
+
         EsconderMensagem();
     }
 
@@ -112,10 +171,57 @@ public class InteracaoMinigame : MonoBehaviour, IObjetivoMinigame
     {
         EsconderMensagem();
 
+        jogadorNaArea = false;
+
         if (interacaoComPrompt == this)
         {
             interacaoComPrompt = null;
         }
+    }
+
+    // =========================================================
+    // VALIDA√á√ÉO DO ID
+    // =========================================================
+
+    private void ValidarID()
+    {
+        if (string.IsNullOrWhiteSpace(idObjetivo))
+        {
+            Debug.LogError(
+                $"[InteracaoMinigame] '{gameObject.name}' " +
+                "est√° sem ID de objetivo."
+            );
+
+            return;
+        }
+
+        InteracaoMinigame[] interacoes =
+            FindObjectsByType<InteracaoMinigame>(
+                FindObjectsSortMode.None
+            );
+
+        foreach (InteracaoMinigame outra in interacoes)
+        {
+            if (outra == this)
+                continue;
+
+            if (outra.idObjetivo == idObjetivo)
+            {
+                Debug.LogError(
+                    $"[InteracaoMinigame] ID DUPLICADO!\n" +
+                    $"Objetivo: '{idObjetivo}'\n" +
+                    $"Objeto 1: '{gameObject.name}'\n" +
+                    $"Objeto 2: '{outra.gameObject.name}'\n\n" +
+                    "Cada objetivo precisa possuir um ID √∫nico."
+                );
+            }
+        }
+
+        Debug.Log(
+            $"[InteracaoMinigame] " +
+            $"{gameObject.name} ‚Üí ID: {idObjetivo} | " +
+            $"Conclu√≠do: {concluido}"
+        );
     }
 
     // =========================================================
@@ -127,15 +233,11 @@ public class InteracaoMinigame : MonoBehaviour, IObjetivoMinigame
         if (string.IsNullOrWhiteSpace(idObjetivo))
         {
             concluido = false;
-
-            Debug.LogWarning(
-                $"InteracaoMinigame em '{gameObject.name}' n„o possui ID de objetivo."
-            );
-
             return;
         }
 
-        concluido = ObjetivoFoiConcluido(idObjetivo);
+        concluido =
+            ObjetivoFoiConcluido(idObjetivo);
     }
 
     public static bool ObjetivoFoiConcluido(string id)
@@ -178,6 +280,7 @@ public class InteracaoMinigame : MonoBehaviour, IObjetivoMinigame
         if (interacaoComPrompt == this)
         {
             EsconderMensagem();
+
             interacaoComPrompt = null;
         }
     }
@@ -197,7 +300,6 @@ public class InteracaoMinigame : MonoBehaviour, IObjetivoMinigame
         if (transicaoEmAndamento)
             return;
 
-        // SÛ o objeto que est· controlando o prompt pode receber E.
         if (interacaoComPrompt != this)
             return;
 
@@ -224,8 +326,8 @@ public class InteracaoMinigame : MonoBehaviour, IObjetivoMinigame
         if (string.IsNullOrWhiteSpace(cenaMinigame))
         {
             Debug.LogError(
-                $"InteracaoMinigame em '{gameObject.name}': " +
-                "nenhuma cena de minigame foi configurada."
+                $"[InteracaoMinigame] '{gameObject.name}' " +
+                "n√£o possui cena de minigame."
             );
 
             return;
@@ -234,8 +336,18 @@ public class InteracaoMinigame : MonoBehaviour, IObjetivoMinigame
         if (string.IsNullOrWhiteSpace(idObjetivo))
         {
             Debug.LogError(
-                $"InteracaoMinigame em '{gameObject.name}': " +
-                "o ID do objetivo est· vazio."
+                $"[InteracaoMinigame] '{gameObject.name}' " +
+                "n√£o possui ID de objetivo."
+            );
+
+            return;
+        }
+
+        if (cenaMinigame == SceneManager.GetActiveScene().name)
+        {
+            Debug.LogError(
+                $"[InteracaoMinigame] '{gameObject.name}' " +
+                "est√° tentando carregar a pr√≥pria cena como minigame."
             );
 
             return;
@@ -244,17 +356,18 @@ public class InteracaoMinigame : MonoBehaviour, IObjetivoMinigame
         GarantirRuntimeManager();
 
         interacaoAtual = this;
+
         idObjetivoAtual = idObjetivo;
 
         interacaoComPrompt = null;
 
         EsconderMensagem();
 
-        InteracaoMinigameRuntime.IniciarTransicao(this);
+        runtimeManager.IniciarTransicao(this);
     }
 
     // =========================================================
-    // MOSTRAR / ESCONDER MENSAGEM
+    // MENSAGEM
     // =========================================================
 
     private void MostrarMensagem()
@@ -262,7 +375,9 @@ public class InteracaoMinigame : MonoBehaviour, IObjetivoMinigame
         if (mensagemUI == null)
             return;
 
-        mensagemUI.text = mensagemInteracao;
+        mensagemUI.text =
+            mensagemInteracao;
+
         mensagemUI.gameObject.SetActive(true);
 
         AtualizarPosicaoMensagem();
@@ -284,22 +399,27 @@ public class InteracaoMinigame : MonoBehaviour, IObjetivoMinigame
         if (!mensagemUI.gameObject.activeSelf)
             return;
 
-        Camera cameraPrincipal = Camera.main;
+        Camera cameraPrincipal =
+            Camera.main;
 
         if (cameraPrincipal == null)
             return;
 
         Vector3 posicaoMundo =
-            transform.position + deslocamentoMensagem;
+            transform.position +
+            deslocamentoMensagem;
 
         Vector3 posicaoTela =
-            cameraPrincipal.WorldToScreenPoint(posicaoMundo);
+            cameraPrincipal.WorldToScreenPoint(
+                posicaoMundo
+            );
 
-        mensagemUI.transform.position = posicaoTela;
+        mensagemUI.transform.position =
+            posicaoTela;
     }
 
     // =========================================================
-    // RETORNO DA CENA
+    // RETORNO
     // =========================================================
 
     private void AoRetornarDaCena()
@@ -307,49 +427,77 @@ public class InteracaoMinigame : MonoBehaviour, IObjetivoMinigame
         AtualizarEstadoDoObjetivo();
 
         jogadorNaArea = false;
+
         EsconderMensagem();
 
-        // Objetivo concluÌdo:
-        // esta interaÁ„o fica permanentemente indisponÌvel
-        // pelo resto desta partida.
         if (concluido && desativarAoConcluir)
         {
             enabled = false;
+
             return;
         }
-
-        // Caso tenha voltado sem concluir o minigame,
-        // verificamos se o jogador ainda est· dentro do trigger.
-        StartCoroutine(VerificarJogadorAoRetornar());
     }
 
-    private IEnumerator VerificarJogadorAoRetornar()
+    // =========================================================
+    // REAVALIAR TODAS AS INTERA√á√ïES
+    // =========================================================
+
+    private static void ReavaliarInteracoes()
     {
-        yield return null;
-
-        if (!isActiveAndEnabled)
-            yield break;
-
         GameObject player =
             GameObject.FindGameObjectWithTag("Player");
 
-        if (player == null || colisor == null)
-            yield break;
+        if (player == null)
+            return;
 
         Collider2D colliderPlayer =
             player.GetComponent<Collider2D>();
 
         if (colliderPlayer == null)
-            yield break;
+            return;
 
-        Physics2D.SyncTransforms();
+        InteracaoMinigame[] interacoes =
+            FindObjectsByType<InteracaoMinigame>(
+                FindObjectsSortMode.None
+            );
 
-        if (colisor.IsTouching(colliderPlayer))
+        foreach (InteracaoMinigame interacao in interacoes)
         {
-            jogadorNaArea = true;
-            interacaoComPrompt = this;
+            if (!interacao.isActiveAndEnabled)
+                continue;
 
-            MostrarMensagem();
+            interacao.AtualizarEstadoDoObjetivo();
+
+            if (interacao.concluido)
+            {
+                interacao.EsconderMensagem();
+                continue;
+            }
+
+            if (interacao.colisor == null)
+                continue;
+
+            if (interacao.colisor.IsTouching(
+                colliderPlayer))
+            {
+                interacao.jogadorNaArea = true;
+
+                interacaoComPrompt =
+                    interacao;
+
+                interacao.MostrarMensagem();
+            }
+            else
+            {
+                interacao.jogadorNaArea = false;
+
+                if (interacaoComPrompt == interacao)
+                {
+                    interacao.EsconderMensagem();
+
+                    interacaoComPrompt = null;
+                }
+            }
         }
     }
 
@@ -357,35 +505,38 @@ public class InteracaoMinigame : MonoBehaviour, IObjetivoMinigame
     // FINALIZAR MINIGAME
     // =========================================================
 
-    /// <summary>
-    /// Chame este mÈtodo quando o minigame terminar.
-    /// true = objetivo concluÌdo.
-    /// false = voltar sem concluir.
-    /// </summary>
-    public static void FinalizarMinigame(bool objetivoConcluido)
+    public static void FinalizarMinigame(
+        bool objetivoConcluido)
     {
         if (!transicaoEmAndamento)
         {
             Debug.LogWarning(
-                "InteracaoMinigame: n„o existe uma transiÁ„o de minigame ativa."
+                "[InteracaoMinigame] " +
+                "n√£o existe transi√ß√£o ativa."
             );
 
             return;
         }
 
-        GarantirRuntimeManager();
+        if (runtimeManager == null)
+        {
+            Debug.LogError(
+                "[InteracaoMinigame] " +
+                "Runtime Manager inexistente."
+            );
 
-        InteracaoMinigameRuntime.FinalizarTransicao(objetivoConcluido);
+            return;
+        }
+
+        runtimeManager.FinalizarTransicao(
+            objetivoConcluido
+        );
     }
 
     // =========================================================
-    // LIMPAR OBJETIVOS
+    // LIMPAR PARTIDA
     // =========================================================
 
-    /// <summary>
-    /// Limpa todos os objetivos concluÌdos.
-    /// ⁄til quando o jogador comeÁa uma nova partida.
-    /// </summary>
     public static void LimparEstadoDaPartida()
     {
         objetivosConcluidos.Clear();
@@ -395,28 +546,36 @@ public class InteracaoMinigame : MonoBehaviour, IObjetivoMinigame
 
         idObjetivoAtual = null;
 
-        Debug.Log("Estado dos objetivos da partida foi resetado.");
+        Debug.Log(
+            "[InteracaoMinigame] " +
+            "Estado da partida resetado."
+        );
     }
 
     // =========================================================
-    // REGISTRO DO OBJETIVO
+    // REGISTRAR OBJETIVO
     // =========================================================
 
     private static void RegistrarObjetivoConcluido()
     {
-        if (string.IsNullOrWhiteSpace(idObjetivoAtual))
+        if (string.IsNullOrWhiteSpace(
+            idObjetivoAtual))
         {
-            Debug.LogWarning(
-                "InteracaoMinigame: tentativa de concluir objetivo sem ID."
+            Debug.LogError(
+                "[InteracaoMinigame] " +
+                "Tentativa de concluir objetivo sem ID."
             );
 
             return;
         }
 
-        objetivosConcluidos.Add(idObjetivoAtual);
+        objetivosConcluidos.Add(
+            idObjetivoAtual
+        );
 
         Debug.Log(
-            $"Objetivo concluÌdo: {idObjetivoAtual}"
+            $"[InteracaoMinigame] " +
+            $"OBJETIVO CONCLU√çDO: {idObjetivoAtual}"
         );
     }
 
@@ -424,33 +583,40 @@ public class InteracaoMinigame : MonoBehaviour, IObjetivoMinigame
     // RUNTIME MANAGER
     // =========================================================
 
-    private static InteracaoMinigameRuntime runtimeManager;
-
     private static void GarantirRuntimeManager()
     {
         if (runtimeManager != null)
             return;
 
         GameObject objetoRuntime =
-            new GameObject("InteracaoMinigame_Runtime");
+            new GameObject(
+                "InteracaoMinigame_Runtime"
+            );
 
         runtimeManager =
-            objetoRuntime.AddComponent<InteracaoMinigameRuntime>();
+            objetoRuntime.AddComponent<
+                InteracaoMinigameRuntime
+            >();
 
-        Object.DontDestroyOnLoad(objetoRuntime);
+        DontDestroyOnLoad(
+            objetoRuntime
+        );
     }
 
     // =========================================================
     // MANAGER INTERNO
     // =========================================================
 
-    internal class InteracaoMinigameRuntime : MonoBehaviour
+    internal class InteracaoMinigameRuntime :
+        MonoBehaviour
     {
         private void Awake()
         {
-            if (runtimeManager != null && runtimeManager != this)
+            if (runtimeManager != null &&
+                runtimeManager != this)
             {
                 Destroy(gameObject);
+
                 return;
             }
 
@@ -459,77 +625,113 @@ public class InteracaoMinigame : MonoBehaviour, IObjetivoMinigame
             DontDestroyOnLoad(gameObject);
         }
 
-        // -----------------------------------------------------
-        // INICIAR
-        // -----------------------------------------------------
+        // =====================================================
+        // INICIAR TRANSI√á√ÉO
+        // =====================================================
 
-        public static void IniciarTransicao(
+        public void IniciarTransicao(
             InteracaoMinigame interacao)
         {
-            if (runtimeManager == null)
+            if (transicaoEmAndamento)
                 return;
 
-            runtimeManager.StartCoroutine(
-                runtimeManager.CarregarMinigame(interacao)
+            StartCoroutine(
+                CarregarMinigame(interacao)
             );
         }
 
         private IEnumerator CarregarMinigame(
             InteracaoMinigame interacao)
         {
-            if (transicaoEmAndamento)
-                yield break;
-
             transicaoEmAndamento = true;
 
             // -------------------------------------------------
-            // SALVA REFER NCIA DA CENA ATUAL
+            // CENA DE ORIGEM
             // -------------------------------------------------
 
             cenaOrigem =
                 SceneManager.GetActiveScene();
 
-            if (!cenaOrigem.IsValid() || !cenaOrigem.isLoaded)
+            if (!cenaOrigem.IsValid() ||
+                !cenaOrigem.isLoaded)
             {
                 Debug.LogError(
-                    "InteracaoMinigame: cena de origem inv·lida."
+                    "[InteracaoMinigame] " +
+                    "Cena de origem inv√°lida."
                 );
 
                 transicaoEmAndamento = false;
+
                 yield break;
             }
 
             // -------------------------------------------------
-            // SALVA TODAS AS RAÕZES DA CENA
+            // SALVAR PLAYER
             // -------------------------------------------------
 
-            raizesCenaOrigem =
-                new List<GameObject>(
-                    cenaOrigem.GetRootGameObjects()
-                );
+            SalvarEstadoPlayer();
 
             // -------------------------------------------------
-            // DESATIVA A CENA ORIGINAL
-            // -------------------------------------------------
-            //
-            // IMPORTANTE:
-            // Os objetos N√O s„o destruÌdos.
-            //
-            // Eles continuam existindo na memÛria exatamente
-            // com o estado que tinham.
-            //
+            // SALVAR RA√çZES DA CENA
             // -------------------------------------------------
 
-            foreach (GameObject raiz in raizesCenaOrigem)
+            estadosRaizes =
+                new List<EstadoRaiz>();
+
+            GameObject[] raizes =
+                cenaOrigem.GetRootGameObjects();
+
+            foreach (GameObject raiz in raizes)
             {
-                if (raiz != null)
+                if (raiz == null)
+                    continue;
+
+                estadosRaizes.Add(
+                    new EstadoRaiz
+                    {
+                        objeto = raiz,
+                        estavaAtivo = raiz.activeSelf
+                    }
+                );
+            }
+
+            // -------------------------------------------------
+            // DESATIVAR CENA ORIGINAL
+            // -------------------------------------------------
+
+            foreach (EstadoRaiz estado in estadosRaizes)
+            {
+                if (estado.objeto != null)
                 {
-                    raiz.SetActive(false);
+                    estado.objeto.SetActive(false);
                 }
             }
 
             // -------------------------------------------------
-            // CARREGA O MINIGAME SEM DESCARREGAR A CENA ATUAL
+            // VERIFICAR SE MINIGAME J√Å EST√Å CARREGADO
+            // -------------------------------------------------
+
+            Scene cenaExistente =
+                SceneManager.GetSceneByName(
+                    interacao.cenaMinigame
+                );
+
+            if (cenaExistente.IsValid() &&
+                cenaExistente.isLoaded)
+            {
+                Debug.LogError(
+                    $"[InteracaoMinigame] " +
+                    $"A cena '{interacao.cenaMinigame}' " +
+                    "j√° est√° carregada."
+                );
+
+                RestaurarCenaOriginalSemConcluir();
+
+                yield break;
+            }
+
+            // -------------------------------------------------
+            // CARREGAR MINIGAME
             // -------------------------------------------------
 
             AsyncOperation operacao =
@@ -541,10 +743,12 @@ public class InteracaoMinigame : MonoBehaviour, IObjetivoMinigame
             if (operacao == null)
             {
                 Debug.LogError(
-                    $"N„o foi possÌvel carregar a cena '{interacao.cenaMinigame}'."
+                    $"[InteracaoMinigame] " +
+                    $"N√£o foi poss√≠vel carregar '{interacao.cenaMinigame}'."
                 );
 
                 RestaurarCenaOriginalSemConcluir();
+
                 yield break;
             }
 
@@ -554,7 +758,7 @@ public class InteracaoMinigame : MonoBehaviour, IObjetivoMinigame
             }
 
             // -------------------------------------------------
-            // LOCALIZA A CENA DO MINIGAME
+            // LOCALIZAR MINIGAME
             // -------------------------------------------------
 
             cenaMinigameAtual =
@@ -566,33 +770,165 @@ public class InteracaoMinigame : MonoBehaviour, IObjetivoMinigame
                 !cenaMinigameAtual.isLoaded)
             {
                 Debug.LogError(
-                    $"A cena '{interacao.cenaMinigame}' n„o foi carregada corretamente."
+                    "[InteracaoMinigame] " +
+                    "Cena do minigame n√£o foi carregada."
                 );
 
                 RestaurarCenaOriginalSemConcluir();
+
                 yield break;
             }
 
-            // O minigame passa a ser a cena ativa.
-            SceneManager.SetActiveScene(cenaMinigameAtual);
+            // -------------------------------------------------
+            // MINIGAME VIRA CENA ATIVA
+            // -------------------------------------------------
+
+            SceneManager.SetActiveScene(
+                cenaMinigameAtual
+            );
 
             Debug.Log(
-                $"Minigame '{interacao.cenaMinigame}' iniciado."
+                $"[InteracaoMinigame] " +
+                $"Minigame iniciado: " +
+                $"{interacao.cenaMinigame}"
             );
         }
 
-        // -----------------------------------------------------
-        // FINALIZAR
-        // -----------------------------------------------------
+        // =====================================================
+        // SALVAR PLAYER
+        // =====================================================
 
-        public static void FinalizarTransicao(
+        private void SalvarEstadoPlayer()
+        {
+            playerTransform = null;
+            playerRigidbody = null;
+
+            playerFoiSalvo = false;
+
+            GameObject player =
+                GameObject.FindGameObjectWithTag(
+                    "Player"
+                );
+
+            if (player == null)
+            {
+                Debug.LogWarning(
+                    "[InteracaoMinigame] " +
+                    "Player n√£o encontrado para salvar posi√ß√£o."
+                );
+
+                return;
+            }
+
+            playerTransform =
+                player.transform;
+
+            playerPosicaoSalva =
+                playerTransform.position;
+
+            playerRotacaoSalva =
+                playerTransform.rotation;
+
+            playerEstavaAtivo =
+                player.activeSelf;
+
+            playerRigidbody =
+                player.GetComponent<Rigidbody2D>();
+
+            if (playerRigidbody != null)
+            {
+                playerVelocidadeSalva =
+                    playerRigidbody.linearVelocity;
+
+                playerVelocidadeAngularSalva =
+                    playerRigidbody.angularVelocity;
+            }
+
+            playerFoiSalvo = true;
+
+            Debug.Log(
+                $"[InteracaoMinigame] " +
+                $"Player salvo em: {playerPosicaoSalva}"
+            );
+        }
+
+        // =====================================================
+        // RESTAURAR PLAYER
+        // =====================================================
+
+        private IEnumerator RestaurarPlayer()
+        {
+            if (!playerFoiSalvo)
+                yield break;
+
+            yield return null;
+
+            GameObject player =
+                playerTransform != null
+                    ? playerTransform.gameObject
+                    : GameObject.FindGameObjectWithTag(
+                        "Player"
+                    );
+
+            if (player == null)
+            {
+                Debug.LogWarning(
+                    "[InteracaoMinigame] " +
+                    "Player n√£o encontrado ao restaurar."
+                );
+
+                yield break;
+            }
+
+            player.SetActive(
+                playerEstavaAtivo
+            );
+
+            player.transform.position =
+                playerPosicaoSalva;
+
+            player.transform.rotation =
+                playerRotacaoSalva;
+
+            Rigidbody2D rb =
+                player.GetComponent<Rigidbody2D>();
+
+            if (rb != null)
+            {
+                rb.position =
+                    playerPosicaoSalva;
+
+                rb.rotation =
+                    playerRotacaoSalva.eulerAngles.z;
+
+                rb.linearVelocity =
+                    playerVelocidadeSalva;
+
+                rb.angularVelocity =
+                    playerVelocidadeAngularSalva;
+            }
+
+            Physics2D.SyncTransforms();
+
+            Debug.Log(
+                $"[InteracaoMinigame] " +
+                $"Player restaurado em: " +
+                $"{playerPosicaoSalva}"
+            );
+        }
+
+        // =====================================================
+        // FINALIZAR TRANSI√á√ÉO
+        // =====================================================
+
+        public void FinalizarTransicao(
             bool objetivoConcluido)
         {
-            if (runtimeManager == null)
+            if (!transicaoEmAndamento)
                 return;
 
-            runtimeManager.StartCoroutine(
-                runtimeManager.VoltarParaCenaOriginal(
+            StartCoroutine(
+                VoltarParaCenaOriginal(
                     objetivoConcluido
                 )
             );
@@ -605,7 +941,7 @@ public class InteracaoMinigame : MonoBehaviour, IObjetivoMinigame
                 yield break;
 
             // -------------------------------------------------
-            // REGISTRA O OBJETIVO
+            // REGISTRAR OBJETIVO
             // -------------------------------------------------
 
             if (objetivoConcluido)
@@ -614,20 +950,20 @@ public class InteracaoMinigame : MonoBehaviour, IObjetivoMinigame
             }
 
             // -------------------------------------------------
-            // DESCARREGA SOMENTE O MINIGAME
+            // DESCARREGAR MINIGAME
             // -------------------------------------------------
 
             if (cenaMinigameAtual.IsValid() &&
                 cenaMinigameAtual.isLoaded)
             {
-                AsyncOperation operacaoUnload =
+                AsyncOperation unload =
                     SceneManager.UnloadSceneAsync(
                         cenaMinigameAtual
                     );
 
-                if (operacaoUnload != null)
+                if (unload != null)
                 {
-                    while (!operacaoUnload.isDone)
+                    while (!unload.isDone)
                     {
                         yield return null;
                     }
@@ -635,34 +971,46 @@ public class InteracaoMinigame : MonoBehaviour, IObjetivoMinigame
             }
 
             // -------------------------------------------------
-            // REATIVA A CENA ORIGINAL
+            // RESTAURAR ESTADOS DAS RA√çZES
             // -------------------------------------------------
 
-            if (raizesCenaOrigem != null)
+            if (estadosRaizes != null)
             {
-                foreach (GameObject raiz in raizesCenaOrigem)
+                foreach (EstadoRaiz estado in estadosRaizes)
                 {
-                    if (raiz != null)
-                    {
-                        raiz.SetActive(true);
-                    }
+                    if (estado.objeto == null)
+                        continue;
+
+                    estado.objeto.SetActive(
+                        estado.estavaAtivo
+                    );
                 }
             }
 
             // -------------------------------------------------
-            // RESTAURA A CENA ATIVA
+            // CENA ORIGINAL ATIVA
             // -------------------------------------------------
 
             if (cenaOrigem.IsValid() &&
                 cenaOrigem.isLoaded)
             {
-                SceneManager.SetActiveScene(cenaOrigem);
+                SceneManager.SetActiveScene(
+                    cenaOrigem
+                );
             }
 
             Physics2D.SyncTransforms();
 
             // -------------------------------------------------
-            // AVISA A INTERA«√O ORIGINAL
+            // RESTAURAR PLAYER
+            // -------------------------------------------------
+
+            yield return StartCoroutine(
+                RestaurarPlayer()
+            );
+
+            // -------------------------------------------------
+            // FINALIZAR ESTADO DA INTERA√á√ÉO
             // -------------------------------------------------
 
             InteracaoMinigame interacaoQueIniciou =
@@ -672,56 +1020,88 @@ public class InteracaoMinigame : MonoBehaviour, IObjetivoMinigame
 
             if (interacaoQueIniciou != null)
             {
-                interacaoQueIniciou.AoRetornarDaCena();
+                interacaoQueIniciou
+                    .AoRetornarDaCena();
             }
+
+            // -------------------------------------------------
+            // REAVALIAR OUTRAS INTERA√á√ïES
+            // -------------------------------------------------
+
+            ReavaliarInteracoes();
 
             Debug.Log(
                 objetivoConcluido
-                    ? "Minigame concluÌdo e cena original restaurada."
-                    : "Minigame encerrado sem conclus„o e cena original restaurada."
+                    ? "[InteracaoMinigame] " +
+                      "Minigame conclu√≠do. " +
+                      "Cena restaurada."
+                    : "[InteracaoMinigame] " +
+                      "Minigame encerrado sem conclus√£o."
             );
 
             // -------------------------------------------------
-            // LIMPA ESTADO DA TRANSI«√O
+            // LIMPAR TRANSI√á√ÉO
             // -------------------------------------------------
 
             interacaoAtual = null;
+
             idObjetivoAtual = null;
-            cenaMinigameAtual = default;
-            raizesCenaOrigem = null;
+
+            cenaMinigameAtual =
+                default;
+
+            estadosRaizes = null;
+
+            playerTransform = null;
+
+            playerRigidbody = null;
+
+            playerFoiSalvo = false;
         }
 
-        // -----------------------------------------------------
+        // =====================================================
         // FALHA AO CARREGAR
-        // -----------------------------------------------------
+        // =====================================================
 
         private void RestaurarCenaOriginalSemConcluir()
         {
-            if (raizesCenaOrigem != null)
+            if (estadosRaizes != null)
             {
-                foreach (GameObject raiz in raizesCenaOrigem)
+                foreach (EstadoRaiz estado in estadosRaizes)
                 {
-                    if (raiz != null)
-                    {
-                        raiz.SetActive(true);
-                    }
+                    if (estado.objeto == null)
+                        continue;
+
+                    estado.objeto.SetActive(
+                        estado.estavaAtivo
+                    );
                 }
             }
 
             if (cenaOrigem.IsValid() &&
                 cenaOrigem.isLoaded)
             {
-                SceneManager.SetActiveScene(cenaOrigem);
+                SceneManager.SetActiveScene(
+                    cenaOrigem
+                );
             }
-
-            Physics2D.SyncTransforms();
 
             transicaoEmAndamento = false;
 
             interacaoAtual = null;
+
             idObjetivoAtual = null;
-            cenaMinigameAtual = default;
-            raizesCenaOrigem = null;
+
+            cenaMinigameAtual =
+                default;
+
+            estadosRaizes = null;
+
+            playerTransform = null;
+
+            playerRigidbody = null;
+
+            playerFoiSalvo = false;
         }
     }
 }
