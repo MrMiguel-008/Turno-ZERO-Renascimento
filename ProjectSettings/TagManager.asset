@@ -5,6 +5,12 @@ TagManager:
   serializedVersion: 3
   tags:
   - Supervisor
+  - s caixa
+  - s luva
+  - s prancheta
+  - s tablet
+  - Lixeira
+  - Bancada
   layers:
   - Default
   - TransparentFX
@@ -12,7 +18,6 @@ TagManager:
   - 
   - Water
   - UI
-  - 
   - 
   - 
   - 
