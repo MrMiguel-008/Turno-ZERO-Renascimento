@@ -258,7 +258,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mensagemInteracao: {fileID: 1986112756}
-  cenaMinigame: TapeteSanitizante.cs
+  cenaMinigame: TapeteSanitizanteMinigame
 --- !u!61 &127829056
 BoxCollider2D:
   m_ObjectHideFlags: 0
