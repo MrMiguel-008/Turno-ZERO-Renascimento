@@ -541,7 +541,7 @@ public class TapeteSanitizanteMinigame : MonoBehaviour, IObjetivoMinigame
         Debug.Log("TAPETE CONCLUÍDO!");
 
 
-        StartCoroutine(VoltarParaJogoPrincipal());
+        StartCoroutine(VoltarParaCenaAnterior());
         
     }
 
@@ -550,14 +550,19 @@ public class TapeteSanitizanteMinigame : MonoBehaviour, IObjetivoMinigame
     // VOLTAR PARA O MAPA
     // =========================================================
 
-    private IEnumerator VoltarParaJogoPrincipal()
+    private IEnumerator VoltarParaCenaAnterior()
     {
-        yield return new WaitForSeconds(
-            tempoAntesDeVoltar
-        );
+        yield return new WaitForSeconds(tempoAntesDeVoltar);
 
-        SceneManager.LoadScene(
-            "JogoPrincipal"
-        );
+        if (string.IsNullOrEmpty(InteracaoMinigame.CenaAnterior))
+        {
+            Debug.LogWarning(
+                "TapeteSanitizanteMinigame: nenhuma cena anterior foi encontrada."
+            );
+
+            yield break;
+        }
+
+        SceneManager.LoadScene(InteracaoMinigame.CenaAnterior);
     }
 }
