@@ -1,7 +1,6 @@
 using System.Collections;
 using TMPro;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class TapeteSanitizanteMinigame : MonoBehaviour, IObjetivoMinigame
@@ -60,7 +59,7 @@ public class TapeteSanitizanteMinigame : MonoBehaviour, IObjetivoMinigame
     [Header("Minigame")]
     [SerializeField] private int quantidadeAcertosNecessarios = 10;
 
-    [Tooltip("Tempo antes de voltar para JogoPrincipal.")]
+    [Tooltip("Tempo de espera depois da conclusão antes de voltar para o jogo.")]
     [SerializeField] private float tempoAntesDeVoltar = 0.8f;
 
     // =========================================================
@@ -69,6 +68,7 @@ public class TapeteSanitizanteMinigame : MonoBehaviour, IObjetivoMinigame
 
     [Header("Feedback de erro")]
     [SerializeField] private float intensidadeSacudida = 8f;
+
     [SerializeField] private float duracaoSacudida = 0.12f;
 
     // =========================================================
@@ -86,9 +86,6 @@ public class TapeteSanitizanteMinigame : MonoBehaviour, IObjetivoMinigame
     private Coroutine movimentoBotaAtual;
 
     public bool Concluido { get; private set; }
-
-    public static bool TapeteConcluidoNaPartida { get; private set; }
-
 
     // =========================================================
     // UNITY
@@ -108,7 +105,6 @@ public class TapeteSanitizanteMinigame : MonoBehaviour, IObjetivoMinigame
         Debug.Log("Minigame do Tapete Sanitizante iniciado!");
     }
 
-
     private void Update()
     {
         // Se o minigame já terminou, não aceita mais comandos.
@@ -117,7 +113,6 @@ public class TapeteSanitizanteMinigame : MonoBehaviour, IObjetivoMinigame
 
         VerificarTeclas();
     }
-
 
     // =========================================================
     // CONFIGURAÇÃO
@@ -129,7 +124,6 @@ public class TapeteSanitizanteMinigame : MonoBehaviour, IObjetivoMinigame
         barraProgresso.maxValue = quantidadeAcertosNecessarios;
         barraProgresso.value = 0;
     }
-
 
     // =========================================================
     // INPUT
@@ -148,7 +142,6 @@ public class TapeteSanitizanteMinigame : MonoBehaviour, IObjetivoMinigame
         }
     }
 
-
     private void VerificarTeclaPressionada(KeyCode teclaPressionada)
     {
         KeyCode teclaEsperada;
@@ -161,7 +154,6 @@ public class TapeteSanitizanteMinigame : MonoBehaviour, IObjetivoMinigame
         {
             teclaEsperada = KeyCode.D;
         }
-
 
         // -----------------------------------------------------
         // ACERTO
@@ -182,7 +174,6 @@ public class TapeteSanitizanteMinigame : MonoBehaviour, IObjetivoMinigame
         }
     }
 
-
     // =========================================================
     // ACERTO
     // =========================================================
@@ -194,8 +185,12 @@ public class TapeteSanitizanteMinigame : MonoBehaviour, IObjetivoMinigame
         // Atualiza a barra.
         barraProgresso.value = acertos;
 
-        Debug.Log("Acertou! Progresso: " + acertos + "/" + quantidadeAcertosNecessarios);
-
+        Debug.Log(
+            "Acertou! Progresso: " +
+            acertos +
+            "/" +
+            quantidadeAcertosNecessarios
+        );
 
         // -----------------------------------------------------
         // FEEDBACK VISUAL
@@ -204,7 +199,6 @@ public class TapeteSanitizanteMinigame : MonoBehaviour, IObjetivoMinigame
         MovimentarBota();
 
         CriarBolhas();
-
 
         // -----------------------------------------------------
         // VERIFICA SE TERMINOU
@@ -216,7 +210,6 @@ public class TapeteSanitizanteMinigame : MonoBehaviour, IObjetivoMinigame
             return;
         }
 
-
         // -----------------------------------------------------
         // TROCA A TECLA
         // -----------------------------------------------------
@@ -225,7 +218,6 @@ public class TapeteSanitizanteMinigame : MonoBehaviour, IObjetivoMinigame
 
         AtualizarTeclaNaTela();
     }
-
 
     // =========================================================
     // ERRO
@@ -237,7 +229,6 @@ public class TapeteSanitizanteMinigame : MonoBehaviour, IObjetivoMinigame
 
         StartCoroutine(SacudirTecla());
     }
-
 
     // =========================================================
     // ATUALIZA TEXTO A/D
@@ -254,7 +245,6 @@ public class TapeteSanitizanteMinigame : MonoBehaviour, IObjetivoMinigame
             teclaAtual.text = "D";
         }
     }
-
 
     // =========================================================
     // MOVIMENTO DA BOTA
@@ -273,15 +263,15 @@ public class TapeteSanitizanteMinigame : MonoBehaviour, IObjetivoMinigame
             destino = posicaoInicialBota + posicaoD;
         }
 
-
         if (movimentoBotaAtual != null)
         {
             StopCoroutine(movimentoBotaAtual);
         }
 
-        movimentoBotaAtual = StartCoroutine(MoverBota(destino));
+        movimentoBotaAtual = StartCoroutine(
+            MoverBota(destino)
+        );
     }
-
 
     private IEnumerator MoverBota(Vector2 destino)
     {
@@ -297,50 +287,52 @@ public class TapeteSanitizanteMinigame : MonoBehaviour, IObjetivoMinigame
             escalaOriginal.z
         );
 
-
         while (tempo < duracaoMovimentoPe)
         {
             tempo += Time.deltaTime;
 
-            float progresso = tempo / duracaoMovimentoPe;
+            float progresso =
+                tempo / duracaoMovimentoPe;
 
             // SmoothStep deixa o movimento menos robótico.
-            float suavizado = Mathf.SmoothStep(0f, 1f, progresso);
+            float suavizado =
+                Mathf.SmoothStep(0f, 1f, progresso);
 
-            bota.anchoredPosition = Vector2.Lerp(
-                inicio,
-                destino,
-                suavizado
-            );
+            bota.anchoredPosition =
+                Vector2.Lerp(
+                    inicio,
+                    destino,
+                    suavizado
+                );
 
             // Pequeno efeito de "pisada".
             if (progresso < 0.5f)
             {
-                bota.localScale = Vector3.Lerp(
-                    escalaOriginal,
-                    escalaComprimida,
-                    progresso * 2f
-                );
+                bota.localScale =
+                    Vector3.Lerp(
+                        escalaOriginal,
+                        escalaComprimida,
+                        progresso * 2f
+                    );
             }
             else
             {
-                bota.localScale = Vector3.Lerp(
-                    escalaComprimida,
-                    escalaOriginal,
-                    (progresso - 0.5f) * 2f
-                );
+                bota.localScale =
+                    Vector3.Lerp(
+                        escalaComprimida,
+                        escalaOriginal,
+                        (progresso - 0.5f) * 2f
+                    );
             }
 
             yield return null;
         }
-
 
         bota.anchoredPosition = destino;
         bota.localScale = escalaOriginal;
 
         movimentoBotaAtual = null;
     }
-
 
     // =========================================================
     // BOLHAS
@@ -366,18 +358,16 @@ public class TapeteSanitizanteMinigame : MonoBehaviour, IObjetivoMinigame
             return;
         }
 
-
         for (int i = 0; i < quantidadeBolhas; i++)
         {
-            GameObject novaBolha = Instantiate(
-                bolhaPrefab,
-                bolhasContainer
-            );
-
+            GameObject novaBolha =
+                Instantiate(
+                    bolhaPrefab,
+                    bolhasContainer
+                );
 
             RectTransform rectBolha =
                 novaBolha.GetComponent<RectTransform>();
-
 
             if (rectBolha == null)
             {
@@ -389,8 +379,8 @@ public class TapeteSanitizanteMinigame : MonoBehaviour, IObjetivoMinigame
                 continue;
             }
 
-
-            Vector2 posicaoBolha = bota.anchoredPosition;
+            Vector2 posicaoBolha =
+                bota.anchoredPosition;
 
             posicaoBolha.x += Random.Range(
                 -espalhamentoHorizontal,
@@ -402,16 +392,17 @@ public class TapeteSanitizanteMinigame : MonoBehaviour, IObjetivoMinigame
                 espalhamentoVertical
             );
 
-
-            rectBolha.anchoredPosition = posicaoBolha;
-
+            rectBolha.anchoredPosition =
+                posicaoBolha;
 
             StartCoroutine(
-                AnimarBolha(novaBolha, rectBolha)
+                AnimarBolha(
+                    novaBolha,
+                    rectBolha
+                )
             );
         }
     }
-
 
     private IEnumerator AnimarBolha(
         GameObject bolha,
@@ -421,23 +412,20 @@ public class TapeteSanitizanteMinigame : MonoBehaviour, IObjetivoMinigame
         CanvasGroup canvasGroup =
             bolha.GetComponent<CanvasGroup>();
 
-
         if (canvasGroup == null)
         {
             canvasGroup =
                 bolha.AddComponent<CanvasGroup>();
         }
 
-
         Vector2 posicaoInicial =
             rectBolha.anchoredPosition;
 
         Vector2 posicaoFinal =
-            posicaoInicial + Vector2.up * alturaBolha;
-
+            posicaoInicial +
+            Vector2.up * alturaBolha;
 
         float tempo = 0f;
-
 
         while (tempo < duracaoBolha)
         {
@@ -446,10 +434,12 @@ public class TapeteSanitizanteMinigame : MonoBehaviour, IObjetivoMinigame
             float progresso =
                 tempo / duracaoBolha;
 
-
             float suavizado =
-                Mathf.SmoothStep(0f, 1f, progresso);
-
+                Mathf.SmoothStep(
+                    0f,
+                    1f,
+                    progresso
+                );
 
             rectBolha.anchoredPosition =
                 Vector2.Lerp(
@@ -458,14 +448,12 @@ public class TapeteSanitizanteMinigame : MonoBehaviour, IObjetivoMinigame
                     suavizado
                 );
 
-
             canvasGroup.alpha =
                 Mathf.Lerp(
                     1f,
                     0f,
                     progresso
                 );
-
 
             float escala =
                 Mathf.Lerp(
@@ -474,18 +462,14 @@ public class TapeteSanitizanteMinigame : MonoBehaviour, IObjetivoMinigame
                     progresso
                 );
 
-
             rectBolha.localScale =
                 Vector3.one * escala;
-
 
             yield return null;
         }
 
-
         Destroy(bolha);
     }
-
 
     // =========================================================
     // FEEDBACK DE ERRO
@@ -498,7 +482,6 @@ public class TapeteSanitizanteMinigame : MonoBehaviour, IObjetivoMinigame
 
         float tempo = 0f;
 
-
         while (tempo < duracaoSacudida)
         {
             tempo += Time.deltaTime;
@@ -509,7 +492,6 @@ public class TapeteSanitizanteMinigame : MonoBehaviour, IObjetivoMinigame
                     intensidadeSacudida
                 );
 
-
             teclaAtual.transform.localPosition =
                 posicaoOriginal +
                 new Vector3(
@@ -518,15 +500,12 @@ public class TapeteSanitizanteMinigame : MonoBehaviour, IObjetivoMinigame
                     0f
                 );
 
-
             yield return null;
         }
-
 
         teclaAtual.transform.localPosition =
             posicaoOriginal;
     }
-
 
     // =========================================================
     // CONCLUSÃO
@@ -536,33 +515,26 @@ public class TapeteSanitizanteMinigame : MonoBehaviour, IObjetivoMinigame
     {
         minigameConcluido = true;
         Concluido = true;
-        TapeteConcluidoNaPartida = true;
 
         Debug.Log("TAPETE CONCLUÍDO!");
 
-
-        StartCoroutine(VoltarParaCenaAnterior());
-        
+        StartCoroutine(FinalizarComAtraso());
     }
 
-
-    // =========================================================
-    // VOLTAR PARA O MAPA
-    // =========================================================
-
-    private IEnumerator VoltarParaCenaAnterior()
+    private IEnumerator FinalizarComAtraso()
     {
+        // Dá tempo para o jogador ver o resultado final.
         yield return new WaitForSeconds(tempoAntesDeVoltar);
 
-        if (string.IsNullOrEmpty(InteracaoMinigame.CenaAnterior))
-        {
-            Debug.LogWarning(
-                "TapeteSanitizanteMinigame: nenhuma cena anterior foi encontrada."
-            );
-
-            yield break;
-        }
-
-        SceneManager.LoadScene(InteracaoMinigame.CenaAnterior);
+        // Avisa o sistema universal que o objetivo terminou.
+        // O InteracaoMinigame cuidará de:
+        //
+        // 1. Registrar o objetivo como concluído.
+        // 2. Descarregar esta cena.
+        // 3. Reativar a cena original.
+        // 4. Manter todos os estados da cena original.
+        // 5. Desativar a interação deste objeto.
+        //
+        InteracaoMinigame.FinalizarMinigame(true);
     }
 }
