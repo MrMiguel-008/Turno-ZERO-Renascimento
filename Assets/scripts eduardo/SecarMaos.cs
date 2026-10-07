@@ -4,50 +4,90 @@ using UnityEngine.UI;
 public class SecarMaos : MonoBehaviour
 {
     public Slider barraSecagem;
+    public AreaSecagemMaos areaSecagem;
 
-    private bool estaNaArea = false;
-    private Vector3 ultimaPosicao;
-    private float distanciaAcumulada = 0f;
+    public float velocidadeSecagem = 10f;
+
+    private bool arrastando = false;
+    private bool papelNaArea = false;
+    private bool secagemConcluida = false;
 
     private void Start()
     {
-        ultimaPosicao = transform.position;
+        barraSecagem.value = 0;
+        barraSecagem.gameObject.SetActive(false);
+    }
+
+    private void OnMouseDown()
+    {
+        // Se já terminou, não faz mais nada
+        if (secagemConcluida)
+        {
+            return;
+        }
+
+        arrastando = true;
+    }
+
+    private void OnMouseUp()
+    {
+        arrastando = false;
     }
 
     private void Update()
     {
-        // Calcula quanto o papel se movimentou
-        float distancia = Vector3.Distance(transform.position, ultimaPosicao);
-
-        if (estaNaArea)
+        if (secagemConcluida)
         {
-            distanciaAcumulada += distancia;
-
-            // A cada determinada distância, aumenta a secagem
-            if (distanciaAcumulada >= 0.05f)
-            {
-                barraSecagem.value += 1f;
-                distanciaAcumulada = 0f;
-
-                if (barraSecagem.value >= 100)
-                {
-                    barraSecagem.value = 100;
-
-                    Debug.Log("Mãos secas!");
-                }
-            }
+            return;
         }
 
-        ultimaPosicao = transform.position;
+        if (!arrastando)
+        {
+            return;
+        }
+
+        // As duas mãos precisam estar na área
+        if (!areaSecagem.DuasMaosNaArea())
+        {
+            return;
+        }
+
+        // O papel também precisa estar na área
+        if (!papelNaArea)
+        {
+            return;
+        }
+
+        // Mostra a barra
+        if (!barraSecagem.gameObject.activeSelf)
+        {
+            barraSecagem.gameObject.SetActive(true);
+        }
+
+        // Aumenta a secagem
+        barraSecagem.value += velocidadeSecagem * Time.deltaTime;
+
+        if (barraSecagem.value >= 100)
+        {
+            barraSecagem.value = 100;
+
+            secagemConcluida = true;
+            arrastando = false;
+
+            // Esconde a barra
+            barraSecagem.gameObject.SetActive(false);
+
+            Debug.Log("Higiene concluída!");
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D outro)
     {
         if (outro.CompareTag("AreaSecagem"))
         {
-            estaNaArea = true;
+            papelNaArea = true;
 
-            Debug.Log("Papel chegou nas mãos!");
+            Debug.Log("Papel entrou na área de secagem!");
         }
     }
 
@@ -55,9 +95,9 @@ public class SecarMaos : MonoBehaviour
     {
         if (outro.CompareTag("AreaSecagem"))
         {
-            estaNaArea = false;
+            papelNaArea = false;
 
-            Debug.Log("Papel saiu das mãos!");
+            Debug.Log("Papel saiu da área de secagem!");
         }
     }
 }
