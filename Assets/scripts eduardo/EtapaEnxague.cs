@@ -6,6 +6,7 @@ public class EtapaEnxague : MonoBehaviour
 {
     public GameObject agua;
     public Slider barraEnxague;
+    public SistemaHigiene sistemaHigiene;
 
     private bool enxagueAtivo = false;
     private float contador = 0f;
@@ -55,6 +56,9 @@ public class EtapaEnxague : MonoBehaviour
                 agua.SetActive(false);
 
                 Debug.Log("Enxágue concluído!");
+
+                // Libera as mãos para serem arrastadas novamente
+                sistemaHigiene.LiberarMaosParaSecagem();
             }
         }
     }

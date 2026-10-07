@@ -225,6 +225,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   agua: {fileID: 2024535377}
   barraEnxague: {fileID: 1868650326}
+  sistemaHigiene: {fileID: 2078597371}
   intervalo: 0.08
 --- !u!4 &110807775
 Transform:
@@ -595,6 +596,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   barraSecagem: {fileID: 1593671165}
+  areaSecagem: {fileID: 698472557}
+  velocidadeSecagem: 10
 --- !u!1 &286246761
 GameObject:
   m_ObjectHideFlags: 0
@@ -610,7 +613,7 @@ GameObject:
   - component: {fileID: 286246762}
   m_Layer: 0
   m_Name: MaoDireita
-  m_TagString: Untagged
+  m_TagString: Mao
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1119,6 +1122,7 @@ GameObject:
   m_Component:
   - component: {fileID: 698472556}
   - component: {fileID: 698472555}
+  - component: {fileID: 698472557}
   m_Layer: 0
   m_Name: AreaSecagem
   m_TagString: AreaSecagem
@@ -1181,12 +1185,24 @@ Transform:
   m_GameObject: {fileID: 698472554}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 8.05, y: -3, z: 0}
+  m_LocalPosition: {x: -0.24, y: -2.87, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &698472557
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 698472554}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0e82f56a3e4a9dc46bf282eb9d1cd444, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &725726262
 GameObject:
   m_ObjectHideFlags: 0
@@ -1761,7 +1777,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 372.8, y: 171}
   m_SizeDelta: {x: 160, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1593671165
@@ -1809,7 +1825,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 1701047393}
   m_Direction: 0
   m_MinValue: 0
-  m_MaxValue: 1
+  m_MaxValue: 100
   m_WholeNumbers: 0
   m_Value: 0
   m_OnValueChanged:
@@ -2233,7 +2249,7 @@ GameObject:
   - component: {fileID: 1763918692}
   m_Layer: 0
   m_Name: MaoEsquerda
-  m_TagString: Untagged
+  m_TagString: Mao
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

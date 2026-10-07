@@ -84,4 +84,15 @@ public class SistemaHigiene : MonoBehaviour
     {
         return lavagemConcluida;
     }
+    public void LiberarMaosParaSecagem()
+    {
+        ArrastarMao[] maos = FindObjectsByType<ArrastarMao>(FindObjectsSortMode.None);
+
+        foreach (ArrastarMao mao in maos)
+        {
+            mao.LiberarParaSecagem();
+        }
+
+        Debug.Log("Mãos liberadas para secagem!");
+    }
 }

@@ -13,6 +13,7 @@ TagManager:
   - Bancada
   - AreaMaos
   - AreaSecagem
+  - Mao
   layers:
   - Default
   - TransparentFX

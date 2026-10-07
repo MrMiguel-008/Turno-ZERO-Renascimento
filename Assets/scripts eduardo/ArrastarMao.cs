@@ -4,6 +4,7 @@ public class ArrastarMao : MonoBehaviour
 {
     private Camera cam;
     private bool chegouNaPia = false;
+    private bool podeArrastarNovamente = false;
 
     public SistemaHigiene sistemaHigiene;
 
@@ -14,8 +15,11 @@ public class ArrastarMao : MonoBehaviour
 
     private void OnMouseDrag()
     {
-        if (chegouNaPia)
+        // Se chegou na pia, só pode sair quando a secagem for liberada
+        if (chegouNaPia && !podeArrastarNovamente)
+        {
             return;
+        }
 
         Vector3 posicao = cam.ScreenToWorldPoint(Input.mousePosition);
         posicao.z = transform.position.z;
@@ -25,7 +29,8 @@ public class ArrastarMao : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D outro)
     {
-        if (outro.CompareTag("AreaMaos"))
+        // Chegou na área da pia
+        if (outro.CompareTag("AreaMaos") && !podeArrastarNovamente)
         {
             chegouNaPia = true;
 
@@ -44,8 +49,13 @@ public class ArrastarMao : MonoBehaviour
 
             transform.position = posicao;
 
-            // Avisa o sistema que uma mão chegou
             sistemaHigiene.MaoChegou();
         }
+    }
+
+    public void LiberarParaSecagem()
+    {
+        podeArrastarNovamente = true;
+        chegouNaPia = false;
     }
 }
