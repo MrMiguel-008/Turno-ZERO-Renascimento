@@ -11,6 +11,8 @@ TagManager:
   - s tablet
   - Lixeira
   - Bancada
+  - AreaMaos
+  - AreaSecagem
   layers:
   - Default
   - TransparentFX
@@ -18,6 +20,7 @@ TagManager:
   - 
   - Water
   - UI
+  - 
   - 
   - 
   - 
