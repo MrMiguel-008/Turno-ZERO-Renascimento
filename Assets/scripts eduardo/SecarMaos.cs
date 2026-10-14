@@ -1,3 +1,4 @@
+
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -11,6 +12,7 @@ public class SecarMaos : MonoBehaviour
     private bool arrastando = false;
     private bool papelNaArea = false;
     private bool secagemConcluida = false;
+    private bool papelDescartado = false;
 
     private void Start()
     {
@@ -20,11 +22,8 @@ public class SecarMaos : MonoBehaviour
 
     private void OnMouseDown()
     {
-        // Se já terminou, não faz mais nada
-        if (secagemConcluida)
-        {
+        if (papelDescartado)
             return;
-        }
 
         arrastando = true;
     }
@@ -36,48 +35,30 @@ public class SecarMaos : MonoBehaviour
 
     private void Update()
     {
+        if (papelDescartado || !arrastando)
+            return;
+
+        // Depois da secagem, o papel pode ir para o lixo.
         if (secagemConcluida)
-        {
             return;
-        }
 
-        if (!arrastando)
-        {
+        if (!areaSecagem.DuasMaosNaArea() || !papelNaArea)
             return;
-        }
 
-        // As duas mãos precisam estar na área
-        if (!areaSecagem.DuasMaosNaArea())
-        {
-            return;
-        }
-
-        // O papel também precisa estar na área
-        if (!papelNaArea)
-        {
-            return;
-        }
-
-        // Mostra a barra
         if (!barraSecagem.gameObject.activeSelf)
-        {
             barraSecagem.gameObject.SetActive(true);
-        }
 
-        // Aumenta a secagem
         barraSecagem.value += velocidadeSecagem * Time.deltaTime;
 
         if (barraSecagem.value >= 100)
         {
             barraSecagem.value = 100;
-
             secagemConcluida = true;
             arrastando = false;
 
-            // Esconde a barra
             barraSecagem.gameObject.SetActive(false);
 
-            Debug.Log("Higiene concluída!");
+            Debug.Log("Mãos secas! Agora descarte o papel no lixo.");
         }
     }
 
@@ -86,8 +67,16 @@ public class SecarMaos : MonoBehaviour
         if (outro.CompareTag("AreaSecagem"))
         {
             papelNaArea = true;
+        }
 
-            Debug.Log("Papel entrou na área de secagem!");
+        // O papel só pode ser descartado após a secagem.
+        if (outro.CompareTag("AreaLixo") && secagemConcluida)
+        {
+            papelDescartado = true;
+
+            gameObject.SetActive(false);
+
+            Debug.Log("Papel descartado no lixo!");
         }
     }
 
@@ -96,8 +85,6 @@ public class SecarMaos : MonoBehaviour
         if (outro.CompareTag("AreaSecagem"))
         {
             papelNaArea = false;
-
-            Debug.Log("Papel saiu da área de secagem!");
         }
     }
 }

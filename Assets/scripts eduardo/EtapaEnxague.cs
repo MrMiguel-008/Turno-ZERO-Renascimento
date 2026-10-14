@@ -1,3 +1,5 @@
+
+
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.InputSystem;
@@ -7,6 +9,7 @@ public class EtapaEnxague : MonoBehaviour
     public GameObject agua;
     public Slider barraEnxague;
     public SistemaHigiene sistemaHigiene;
+    public LegendaHigiene legendaHigiene;
 
     private bool enxagueAtivo = false;
     private float contador = 0f;
@@ -15,13 +18,19 @@ public class EtapaEnxague : MonoBehaviour
 
     public void IniciarEnxague()
     {
+        if (enxagueAtivo)
+            return;
+
         enxagueAtivo = true;
 
-        // Mostra a barra de enxágue
+        barraEnxague.value = 0;
         barraEnxague.gameObject.SetActive(true);
 
-        // Liga a água
         agua.SetActive(true);
+
+        legendaHigiene.MudarLegenda(
+            "Pressione ESPAÇO repetidamente para enxaguar as mãos."
+        );
 
         Debug.Log("Enxágue iniciado!");
     }
@@ -29,16 +38,14 @@ public class EtapaEnxague : MonoBehaviour
     private void Update()
     {
         if (!enxagueAtivo)
-        {
             return;
-        }
 
         if (contador > 0)
-        {
             contador -= Time.deltaTime;
-        }
 
-        if (Keyboard.current.spaceKey.wasPressedThisFrame && contador <= 0)
+        if (Keyboard.current != null &&
+            Keyboard.current.spaceKey.wasPressedThisFrame &&
+            contador <= 0)
         {
             barraEnxague.value += 1f;
             contador = intervalo;
@@ -46,20 +53,20 @@ public class EtapaEnxague : MonoBehaviour
             if (barraEnxague.value >= 100)
             {
                 barraEnxague.value = 100;
-
                 enxagueAtivo = false;
 
-                // Esconde a barra
                 barraEnxague.gameObject.SetActive(false);
-
-                // Desliga a água
                 agua.SetActive(false);
 
-                Debug.Log("Enxágue concluído!");
+                legendaHigiene.MudarLegenda(
+                    "Leve as mãos para a área de secagem."
+                );
 
-                // Libera as mãos para serem arrastadas novamente
                 sistemaHigiene.LiberarMaosParaSecagem();
+
+                Debug.Log("Enxágue concluído!");
             }
         }
     }
 }
+
