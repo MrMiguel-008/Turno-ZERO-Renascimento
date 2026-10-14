@@ -1,8 +1,10 @@
+
 using UnityEngine;
 
 public class AreaSecagemMaos : MonoBehaviour
 {
     private int maosNaArea = 0;
+    public SecarMaos secarMaos;
 
     public bool DuasMaosNaArea()
     {
@@ -16,11 +18,14 @@ public class AreaSecagemMaos : MonoBehaviour
             maosNaArea++;
 
             if (maosNaArea > 2)
-            {
                 maosNaArea = 2;
-            }
 
             Debug.Log("Mãos na área de secagem: " + maosNaArea);
+
+            if (maosNaArea >= 2)
+            {
+                secarMaos.MostrarLegendaSecagem();
+            }
         }
     }
 
@@ -31,11 +36,7 @@ public class AreaSecagemMaos : MonoBehaviour
             maosNaArea--;
 
             if (maosNaArea < 0)
-            {
                 maosNaArea = 0;
-            }
-
-            Debug.Log("Mãos na área de secagem: " + maosNaArea);
         }
     }
 }

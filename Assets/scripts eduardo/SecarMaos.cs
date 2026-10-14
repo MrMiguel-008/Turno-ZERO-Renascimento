@@ -1,4 +1,5 @@
 
+
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -6,6 +7,7 @@ public class SecarMaos : MonoBehaviour
 {
     public Slider barraSecagem;
     public AreaSecagemMaos areaSecagem;
+    public LegendaHigiene legendaHigiene;
 
     public float velocidadeSecagem = 10f;
 
@@ -13,6 +15,7 @@ public class SecarMaos : MonoBehaviour
     private bool papelNaArea = false;
     private bool secagemConcluida = false;
     private bool papelDescartado = false;
+    private bool legendaSecagemMostrada = false;
 
     private void Start()
     {
@@ -35,15 +38,20 @@ public class SecarMaos : MonoBehaviour
 
     private void Update()
     {
-        if (papelDescartado || !arrastando)
-            return;
-
-        // Depois da secagem, o papel pode ir para o lixo.
-        if (secagemConcluida)
+        if (papelDescartado || !arrastando || secagemConcluida)
             return;
 
         if (!areaSecagem.DuasMaosNaArea() || !papelNaArea)
             return;
+
+        if (!legendaSecagemMostrada)
+        {
+            legendaHigiene.MudarLegenda(
+                "Esfregue o papel-toalha nas mãos para secá-las."
+            );
+
+            legendaSecagemMostrada = true;
+        }
 
         if (!barraSecagem.gameObject.activeSelf)
             barraSecagem.gameObject.SetActive(true);
@@ -58,6 +66,10 @@ public class SecarMaos : MonoBehaviour
 
             barraSecagem.gameObject.SetActive(false);
 
+            legendaHigiene.MudarLegenda(
+                "Leve o papel usado até a lixeira."
+            );
+
             Debug.Log("Mãos secas! Agora descarte o papel no lixo.");
         }
     }
@@ -69,12 +81,14 @@ public class SecarMaos : MonoBehaviour
             papelNaArea = true;
         }
 
-        // O papel só pode ser descartado após a secagem.
         if (outro.CompareTag("AreaLixo") && secagemConcluida)
         {
             papelDescartado = true;
-
             gameObject.SetActive(false);
+
+            legendaHigiene.MudarLegenda(
+                "Higienização concluída!"
+            );
 
             Debug.Log("Papel descartado no lixo!");
         }
@@ -87,4 +101,15 @@ public class SecarMaos : MonoBehaviour
             papelNaArea = false;
         }
     }
+
+    public void MostrarLegendaSecagem()
+    {
+        if (!secagemConcluida && !papelDescartado)
+        {
+            legendaHigiene.MudarLegenda(
+                "Arraste o papel-toalha sobre as mãos para secá-las."
+            );
+        }
+    }
+
 }
