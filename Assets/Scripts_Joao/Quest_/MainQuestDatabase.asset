@@ -18,13 +18,16 @@ MonoBehaviour:
     questDescription: literalmente
     questType: 1
     targetAreaName: recepcao
+    requiredItems: []
   - questID: m2
     questTitle: Fale com o Supervisor
     questDescription: Aperte a tecla 'E'
     questType: 0
     targetAreaName: 
+    requiredItems: []
   - questID: m3
     questTitle: "V\xE1 para o Vesti\xE1rio"
     questDescription: Primeira sala a Esquerda no fim do corredor
     questType: 1
     targetAreaName: vestiario
+    requiredItems: []
