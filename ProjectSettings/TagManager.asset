@@ -51,5 +51,11 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: "tapete recep\xE7\xE3o"
+    uniqueID: 2763277165
+    locked: 0
+  - name: objetos
+    uniqueID: 2963889581
+    locked: 0
   m_RenderingLayers:
   - Default
