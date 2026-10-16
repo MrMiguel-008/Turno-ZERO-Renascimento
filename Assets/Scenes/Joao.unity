@@ -457,7 +457,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
+  m_Sprite: {fileID: 5643488336060575704, guid: 040c1b88467bcd3469e27597f4d09151, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -481,7 +481,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nomeItem: mascara
-  iconeItem: {fileID: 0}
+  iconeItem: {fileID: -4078710294497329655, guid: 695e6bcc679fb2141bfd944c371bf870, type: 3}
   distanciaColeta: 2
   teclaColeta: 102
 --- !u!4 &245937996
@@ -33011,7 +33011,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
+  m_Sprite: {fileID: -8079810536866313506, guid: da7b907c09dc26241a505e51d176c91d, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -33035,7 +33035,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nomeItem: uniforme
-  iconeItem: {fileID: 0}
+  iconeItem: {fileID: -1002230270578632027, guid: 21ad9c6215929a74388a5c34679cf0ab, type: 3}
   distanciaColeta: 2
   teclaColeta: 102
 --- !u!4 &1089978001
@@ -33115,7 +33115,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
+  m_Sprite: {fileID: 1015871249093990225, guid: 2bb56a860eb2c9d478ec4659772c1772, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -33139,7 +33139,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nomeItem: avental
-  iconeItem: {fileID: 0}
+  iconeItem: {fileID: 3557397355456614611, guid: 8d1144cb8eee7a649963ebdb2359f925, type: 3}
   distanciaColeta: 2
   teclaColeta: 102
 --- !u!4 &1121941948
@@ -33313,7 +33313,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
+  m_Sprite: {fileID: 6853695157924088669, guid: 8b61a29ff1875ed44a64bb49cd99613a, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -33337,7 +33337,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nomeItem: luva
-  iconeItem: {fileID: 0}
+  iconeItem: {fileID: 8115235533610397116, guid: d7c21accf93084844b5ba055a7a3d30a, type: 3}
   distanciaColeta: 2
   teclaColeta: 102
 --- !u!4 &1289898403
@@ -33584,7 +33584,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
+  m_Sprite: {fileID: -6153127060356687302, guid: 7510e5bf4232b4f409d6011822bc79ea, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -33608,7 +33608,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nomeItem: toca
-  iconeItem: {fileID: 0}
+  iconeItem: {fileID: -4725013567224252260, guid: d07367a2411f0d747baf33d79184eef6, type: 3}
   distanciaColeta: 2
   teclaColeta: 102
 --- !u!4 &1356415096
@@ -33620,7 +33620,7 @@ Transform:
   m_GameObject: {fileID: 1356415093}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -8.44, y: 18.63, z: 0}
+  m_LocalPosition: {x: -8.47, y: 18.33, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -34334,7 +34334,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
+  m_Sprite: {fileID: 1879028141697502532, guid: 47adcf55b4bce9b4ea3a59f89f3fb760, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -34358,7 +34358,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nomeItem: bota
-  iconeItem: {fileID: 0}
+  iconeItem: {fileID: -6223478083693898170, guid: 8086a865a97584249befbd63bf29dd18, type: 3}
   distanciaColeta: 2
   teclaColeta: 102
 --- !u!4 &1943430262
