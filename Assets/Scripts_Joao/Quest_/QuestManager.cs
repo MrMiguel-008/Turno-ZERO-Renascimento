@@ -1,5 +1,5 @@
 using UnityEngine;
-using TMPro; // Necessário para o TextMeshPro
+using TMPro;
 
 public class QuestManager : MonoBehaviour
 {
@@ -9,9 +9,9 @@ public class QuestManager : MonoBehaviour
     public QuestData questDatabase;
 
     [Header("Referências da UI de Missões")]
-    public TextMeshProUGUI questTitleText; // Arraste o texto do Título aqui
-    public TextMeshProUGUI questDescText;  // Arraste o texto da Descrição aqui
-    public GameObject questUIContainer;    // (Opcional) O painel inteiro das missões para ligar/desligar
+    public TextMeshProUGUI questTitleText;
+    public TextMeshProUGUI questDescText;
+    public GameObject questUIContainer;
 
     [Header("Estado Atual")]
     public string activeQuestID = "";
@@ -25,10 +25,8 @@ public class QuestManager : MonoBehaviour
 
     void Start()
     {
-        // Se houver missões na base de dados, inicia automaticamente a primeira (índice 0)
         if (questDatabase != null && questDatabase.quests != null && questDatabase.quests.Length > 0)
         {
-            // Pega o ID da primeira missão cadastrada no banco de dados e ativa-a
             string primeiraQuestID = questDatabase.quests[0].questID;
             SetActiveQuest(primeiraQuestID);
         }
@@ -38,7 +36,6 @@ public class QuestManager : MonoBehaviour
         }
     }
 
-    // Método para definir uma missão ativa passando o ID
     public void SetActiveQuest(string questID)
     {
         var questInfo = GetQuestInfo(questID);
@@ -47,7 +44,6 @@ public class QuestManager : MonoBehaviour
             activeQuestID = questID;
             isQuestCompleted = false;
             Debug.Log($"Nova missão aceite: {questInfo.questTitle} (ID: {questInfo.questID})");
-
             UpdateQuestUI();
         }
         else
@@ -62,33 +58,24 @@ public class QuestManager : MonoBehaviour
 
         foreach (var q in questDatabase.quests)
         {
-            if (q.questID == questID)
-            {
-                return q;
-            }
+            if (q.questID == questID) return q;
         }
         return new QuestData.QuestInfo();
     }
 
-    // Atualiza os textos na tela com base na missão ativa
     void UpdateQuestUI()
     {
         if (string.IsNullOrEmpty(activeQuestID))
         {
-            // Se não houver missão ativa, limpa os textos ou oculta o painel
             if (questTitleText != null) questTitleText.text = "";
-            if (questDescText != null) questDescText.text = "Nenhuma missão ativa.";
-
+            if (questDescText != null) questDescText.text = "Missões concluídas.";
             if (questUIContainer != null) questUIContainer.SetActive(false);
             return;
         }
 
-        // Se houver missão ativa, busca os dados e exibe
         var currentQuest = GetQuestInfo(activeQuestID);
-
         if (questTitleText != null) questTitleText.text = currentQuest.questTitle;
         if (questDescText != null) questDescText.text = currentQuest.questDescription;
-
         if (questUIContainer != null) questUIContainer.SetActive(true);
     }
 
@@ -98,17 +85,40 @@ public class QuestManager : MonoBehaviour
         {
             var currentQuest = GetQuestInfo(activeQuestID);
 
-            if (currentQuest.questType == QuestType.IrParaArea)
+            if (currentQuest.questType == QuestType.IrParaArea && currentQuest.targetAreaName == currentArea)
             {
-                if (currentQuest.targetAreaName == currentArea)
+                ValidarEConcluir(currentQuest);
+            }
+        }
+    }
+    
+    // Chamado pelo ItemColetavel quando um item é apanhado
+    public void CheckItemCollectionQuest(string itemColetadoID)
+    {
+        if (!string.IsNullOrEmpty(activeQuestID) && !isQuestCompleted)
+        {
+            var currentQuest = GetQuestInfo(activeQuestID);
+
+            if (currentQuest.questType == QuestType.ColetarItens)
+            {
+                // Percorre a lista de itens exigidos na missão
+                if (currentQuest.requiredItems != null)
                 {
-                    CompleteQuest();
+                    foreach (var req in currentQuest.requiredItems)
+                    {
+                        // Se o item coletado corresponde a um dos itens exigidos pela missão
+                        if (req.itemID == itemColetadoID)
+                        {
+                            ValidarEConcluir(currentQuest);
+                            break;
+                        }
+                    }
                 }
             }
         }
     }
 
-    public void CheckSupervisorDialogueQuest()
+    public void OnDialogueEnded()
     {
         if (!string.IsNullOrEmpty(activeQuestID) && !isQuestCompleted)
         {
@@ -116,9 +126,43 @@ public class QuestManager : MonoBehaviour
 
             if (currentQuest.questType == QuestType.FalarComSupervisor)
             {
-                CompleteQuest();
+                ValidarEConcluir(currentQuest);
             }
         }
+    }
+
+    // **NOVO:** Valida se a missão requer itens no inventário antes de permitir concluí-la de vez
+    // Valida se a missão requer múltiplos itens no inventário antes de permitir concluí-la
+    void ValidarEConcluir(QuestData.QuestInfo quest)
+    {
+        // Se a missão tiver itens exigidos na lista
+        if (quest.requiredItems != null && quest.requiredItems.Length > 0)
+        {
+            InventarioHUD inventario = InventarioHUD.Instance;
+            if (inventario != null)
+            {
+                // Percorre cada item da lista de requisitos da missão
+                foreach (var req in quest.requiredItems)
+                {
+                    int qtdNecessaria = req.amount > 0 ? req.amount : 1;
+
+                    // Se faltar algum dos itens ou a quantidade for insuficiente, bloqueia a conclusão
+                    if (!inventario.PossuiItem(req.itemID, qtdNecessaria))
+                    {
+                        Debug.Log($"Missão pendente! Falta o item: '{req.itemID}' (Necessário: {qtdNecessaria}).");
+                        return;
+                    }
+                }
+            }
+            else
+            {
+                Debug.LogWarning("InventarioHUD não encontrado na cena!");
+                return;
+            }
+        }
+
+        // Se passou por todas as validações de itens, local ou diálogo, conclui a missão
+        CompleteQuest();
     }
 
     public void CompleteQuest()
@@ -129,14 +173,12 @@ public class QuestManager : MonoBehaviour
             isQuestCompleted = true;
             Debug.Log($"Missão Concluída: {currentQuest.questTitle}!");
 
-            // Atualiza o ID da missão no Supervisor para desbloquear o diálogo correspondente
             NPCSupervisorController supervisor = FindObjectOfType<NPCSupervisorController>();
             if (supervisor != null)
             {
                 supervisor.currentQuestID = activeQuestID;
             }
 
-            // --- PROCURA E INICIA A PRÓXIMA MISSÃO AUTOMATICAMENTE ---
             int currentIndex = -1;
             for (int i = 0; i < questDatabase.quests.Length; i++)
             {
@@ -147,16 +189,14 @@ public class QuestManager : MonoBehaviour
                 }
             }
 
-            // Se encontrou a missão e existe uma próxima na lista do Inspector
             int nextIndex = currentIndex + 1;
             if (currentIndex != -1 && nextIndex < questDatabase.quests.Length)
             {
                 string nextQuestID = questDatabase.quests[nextIndex].questID;
-                SetActiveQuest(nextQuestID); // Inicia a próxima missão instantaneamente
+                SetActiveQuest(nextQuestID);
             }
             else
             {
-                // Se era a última missão do jogo
                 activeQuestID = "";
                 UpdateQuestUI();
                 Debug.Log("Todas as missões foram concluídas!");

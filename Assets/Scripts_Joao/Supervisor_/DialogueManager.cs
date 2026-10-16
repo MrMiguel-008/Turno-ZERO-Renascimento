@@ -78,6 +78,12 @@ public class DialogueManager : MonoBehaviour
         if (dialogueBoxPanel != null)
             dialogueBoxPanel.SetActive(false);
 
+        // **NOVIDADE:** Avisa o QuestManager que o diálogo acabou de fechar
+        if (QuestManager.Instance != null)
+        {
+            QuestManager.Instance.OnDialogueEnded();
+        }
+
         // Dispara o bloqueio temporário para ignorar o 'E' do fecho
         StartCoroutine(CooldownRoutine());
     }

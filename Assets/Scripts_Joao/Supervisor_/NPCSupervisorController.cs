@@ -82,11 +82,8 @@ public class NPCSupervisorController : MonoBehaviour
             return;
         }
 
-        // **NOVIDADE:** Verifica se há uma missão ativa do tipo "Falar com o Supervisor"
-        if (QuestManager.Instance != null)
-        {
-            QuestManager.Instance.CheckSupervisorDialogueQuest();
-        }
+        // (Pode remover a chamada antiga do QuestManager daqui, 
+        // pois agora o DialogueManager avisa quando o diálogo realmente TERMINA)
 
         string[] linesToSay = GetMatchingDialogue();
         DialogueManager.Instance.StartDialogue(linesToSay);

@@ -400,7 +400,7 @@ MonoBehaviour:
   espalhamentoVertical: 10
   duracaoBolha: 0.7
   alturaBolha: 60
-  quantidadeAcertosNecessarios: 10
+  quantidadeAcertosNecessarios: 15
   tempoAntesDeVoltar: 0.8
   intensidadeSacudida: 8
   duracaoSacudida: 0.12
