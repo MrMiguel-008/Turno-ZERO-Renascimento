@@ -1,0 +1,100 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9135c97101bba0043ba79d46435f9ce7, type: 3}
+  m_Name: Supervisor_DialogueData
+  m_EditorClassIdentifier: 
+  conditionalDialogues:
+  - condition:
+      requiredLocation: 
+      requiredQuestID: m1
+    dialogueLines:
+    - "Utilize a tecla 'E' para avan\xE7ar o di\xE1logo."
+    - Seja Bem Vindo(a)!
+    - "Aqui na nossa empresa come\xE7amos primeiramente pela seguran\xE7a."
+    - "Pe\xE7o que se dirija para o nosso Vesti\xE1rio."
+    - Siga o corredor a frente...
+  - condition:
+      requiredLocation: 
+      requiredQuestID: m2
+    dialogueLines:
+    - "O vesti\xE1rio \xE9 a primeira porta a esquerda seguindo o corredor."
+    - "chegando l\xE1 explicarei melhor."
+    - Pode ir na frente.
+  - condition:
+      requiredLocation: vestiario
+      requiredQuestID: m3
+    dialogueLines:
+    - "Utilize a tecla 'E' para avan\xE7ar o di\xE1logo."
+    - "Este \xE9 o nosso vesti\xE1rio."
+    - "Onde todos os funcion\xE1rios passam para vestir seus EPIs antes de colocar
+      a m\xE3o na massa."
+    - "O Seu arm\xE1rio est\xE1 logo al\xED em cima."
+    - Boa sorte!
+  - condition:
+      requiredLocation: 
+      requiredQuestID: m4
+    dialogueLines:
+    - "Utilize a tecla 'E' para avan\xE7ar o di\xE1logo."
+    - "Agora que voc\xEA pegou os equipamentos, est\xE1 na hora de equipa-los"
+    - "Se troque na parte de baixo do vesti\xE1rio."
+  - condition:
+      requiredLocation: 
+      requiredQuestID: Vestir_EPI
+    dialogueLines:
+    - "Utilize a tecla 'E' para avan\xE7ar o di\xE1logo."
+    - "Agora que voc\xEA pegou os equipamentos, est\xE1 na hora de equipa-los"
+    - "Se troque na parte de baixo do vesti\xE1rio."
+  - condition:
+      requiredLocation: 
+      requiredQuestID: m5
+    dialogueLines:
+    - "Utilize a tecla 'E' para avan\xE7ar o di\xE1logo."
+    - Agora que equipado com os EPIs, vamos sanitizar esse par de botas.
+    - "Seguindo o corredor aqui da direita voc\xEA encontrar\xE1 o tapete."
+    - Boa Sorte!
+  - condition:
+      requiredLocation: 
+      requiredQuestID: tapete_sanitizante
+    dialogueLines:
+    - "Utilize a tecla 'E' para avan\xE7ar o di\xE1logo."
+    - use a tecla 'E' do seu teclado no tapete para sanitizar suas botas.
+    - Bora bora!!!
+  - condition:
+      requiredLocation: 
+      requiredQuestID: m6
+    dialogueLines:
+    - "Utilize a tecla 'E' para avan\xE7ar o di\xE1logo."
+    - "Agora que est\xE1 com suas botas sanitizadas, vamos proceguir."
+    - "Vamos entrar na parte mais legal da ind\xFAstria."
+    - "Seguindo a direita depois do tapete voc\xEA encontrar\xE1 sua bancada."
+    - "\xC9 sempre bom mant\xEA-la limpa e organizada para que seu desempenho na
+      empresa n\xE3o seja prejudicada."
+    - "Vamos l\xE1 dar uma olhada em como ela est\xE1?"
+  - condition:
+      requiredLocation: 
+      requiredQuestID: bancada_producao
+    dialogueLines:
+    - "Utilize a tecla 'E' para avan\xE7ar o di\xE1logo."
+    - "QUE BAGUN\xC7A!!!"
+    - "Vamos arrumar essa mesa antes que nas\xE7a algo da\xED."
+    - "A mesa chega t\xE1 podre..."
+  - condition:
+      requiredLocation: 
+      requiredQuestID: m7
+    dialogueLines:
+    - "Utilize a tecla 'E' para avan\xE7ar o di\xE1logo."
+    - "\xC9 isso que temos por enquanto."
+    - COMING SOON...
+  defaultDialogueLines:
+  - "Utilize a tecla 'E' para avan\xE7ar o di\xE1logo."
+  - Oi...
+  - Tudo bem???

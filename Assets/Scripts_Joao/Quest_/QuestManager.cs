@@ -120,6 +120,7 @@ public class QuestManager : MonoBehaviour
         }
     }
 
+    // Chamado pelo DialogueManager quando o diálogo termina
     public void OnDialogueEnded()
     {
         if (!string.IsNullOrEmpty(activeQuestID) && !isQuestCompleted)

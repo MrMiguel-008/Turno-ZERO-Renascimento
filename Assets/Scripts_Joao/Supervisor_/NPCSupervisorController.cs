@@ -91,13 +91,21 @@ public class NPCSupervisorController : MonoBehaviour
 
     string[] GetMatchingDialogue()
     {
+        // Obtém o ID da missão ativa diretamente do QuestManager em tempo real
+        string questAtivaID = "";
+        if (QuestManager.Instance != null)
+        {
+            questAtivaID = QuestManager.Instance.activeQuestID;
+        }
+
         foreach (var block in dialogueData.conditionalDialogues)
         {
             bool locationMatches = string.IsNullOrEmpty(block.condition.requiredLocation) ||
                                    block.condition.requiredLocation == currentLocation;
 
+            // Compara com a missão ativa atual do QuestManager
             bool questMatches = string.IsNullOrEmpty(block.condition.requiredQuestID) ||
-                                block.condition.requiredQuestID == currentQuestID;
+                                block.condition.requiredQuestID == questAtivaID;
 
             if (locationMatches && questMatches)
             {

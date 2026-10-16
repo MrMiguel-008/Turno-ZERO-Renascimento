@@ -201,8 +201,8 @@ Transform:
   m_GameObject: {fileID: 70565685}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -6.97, y: -5.62, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: -5.8795, y: -3.637, z: -1.1825}
+  m_LocalScale: {x: 0.76105046, y: 0.76105046, z: 0.76105046}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -337,8 +337,8 @@ Transform:
   m_GameObject: {fileID: 193294932}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.82, y: -2.31, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 1.5716, y: -1.1178, z: -1.1825}
+  m_LocalScale: {x: 0.76105046, y: 0.76105046, z: 0.76105046}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -428,6 +428,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 10584c9a8f8fe974f99d4d4b49bfacaa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  valorDoObjeto: 1
+  metaCena1: 6
+  nomeCena1: MinigameEPI
+  metaCena2: 7
+  nomeCena2: BancadaMinigame
   canvas: {fileID: 1807395901}
   tagDoAlvoCorreto: Lixeira
 --- !u!1 &404837676
@@ -512,8 +517,8 @@ Transform:
   m_GameObject: {fileID: 404837676}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 9.73, y: 3.32, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 6.8308, y: 3.1672, z: -1.1825}
+  m_LocalScale: {x: 0.76105046, y: 0.76105046, z: 0.76105046}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -651,8 +656,8 @@ Transform:
   m_GameObject: {fileID: 433017643}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -10}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: -0.5747001, y: 0.6404, z: -8.7935}
+  m_LocalScale: {x: 0.76105046, y: 0.76105046, z: 0.76105046}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -921,8 +926,8 @@ Transform:
   m_GameObject: {fileID: 676163887}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 4.25, y: 1.59, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 2.6599998, y: 1.8506, z: -1.1825}
+  m_LocalScale: {x: 0.76105046, y: 0.76105046, z: 0.76105046}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -1012,6 +1017,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 10584c9a8f8fe974f99d4d4b49bfacaa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  valorDoObjeto: 0.5
+  metaCena1: 6
+  nomeCena1: MinigameEPI
+  metaCena2: 7
+  nomeCena2: BancadaMinigame
   canvas: {fileID: 1807395901}
   tagDoAlvoCorreto: s caixa
 --- !u!1 &753248265
@@ -1096,8 +1106,8 @@ Transform:
   m_GameObject: {fileID: 753248265}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 9.86, y: -1.37, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 6.9298, y: -0.40229997, z: -1.1825}
+  m_LocalScale: {x: 0.76105046, y: 0.76105046, z: 0.76105046}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -1230,8 +1240,8 @@ Transform:
   m_GameObject: {fileID: 872277131}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 5.36, y: 2.52, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 3.5047998, y: 2.5584, z: -1.1825}
+  m_LocalScale: {x: 0.76105046, y: 0.76105046, z: 0.76105046}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -1366,8 +1376,8 @@ Transform:
   m_GameObject: {fileID: 963883986}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.65, y: 2.3, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: -3.3527, y: 2.391, z: -1.1825}
+  m_LocalScale: {x: 0.76105046, y: 0.76105046, z: 0.76105046}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -1457,6 +1467,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 10584c9a8f8fe974f99d4d4b49bfacaa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  valorDoObjeto: 1
+  metaCena1: 6
+  nomeCena1: MinigameEPI
+  metaCena2: 7
+  nomeCena2: BancadaMinigame
   canvas: {fileID: 1807395901}
   tagDoAlvoCorreto: s tablet
 --- !u!1 &1021876441
@@ -1541,8 +1556,8 @@ Transform:
   m_GameObject: {fileID: 1021876441}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -9.19, y: 3.18, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: -7.5692, y: 3.0607, z: -1.1825}
+  m_LocalScale: {x: 0.76105046, y: 0.76105046, z: 0.76105046}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -1674,8 +1689,8 @@ Transform:
   m_GameObject: {fileID: 1130371243}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: -0.5747001, y: 0.6404, z: -1.1825}
+  m_LocalScale: {x: 0.76105046, y: 0.76105046, z: 0.76105046}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -1753,8 +1768,8 @@ Transform:
   m_GameObject: {fileID: 1176615452}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: -0.5747001, y: 0.6404, z: -1.1825}
+  m_LocalScale: {x: 0.76105046, y: 0.76105046, z: 0.76105046}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -1887,8 +1902,8 @@ Transform:
   m_GameObject: {fileID: 1617820275}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -8.37, y: -0.7, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: -6.9451, y: 0.10760003, z: -1.1825}
+  m_LocalScale: {x: 0.76105046, y: 0.76105046, z: 0.76105046}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -1978,6 +1993,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 10584c9a8f8fe974f99d4d4b49bfacaa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  valorDoObjeto: 1
+  metaCena1: 6
+  nomeCena1: MinigameEPI
+  metaCena2: 7
+  nomeCena2: BancadaMinigame
   canvas: {fileID: 1807395901}
   tagDoAlvoCorreto: s prancheta
 --- !u!1 &1632220055
@@ -2064,8 +2084,8 @@ Transform:
   m_GameObject: {fileID: 1632220055}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -4.75, y: -1.84, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: -4.19, y: -0.76, z: -1.1825}
+  m_LocalScale: {x: 0.76105046, y: 0.76105046, z: 0.76105046}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -2155,6 +2175,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 10584c9a8f8fe974f99d4d4b49bfacaa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  valorDoObjeto: 1
+  metaCena1: 6
+  nomeCena1: MinigameEPI
+  metaCena2: 7
+  nomeCena2: BancadaMinigame
   canvas: {fileID: 1807395901}
   tagDoAlvoCorreto: Lixeira
 --- !u!1 &1807395898
@@ -2343,8 +2368,8 @@ Transform:
   m_GameObject: {fileID: 1943212711}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 6.81, y: -2.05, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 4.6084, y: -0.9199, z: -1.1825}
+  m_LocalScale: {x: 0.76105046, y: 0.76105046, z: 0.76105046}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -2434,6 +2459,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 10584c9a8f8fe974f99d4d4b49bfacaa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  valorDoObjeto: 1
+  metaCena1: 6
+  nomeCena1: MinigameEPI
+  metaCena2: 7
+  nomeCena2: BancadaMinigame
   canvas: {fileID: 1807395901}
   tagDoAlvoCorreto: Lixeira
 --- !u!1 &1953696760
@@ -2726,8 +2756,8 @@ Transform:
   m_GameObject: {fileID: 2045227076}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.98, y: -0.34, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: -1.3206, y: 0.38160002, z: -1.1825}
+  m_LocalScale: {x: 0.76105046, y: 0.76105046, z: 0.76105046}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -2744,6 +2774,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 10584c9a8f8fe974f99d4d4b49bfacaa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  valorDoObjeto: 0.5
+  metaCena1: 6
+  nomeCena1: MinigameEPI
+  metaCena2: 7
+  nomeCena2: BancadaMinigame
   canvas: {fileID: 1807395901}
   tagDoAlvoCorreto: s luva
 --- !u!1660057539 &9223372036854775807
