@@ -5,7 +5,8 @@ public enum QuestType
     Interacao,
     IrParaArea,
     FalarComSupervisor,
-    ColetarItens
+    ColetarItens,
+    Minigame            // <-- Adicionado
 }
 
 [CreateAssetMenu(fileName = "QuestDatabase", menuName = "Quest/Quest Database")]
@@ -14,9 +15,7 @@ public class QuestData : ScriptableObject
     [System.Serializable]
     public struct ItemRequirement
     {
-        [Tooltip("Nome exato do item exigido no inventário (Ex: Chave, Engrenagem).")]
         public string itemID;
-        [Tooltip("Quantidade necessária deste item específico.")]
         public int amount;
     }
 
@@ -35,9 +34,12 @@ public class QuestData : ScriptableObject
         [Tooltip("Preencher apenas se o tipo for 'IrParaArea'. Ex: Cozinha")]
         public string targetAreaName;
 
-        [Header("Critérios de Inventário (Múltiplos Itens)")]
-        [Tooltip("Adicione aqui todos os itens e quantidades que o player precisa de ter no inventário para concluir esta missão.")]
+        [Header("Critérios de Inventário (Opcional)")]
         public ItemRequirement[] requiredItems;
+
+        [Header("Configuração de Minigame (Apenas para tipo Minigame)")]
+        [Tooltip("Deve corresponder exatamente ao 'idObjetivo' configurado no script InteracaoMinigame do objeto no mapa.")]
+        public string targetMinigameID;
     }
 
     [Header("Lista de Todas as Missões do Jogo")]

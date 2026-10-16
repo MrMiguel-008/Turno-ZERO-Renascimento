@@ -61,6 +61,8 @@ public class QuestManager : MonoBehaviour
             if (q.questID == questID) return q;
         }
         return new QuestData.QuestInfo();
+
+
     }
 
     void UpdateQuestUI()
@@ -196,6 +198,23 @@ public class QuestManager : MonoBehaviour
                 activeQuestID = "";
                 UpdateQuestUI();
                 Debug.Log("Todas as missões foram concluídas!");
+            }
+        }
+    }
+
+    // Chamado quando um minigame termina com sucesso
+    public void CheckMinigameQuest(string idMinigameConcluido)
+    {
+        if (!string.IsNullOrEmpty(activeQuestID) && !isQuestCompleted)
+        {
+            var currentQuest = GetQuestInfo(activeQuestID);
+
+            if (currentQuest.questType == QuestType.Minigame)
+            {
+                if (currentQuest.targetMinigameID == idMinigameConcluido)
+                {
+                    ValidarEConcluir(currentQuest);
+                }
             }
         }
     }

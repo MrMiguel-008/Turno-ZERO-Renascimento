@@ -19,18 +19,21 @@ MonoBehaviour:
     questType: 1
     targetAreaName: recepcao
     requiredItems: []
+    targetMinigameID: 
   - questID: m2
     questTitle: Fale com o Supervisor
     questDescription: Aperte a tecla 'E'
     questType: 2
     targetAreaName: 
     requiredItems: []
+    targetMinigameID: 
   - questID: m3
     questTitle: "V\xE1 para o Vesti\xE1rio"
     questDescription: Primeira sala a Esquerda no fim do corredor
     questType: 1
     targetAreaName: vestiario
     requiredItems: []
+    targetMinigameID: 
   - questID: m4
     questTitle: "V\xE1 para o Vesti\xE1rio"
     questDescription: 'Pegue os EPIs
@@ -51,3 +54,25 @@ MonoBehaviour:
       amount: 1
     - itemID: uniforme
       amount: 1
+    targetMinigameID: 
+  - questID: tapete_sanitizante
+    questTitle: Interaja com o tapete
+    questDescription: 'vai
+
+'
+    questType: 4
+    targetAreaName: 
+    requiredItems:
+    - itemID: luva
+      amount: 1
+    - itemID: mascara
+      amount: 1
+    - itemID: toca
+      amount: 1
+    - itemID: bota
+      amount: 1
+    - itemID: avental
+      amount: 1
+    - itemID: uniforme
+      amount: 1
+    targetMinigameID: tapete_sanitizante
