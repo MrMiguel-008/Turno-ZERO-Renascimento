@@ -14,7 +14,13 @@ TagManager:
   - AreaMaos
   - AreaSecagem
   - Mao
-  - AreaLixo
+  - uniforme
+  - s mascara 1
+  - s touca 1
+  - s uniforme 1
+  - S avental 1
+  - s luvas 1
+  - s botas 1
   layers:
   - Default
   - TransparentFX
@@ -51,12 +57,6 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
-    locked: 0
-  - name: "tapete recep\xE7\xE3o"
-    uniqueID: 2763277165
-    locked: 0
-  - name: objetos
-    uniqueID: 2963889581
     locked: 0
   m_RenderingLayers:
   - Default
