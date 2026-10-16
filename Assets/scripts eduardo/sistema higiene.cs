@@ -1,3 +1,4 @@
+
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.InputSystem;
@@ -7,6 +8,7 @@ public class SistemaHigiene : MonoBehaviour
     public Slider barraHigiene;
     public GameObject agua;
     public EtapaEnxague etapaEnxague;
+    public LegendaHigiene legendaHigiene;
 
     public float intervalo = 0.08f;
 
@@ -17,11 +19,12 @@ public class SistemaHigiene : MonoBehaviour
 
     private void Start()
     {
-        // A barra de higiene começa aparecendo
         barraHigiene.gameObject.SetActive(true);
-
-        // A barra de enxágue começa escondida
         etapaEnxague.barraEnxague.gameObject.SetActive(false);
+
+        legendaHigiene.MudarLegenda(
+            "Coloque as duas mãos na pia."
+        );
     }
 
     private void Update()
@@ -33,7 +36,9 @@ public class SistemaHigiene : MonoBehaviour
 
         if (maosNaPia >= 2 && aguaLigada && !lavagemConcluida)
         {
-            if (Keyboard.current.spaceKey.wasPressedThisFrame && contador <= 0)
+            if (Keyboard.current != null &&
+                Keyboard.current.spaceKey.wasPressedThisFrame &&
+                contador <= 0)
             {
                 barraHigiene.value += 1f;
                 contador = intervalo;
@@ -43,18 +48,55 @@ public class SistemaHigiene : MonoBehaviour
                     barraHigiene.value = 100;
                     lavagemConcluida = true;
 
-                    // Esconde a barra de higiene
                     barraHigiene.gameObject.SetActive(false);
 
-                    // Desliga a água
                     aguaLigada = false;
                     agua.SetActive(false);
+
+                    legendaHigiene.MudarLegenda(
+                        "Pise no pedal para iniciar o enxágue."
+                    );
 
                     Debug.Log("Lavagem concluída!");
                 }
             }
         }
     }
+
+   
+    public bool MaosEstaoNaPia()
+    {
+        return maosNaPia >= 2;
+    }
+
+    public void DefinirAgua(bool estado)
+    {
+        aguaLigada = estado;
+
+        if (!lavagemConcluida)
+        {
+            if (estado)
+            {
+                legendaHigiene.MudarLegenda(
+                    "Pressione ESPAÇO repetidamente para ensaboar e lavar as mãos."
+                );
+            }
+            else
+            {
+                legendaHigiene.MudarLegenda(
+                    "Pise no pedal para abrir a torneira."
+                );
+            }
+        }
+
+        Debug.Log("Água ligada: " + aguaLigada);
+    }
+
+    public bool LavagemEstaConcluida()
+    {
+        return lavagemConcluida;
+    }
+
 
     public void MaoChegou()
     {
@@ -66,27 +108,19 @@ public class SistemaHigiene : MonoBehaviour
         }
 
         Debug.Log("Mãos na pia: " + maosNaPia);
+
+        if (maosNaPia >= 2 && !lavagemConcluida)
+        {
+            legendaHigiene.MudarLegenda(
+                "Pise no pedal para abrir a torneira."
+            );
+        }
     }
 
-    public bool MaosEstaoNaPia()
-    {
-        return maosNaPia >= 2;
-    }
-
-    public void DefinirAgua(bool estado)
-    {
-        aguaLigada = estado;
-
-        Debug.Log("Água ligada: " + aguaLigada);
-    }
-
-    public bool LavagemEstaConcluida()
-    {
-        return lavagemConcluida;
-    }
     public void LiberarMaosParaSecagem()
     {
-        ArrastarMao[] maos = FindObjectsByType<ArrastarMao>(FindObjectsSortMode.None);
+        ArrastarMao[] maos =
+            FindObjectsByType<ArrastarMao>(FindObjectsSortMode.None);
 
         foreach (ArrastarMao mao in maos)
         {
@@ -95,4 +129,6 @@ public class SistemaHigiene : MonoBehaviour
 
         Debug.Log("Mãos liberadas para secagem!");
     }
+
+
 }
