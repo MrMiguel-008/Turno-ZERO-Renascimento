@@ -134,7 +134,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      avental invent_0: 3557397355456614611
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

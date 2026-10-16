@@ -134,7 +134,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      touca invent_0: -4725013567224252260
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

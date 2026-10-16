@@ -134,7 +134,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      mascara invent_0: -4078710294497329655
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

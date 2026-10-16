@@ -134,7 +134,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      luva invent_0: 8115235533610397116
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
