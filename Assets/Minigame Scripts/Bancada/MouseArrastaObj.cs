@@ -103,7 +103,7 @@ public class MouseArrastaObj : MonoBehaviour
 
         if (totalSucessos >= OBJETIVOS_NECESSARIOS)
         {
-            SceneManager.LoadScene(0);
+            InteracaoMinigame.FinalizarMinigame(true);
         }
     }
 }

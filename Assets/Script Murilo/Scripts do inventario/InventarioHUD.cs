@@ -1,55 +1,81 @@
 using UnityEngine;
-using UnityEngine.UI;
+using System.Collections.Generic;
+
+[System.Serializable]
+public struct ItemSlot
+{
+    public string nomeItem;
+    public Sprite iconeItem;
+    public int quantidade;
+}
 
 public class InventarioHUD : MonoBehaviour
 {
-    [Header("Configuração do Inventário")]
-    [SerializeField] private int espacosInventario = 5; // Quantidade de slots
-    [SerializeField] private Image[] slotsIcones;      // Arraste as imagens dos slots da sua UI aqui no Inspector
+    public static InventarioHUD Instance;
 
-    private string[] itensNomes;
-    private Sprite[] itensIcones;
+    [Header("Lista de Itens no Inventário")]
+    public List<ItemSlot> itensGuardados = new List<ItemSlot>();
 
-    void Start()
+    void Awake()
     {
-        itensNomes = new string[espacosInventario];
-        itensIcones = new Sprite[espacosInventario];
-        AtualizarHUD();
+        if (Instance == null) Instance = this;
+        else Destroy(gameObject);
     }
 
+    // Adiciona o item ao inventário (chamado pelo ItemColetavel)
     public bool AdicionarItem(string nome, Sprite icone)
     {
-        // Procura o primeiro slot vazio no inventário
-        for (int i = 0; i < espacosInventario; i++)
+        // Procura se já tem o item no inventário para apenas somar a quantidade
+        foreach (var slot in itensGuardados)
         {
-            if (itensNomes[i] == null)
+            if (slot.nomeItem == nome)
             {
-                itensNomes[i] = nome;
-                itensIcones[i] = icone;
-                AtualizarHUD();
-                Debug.Log("Item coletado: " + nome);
-                return true; // Item coletado com sucesso
+                // Como structs são por valor, precisamos atualizar a lista por índice ou recriar
+                int index = itensGuardados.FindIndex(i => i.nomeItem == nome);
+                if (index != -1)
+                {
+                    ItemSlot atualizado = itensGuardados[index];
+                    atualizado.quantidade++;
+                    itensGuardados[index] = atualizado;
+
+                    Debug.Log($"Item incrementado no inventário: {nome} (Total: {atualizado.quantidade})");
+                    AtualizarUIInventario();
+                    return true;
+                }
             }
         }
 
-        Debug.Log("Inventário cheio!");
-        return false; // Inventário cheio
+        // Se não existir, cria um novo slot
+        ItemSlot novoSlot = new ItemSlot
+        {
+            nomeItem = nome,
+            iconeItem = icone,
+            quantidade = 1
+        };
+
+        itensGuardados.Add(novoSlot);
+        Debug.Log($"Novo item adicionado ao inventário: {nome}");
+
+        AtualizarUIInventario();
+        return true;
     }
 
-    void AtualizarHUD()
+    // Verifica se o player possui uma quantidade específica de um determinado item
+    public bool PossuiItem(string nomeItem, int quantidadeDesejada = 1)
     {
-        for (int i = 0; i < slotsIcones.Length; i++)
+        foreach (var slot in itensGuardados)
         {
-            if (i < itensIcones.Length && itensIcones[i] != null)
+            if (slot.nomeItem == nomeItem)
             {
-                slotsIcones[i].sprite = itensIcones[i];
-                slotsIcones[i].gameObject.SetActive(true); // Mostra o ícone
-            }
-            else
-            {
-                slotsIcones[i].sprite = null;
-                slotsIcones[i].gameObject.SetActive(false); // Esconde se estiver vazio
+                return slot.quantidade >= quantidadeDesejada;
             }
         }
+        return false;
+    }
+
+    void AtualizarUIInventario()
+    {
+        // Aqui você pode adicionar lógica visual futura para desenhar os ícones no ecrã do Canvas.
+        // Por enquanto, gere os dados com segurança em segundo plano.
     }
 }
