@@ -1,3 +1,5 @@
+
+
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -5,12 +7,15 @@ public class SecarMaos : MonoBehaviour
 {
     public Slider barraSecagem;
     public AreaSecagemMaos areaSecagem;
+    public LegendaHigiene legendaHigiene;
 
     public float velocidadeSecagem = 10f;
 
     private bool arrastando = false;
     private bool papelNaArea = false;
     private bool secagemConcluida = false;
+    private bool papelDescartado = false;
+    private bool legendaSecagemMostrada = false;
 
     private void Start()
     {
@@ -20,11 +25,8 @@ public class SecarMaos : MonoBehaviour
 
     private void OnMouseDown()
     {
-        // Se já terminou, não faz mais nada
-        if (secagemConcluida)
-        {
+        if (papelDescartado)
             return;
-        }
 
         arrastando = true;
     }
@@ -36,48 +38,39 @@ public class SecarMaos : MonoBehaviour
 
     private void Update()
     {
-        if (secagemConcluida)
-        {
+        if (papelDescartado || !arrastando || secagemConcluida)
             return;
+
+        if (!areaSecagem.DuasMaosNaArea() || !papelNaArea)
+            return;
+
+        if (!legendaSecagemMostrada)
+        {
+            legendaHigiene.MudarLegenda(
+                "Esfregue o papel-toalha nas mãos para secá-las."
+            );
+
+            legendaSecagemMostrada = true;
         }
 
-        if (!arrastando)
-        {
-            return;
-        }
-
-        // As duas mãos precisam estar na área
-        if (!areaSecagem.DuasMaosNaArea())
-        {
-            return;
-        }
-
-        // O papel também precisa estar na área
-        if (!papelNaArea)
-        {
-            return;
-        }
-
-        // Mostra a barra
         if (!barraSecagem.gameObject.activeSelf)
-        {
             barraSecagem.gameObject.SetActive(true);
-        }
 
-        // Aumenta a secagem
         barraSecagem.value += velocidadeSecagem * Time.deltaTime;
 
         if (barraSecagem.value >= 100)
         {
             barraSecagem.value = 100;
-
             secagemConcluida = true;
             arrastando = false;
 
-            // Esconde a barra
             barraSecagem.gameObject.SetActive(false);
 
-            Debug.Log("Higiene concluída!");
+            legendaHigiene.MudarLegenda(
+                "Leve o papel usado até a lixeira."
+            );
+
+            Debug.Log("Mãos secas! Agora descarte o papel no lixo.");
         }
     }
 
@@ -86,8 +79,18 @@ public class SecarMaos : MonoBehaviour
         if (outro.CompareTag("AreaSecagem"))
         {
             papelNaArea = true;
+        }
 
-            Debug.Log("Papel entrou na área de secagem!");
+        if (outro.CompareTag("AreaLixo") && secagemConcluida)
+        {
+            papelDescartado = true;
+            gameObject.SetActive(false);
+
+            legendaHigiene.MudarLegenda(
+                "Higienização concluída!"
+            );
+
+            Debug.Log("Papel descartado no lixo!");
         }
     }
 
@@ -96,8 +99,17 @@ public class SecarMaos : MonoBehaviour
         if (outro.CompareTag("AreaSecagem"))
         {
             papelNaArea = false;
-
-            Debug.Log("Papel saiu da área de secagem!");
         }
     }
+
+    public void MostrarLegendaSecagem()
+    {
+        if (!secagemConcluida && !papelDescartado)
+        {
+            legendaHigiene.MudarLegenda(
+                "Arraste o papel-toalha sobre as mãos para secá-las."
+            );
+        }
+    }
+
 }
