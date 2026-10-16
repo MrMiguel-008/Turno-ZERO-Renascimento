@@ -577,6 +577,12 @@ public class InteracaoMinigame : MonoBehaviour, IObjetivoMinigame
             $"[InteracaoMinigame] " +
             $"OBJETIVO CONCLUÍDO: {idObjetivoAtual}"
         );
+
+        // **NOVIDADE:** Avisa o QuestManager da cena principal que este minigame terminou
+        if (QuestManager.Instance != null)
+        {
+            QuestManager.Instance.CheckMinigameQuest(idObjetivoAtual);
+        }
     }
 
     // =========================================================
