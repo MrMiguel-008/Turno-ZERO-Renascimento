@@ -14,6 +14,13 @@ TagManager:
   - AreaMaos
   - AreaSecagem
   - Mao
+  - uniforme
+  - s uniforme
+  - s botas
+  - S avental
+  - s touca
+  - s mascara
+  - s luvas
   layers:
   - Default
   - TransparentFX
