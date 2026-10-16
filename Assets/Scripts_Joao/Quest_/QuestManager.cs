@@ -91,8 +91,7 @@ public class QuestManager : MonoBehaviour
             }
         }
     }
-
-    // Chamado pelo ItemColetavel quando um item é apanhado
+    
     // Chamado pelo ItemColetavel quando um item é apanhado
     public void CheckItemCollectionQuest(string itemColetadoID)
     {
@@ -118,6 +117,7 @@ public class QuestManager : MonoBehaviour
             }
         }
     }
+
     public void OnDialogueEnded()
     {
         if (!string.IsNullOrEmpty(activeQuestID) && !isQuestCompleted)
@@ -135,29 +135,33 @@ public class QuestManager : MonoBehaviour
     // Valida se a missão requer múltiplos itens no inventário antes de permitir concluí-la
     void ValidarEConcluir(QuestData.QuestInfo quest)
     {
-        // Se a missão exigir itens no inventário
+        // Se a missão tiver itens exigidos na lista
         if (quest.requiredItems != null && quest.requiredItems.Length > 0)
         {
             InventarioHUD inventario = InventarioHUD.Instance;
             if (inventario != null)
             {
-                // Percorre cada item exigido pela missão
+                // Percorre cada item da lista de requisitos da missão
                 foreach (var req in quest.requiredItems)
                 {
-                    // Como o máximo é 1, verificamos apenas se o player possui o item
-                    if (!inventario.PossuiItem(req.itemID))
+                    int qtdNecessaria = req.amount > 0 ? req.amount : 1;
+
+                    // Se faltar algum dos itens ou a quantidade for insuficiente, bloqueia a conclusão
+                    if (!inventario.PossuiItem(req.itemID, qtdNecessaria))
                     {
-                        Debug.Log($"Falta o item necessário: '{req.itemID}'.");
+                        Debug.Log($"Missão pendente! Falta o item: '{req.itemID}' (Necessário: {qtdNecessaria}).");
                         return;
                     }
                 }
             }
             else
             {
+                Debug.LogWarning("InventarioHUD não encontrado na cena!");
                 return;
             }
         }
 
+        // Se passou por todas as validações de itens, local ou diálogo, conclui a missão
         CompleteQuest();
     }
 

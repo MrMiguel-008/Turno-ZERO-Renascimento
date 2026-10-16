@@ -15,15 +15,14 @@ MonoBehaviour:
   quests:
   - questID: m1
     questTitle: "Entre na Recep\xE7\xE3o"
-    questDescription: "Use o W, A, S e D para se movimentar, v\xE1 para a Primeira
-      sala"
+    questDescription: literalmente
     questType: 1
     targetAreaName: recepcao
     requiredItems: []
   - questID: m2
     questTitle: Fale com o Supervisor
     questDescription: Aperte a tecla 'E'
-    questType: 2
+    questType: 0
     targetAreaName: 
     requiredItems: []
   - questID: m3
@@ -32,21 +31,3 @@ MonoBehaviour:
     questType: 1
     targetAreaName: vestiario
     requiredItems: []
-  - questID: m4
-    questTitle: Colete o Item
-    questDescription: Use a Tecla F para Pegar a luva
-    questType: 3
-    targetAreaName: vestiario
-    requiredItems:
-    - itemID: luva
-      amount: 0
-  - questID: m4
-    questTitle: Fale com o Supervisor
-    questDescription: 'Aperte a tecla ''E'' para falar com o supervisor
-
-'
-    questType: 2
-    targetAreaName: vestiario
-    requiredItems:
-    - itemID: luva
-      amount: 0

@@ -1,5 +1,4 @@
 using UnityEngine;
-using UnityEngine.UI;
 using System.Collections.Generic;
 
 [System.Serializable]
@@ -7,23 +6,15 @@ public struct ItemSlot
 {
     public string nomeItem;
     public Sprite iconeItem;
+    public int quantidade;
 }
 
 public class InventarioHUD : MonoBehaviour
 {
     public static InventarioHUD Instance;
 
-    [Header("Lista de Itens Guardados")]
+    [Header("Lista de Itens no Inventário")]
     public List<ItemSlot> itensGuardados = new List<ItemSlot>();
-
-    [Header("Configuração Visual do HUD")]
-    [Tooltip("O painel (Contentor com GridLayoutGroup ou HorizontalLayoutGroup) onde os ícones vão aparecer.")]
-    public Transform containerHUD;
-    [Tooltip("Um prefab de UI simples que contenha apenas um componente Image para representar o ícone do item.")]
-    public GameObject iconePrefabUI;
-
-    // Dicionário interno para controlar os ícones gerados na tela
-    private Dictionary<string, GameObject> iconesInstanciados = new Dictionary<string, GameObject>();
 
     void Awake()
     {
@@ -31,65 +22,60 @@ public class InventarioHUD : MonoBehaviour
         else Destroy(gameObject);
     }
 
-    // Adiciona o item ao inventário garantindo que não duplica o mesmo tipo (máximo 1 por tipo)
+    // Adiciona o item ao inventário (chamado pelo ItemColetavel)
     public bool AdicionarItem(string nome, Sprite icone)
     {
-        // Verifica se já tem o item no inventário
+        // Procura se já tem o item no inventário para apenas somar a quantidade
         foreach (var slot in itensGuardados)
         {
             if (slot.nomeItem == nome)
             {
-                Debug.Log($"Já tens o item '{nome}' no inventário!");
-                return false;
+                // Como structs são por valor, precisamos atualizar a lista por índice ou recriar
+                int index = itensGuardados.FindIndex(i => i.nomeItem == nome);
+                if (index != -1)
+                {
+                    ItemSlot atualizado = itensGuardados[index];
+                    atualizado.quantidade++;
+                    itensGuardados[index] = atualizado;
+
+                    Debug.Log($"Item incrementado no inventário: {nome} (Total: {atualizado.quantidade})");
+                    AtualizarUIInventario();
+                    return true;
+                }
             }
         }
 
-        // Guarda o novo item único
+        // Se não existir, cria um novo slot
         ItemSlot novoSlot = new ItemSlot
         {
             nomeItem = nome,
-            iconeItem = icone
+            iconeItem = icone,
+            quantidade = 1
         };
 
         itensGuardados.Add(novoSlot);
-        Debug.Log($"Item único guardado: {nome}");
+        Debug.Log($"Novo item adicionado ao inventário: {nome}");
 
-        // Atualiza a interface gráfica para mostrar o novo item na lista
-        AtualizarUIInventario(novoSlot);
+        AtualizarUIInventario();
         return true;
     }
 
-    public bool PossuiItem(string nomeItem)
+    // Verifica se o player possui uma quantidade específica de um determinado item
+    public bool PossuiItem(string nomeItem, int quantidadeDesejada = 1)
     {
         foreach (var slot in itensGuardados)
         {
-            if (slot.nomeItem == nomeItem) return true;
+            if (slot.nomeItem == nomeItem)
+            {
+                return slot.quantidade >= quantidadeDesejada;
+            }
         }
         return false;
     }
 
-    // Cria visualmente o ícone do item recolhido no painel do HUD
-    void AtualizarUIInventario(ItemSlot novoItem)
+    void AtualizarUIInventario()
     {
-        if (containerHUD != null && iconePrefabUI != null)
-        {
-            // Instancia o prefab do ícone dentro do painel do inventário
-            GameObject novoIconeObj = Instantiate(iconePrefabUI, containerHUD);
-
-            // Altera a imagem do prefab para o sprite do item coletado
-            Image imagemItem = novoIconeObj.GetComponent<Image>();
-            if (imagemItem != null && novoItem.iconeItem != null)
-            {
-                imagemItem.sprite = novoItem.iconeItem;
-            }
-
-            novoIconeObj.SetActive(true);
-
-            // Guarda a referência caso precises de removê-lo no futuro
-            if (!iconesInstanciados.ContainsKey(novoItem.nomeItem))
-            {
-                iconesInstanciados.Add(novoItem.nomeItem, novoIconeObj);
-            }
-        }
+        // Aqui você pode adicionar lógica visual futura para desenhar os ícones no ecrã do Canvas.
+        // Por enquanto, gere os dados com segurança em segundo plano.
     }
 }
