@@ -12,7 +12,7 @@ public class InteracaoMinigame : MonoBehaviour, IObjetivoMinigame
     // =========================================================
 
     [Header("Identificação do Objetivo")]
-    [Tooltip("ID ÚNICO deste objetivo. Exemplo: tapete_sanitizante")]
+    [Tooltip("ID ÚNICO deste objetivo. Deve corresponder ao 'targetMinigameID' da missão no QuestDatabase. Exemplo: tapete_sanitizante")]
     [SerializeField] private string idObjetivo = "objetivo_01";
 
     // =========================================================
@@ -180,6 +180,32 @@ public class InteracaoMinigame : MonoBehaviour, IObjetivoMinigame
     }
 
     // =========================================================
+    // VALIDAÇÃO SE PODE INTERAGIR (Missão Ativa e Conclusão)
+    // =========================================================
+    private bool PodeInteragir()
+    {
+        // Se já estiver concluído, nunca mais pode interagir
+        if (concluido || ObjetivoFoiConcluido(idObjetivo))
+            return false;
+
+        // Valida se a missão ativa atual é exatamente a deste minigame
+        if (QuestManager.Instance != null)
+        {
+            string questAtivaID = QuestManager.Instance.activeQuestID;
+            var questInfo = QuestManager.Instance.GetQuestInfo(questAtivaID);
+
+            if (questInfo.questType == QuestType.Minigame && questInfo.targetMinigameID == idObjetivo)
+            {
+                return true;
+            }
+
+            return false; // Se for outra missão, bloqueia
+        }
+
+        return true; // Fallback caso não exista QuestManager na cena
+    }
+
+    // =========================================================
     // VALIDAÇÃO DO ID
     // =========================================================
 
@@ -257,7 +283,7 @@ public class InteracaoMinigame : MonoBehaviour, IObjetivoMinigame
         if (!other.CompareTag("Player"))
             return;
 
-        if (concluido)
+        if (!PodeInteragir())
             return;
 
         if (transicaoEmAndamento)
@@ -291,8 +317,15 @@ public class InteracaoMinigame : MonoBehaviour, IObjetivoMinigame
 
     private void Update()
     {
-        if (concluido)
+        if (!PodeInteragir())
+        {
+            if (interacaoComPrompt == this)
+            {
+                EsconderMensagem();
+                interacaoComPrompt = null;
+            }
             return;
+        }
 
         if (!jogadorNaArea)
             return;
@@ -317,7 +350,7 @@ public class InteracaoMinigame : MonoBehaviour, IObjetivoMinigame
 
     private void IniciarMinigame()
     {
-        if (concluido)
+        if (!PodeInteragir())
             return;
 
         if (transicaoEmAndamento)
@@ -468,7 +501,7 @@ public class InteracaoMinigame : MonoBehaviour, IObjetivoMinigame
 
             interacao.AtualizarEstadoDoObjetivo();
 
-            if (interacao.concluido)
+            if (interacao.concluido || !interacao.PodeInteragir())
             {
                 interacao.EsconderMensagem();
                 continue;
@@ -578,7 +611,7 @@ public class InteracaoMinigame : MonoBehaviour, IObjetivoMinigame
             $"OBJETIVO CONCLUÍDO: {idObjetivoAtual}"
         );
 
-        // **NOVIDADE:** Avisa o QuestManager da cena principal que este minigame terminou
+        // Avisa o QuestManager para avançar a missão
         if (QuestManager.Instance != null)
         {
             QuestManager.Instance.CheckMinigameQuest(idObjetivoAtual);
@@ -651,10 +684,6 @@ public class InteracaoMinigame : MonoBehaviour, IObjetivoMinigame
         {
             transicaoEmAndamento = true;
 
-            // -------------------------------------------------
-            // CENA DE ORIGEM
-            // -------------------------------------------------
-
             cenaOrigem =
                 SceneManager.GetActiveScene();
 
@@ -671,15 +700,7 @@ public class InteracaoMinigame : MonoBehaviour, IObjetivoMinigame
                 yield break;
             }
 
-            // -------------------------------------------------
-            // SALVAR PLAYER
-            // -------------------------------------------------
-
             SalvarEstadoPlayer();
-
-            // -------------------------------------------------
-            // SALVAR RAÍZES DA CENA
-            // -------------------------------------------------
 
             estadosRaizes =
                 new List<EstadoRaiz>();
@@ -701,10 +722,6 @@ public class InteracaoMinigame : MonoBehaviour, IObjetivoMinigame
                 );
             }
 
-            // -------------------------------------------------
-            // DESATIVAR CENA ORIGINAL
-            // -------------------------------------------------
-
             foreach (EstadoRaiz estado in estadosRaizes)
             {
                 if (estado.objeto != null)
@@ -712,10 +729,6 @@ public class InteracaoMinigame : MonoBehaviour, IObjetivoMinigame
                     estado.objeto.SetActive(false);
                 }
             }
-
-            // -------------------------------------------------
-            // VERIFICAR SE MINIGAME JÁ ESTÁ CARREGADO
-            // -------------------------------------------------
 
             Scene cenaExistente =
                 SceneManager.GetSceneByName(
@@ -735,10 +748,6 @@ public class InteracaoMinigame : MonoBehaviour, IObjetivoMinigame
 
                 yield break;
             }
-
-            // -------------------------------------------------
-            // CARREGAR MINIGAME
-            // -------------------------------------------------
 
             AsyncOperation operacao =
                 SceneManager.LoadSceneAsync(
@@ -763,10 +772,6 @@ public class InteracaoMinigame : MonoBehaviour, IObjetivoMinigame
                 yield return null;
             }
 
-            // -------------------------------------------------
-            // LOCALIZAR MINIGAME
-            // -------------------------------------------------
-
             cenaMinigameAtual =
                 SceneManager.GetSceneByName(
                     interacao.cenaMinigame
@@ -784,10 +789,6 @@ public class InteracaoMinigame : MonoBehaviour, IObjetivoMinigame
 
                 yield break;
             }
-
-            // -------------------------------------------------
-            // MINIGAME VIRA CENA ATIVA
-            // -------------------------------------------------
 
             SceneManager.SetActiveScene(
                 cenaMinigameAtual
@@ -851,11 +852,6 @@ public class InteracaoMinigame : MonoBehaviour, IObjetivoMinigame
             }
 
             playerFoiSalvo = true;
-
-            Debug.Log(
-                $"[InteracaoMinigame] " +
-                $"Player salvo em: {playerPosicaoSalva}"
-            );
         }
 
         // =====================================================
@@ -878,11 +874,6 @@ public class InteracaoMinigame : MonoBehaviour, IObjetivoMinigame
 
             if (player == null)
             {
-                Debug.LogWarning(
-                    "[InteracaoMinigame] " +
-                    "Player não encontrado ao restaurar."
-                );
-
                 yield break;
             }
 
@@ -915,12 +906,6 @@ public class InteracaoMinigame : MonoBehaviour, IObjetivoMinigame
             }
 
             Physics2D.SyncTransforms();
-
-            Debug.Log(
-                $"[InteracaoMinigame] " +
-                $"Player restaurado em: " +
-                $"{playerPosicaoSalva}"
-            );
         }
 
         // =====================================================
@@ -946,18 +931,10 @@ public class InteracaoMinigame : MonoBehaviour, IObjetivoMinigame
             if (!transicaoEmAndamento)
                 yield break;
 
-            // -------------------------------------------------
-            // REGISTRAR OBJETIVO
-            // -------------------------------------------------
-
             if (objetivoConcluido)
             {
                 RegistrarObjetivoConcluido();
             }
-
-            // -------------------------------------------------
-            // DESCARREGAR MINIGAME
-            // -------------------------------------------------
 
             if (cenaMinigameAtual.IsValid() &&
                 cenaMinigameAtual.isLoaded)
@@ -976,10 +953,6 @@ public class InteracaoMinigame : MonoBehaviour, IObjetivoMinigame
                 }
             }
 
-            // -------------------------------------------------
-            // RESTAURAR ESTADOS DAS RAÍZES
-            // -------------------------------------------------
-
             if (estadosRaizes != null)
             {
                 foreach (EstadoRaiz estado in estadosRaizes)
@@ -993,10 +966,6 @@ public class InteracaoMinigame : MonoBehaviour, IObjetivoMinigame
                 }
             }
 
-            // -------------------------------------------------
-            // CENA ORIGINAL ATIVA
-            // -------------------------------------------------
-
             if (cenaOrigem.IsValid() &&
                 cenaOrigem.isLoaded)
             {
@@ -1007,17 +976,9 @@ public class InteracaoMinigame : MonoBehaviour, IObjetivoMinigame
 
             Physics2D.SyncTransforms();
 
-            // -------------------------------------------------
-            // RESTAURAR PLAYER
-            // -------------------------------------------------
-
             yield return StartCoroutine(
                 RestaurarPlayer()
             );
-
-            // -------------------------------------------------
-            // FINALIZAR ESTADO DA INTERAÇÃO
-            // -------------------------------------------------
 
             InteracaoMinigame interacaoQueIniciou =
                 interacaoAtual;
@@ -1030,24 +991,7 @@ public class InteracaoMinigame : MonoBehaviour, IObjetivoMinigame
                     .AoRetornarDaCena();
             }
 
-            // -------------------------------------------------
-            // REAVALIAR OUTRAS INTERAÇÕES
-            // -------------------------------------------------
-
             ReavaliarInteracoes();
-
-            Debug.Log(
-                objetivoConcluido
-                    ? "[InteracaoMinigame] " +
-                      "Minigame concluído. " +
-                      "Cena restaurada."
-                    : "[InteracaoMinigame] " +
-                      "Minigame encerrado sem conclusão."
-            );
-
-            // -------------------------------------------------
-            // LIMPAR TRANSIÇÃO
-            // -------------------------------------------------
 
             interacaoAtual = null;
 
@@ -1064,10 +1008,6 @@ public class InteracaoMinigame : MonoBehaviour, IObjetivoMinigame
 
             playerFoiSalvo = false;
         }
-
-        // =====================================================
-        // FALHA AO CARREGAR
-        // =====================================================
 
         private void RestaurarCenaOriginalSemConcluir()
         {
