@@ -618,11 +618,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 10584c9a8f8fe974f99d4d4b49bfacaa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  valorDoObjeto: 1
-  metaCena1: 6
   nomeCena1: MinigameEPI
-  metaCena2: 7
+  metaCena1: 6
+  pontosIniciais1: 100
+  penalizacaoErro1: 10
   nomeCena2: BancadaMinigame
+  metaCena2: 7
+  pontosIniciais2: 150
+  penalizacaoErro2: 20
   canvas: {fileID: 624984291}
   tagDoAlvoCorreto: S avental 1
 --- !u!4 &243335859
@@ -837,11 +840,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 10584c9a8f8fe974f99d4d4b49bfacaa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  valorDoObjeto: 1
-  metaCena1: 7
-  nomeCena1: BancadaMinigame
-  metaCena2: 6
-  nomeCena2: MinigameEPI
+  nomeCena1: MinigameEPI
+  metaCena1: 6
+  pontosIniciais1: 100
+  penalizacaoErro1: 10
+  nomeCena2: BancadaMinigame
+  metaCena2: 7
+  pontosIniciais2: 150
+  penalizacaoErro2: 20
   canvas: {fileID: 624984291}
   tagDoAlvoCorreto: s botas 1
 --- !u!50 &417958571
@@ -1181,11 +1187,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 10584c9a8f8fe974f99d4d4b49bfacaa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  valorDoObjeto: 1
-  metaCena1: 7
-  nomeCena1: BancadaMinigame
-  metaCena2: 6
-  nomeCena2: MinigameEPI
+  nomeCena1: MinigameEPI
+  metaCena1: 6
+  pontosIniciais1: 100
+  penalizacaoErro1: 10
+  nomeCena2: BancadaMinigame
+  metaCena2: 7
+  pontosIniciais2: 150
+  penalizacaoErro2: 20
   canvas: {fileID: 624984291}
   tagDoAlvoCorreto: s mascara 1
 --- !u!50 &437579895
@@ -1680,11 +1689,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 10584c9a8f8fe974f99d4d4b49bfacaa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  valorDoObjeto: 1
-  metaCena1: 7
-  nomeCena1: BancadaMinigame
-  metaCena2: 6
-  nomeCena2: MinigameEPI
+  nomeCena1: MinigameEPI
+  metaCena1: 6
+  pontosIniciais1: 100
+  penalizacaoErro1: 10
+  nomeCena2: BancadaMinigame
+  metaCena2: 7
+  pontosIniciais2: 150
+  penalizacaoErro2: 20
   canvas: {fileID: 624984291}
   tagDoAlvoCorreto: s luvas 1
 --- !u!50 &669735453
@@ -2778,11 +2790,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 10584c9a8f8fe974f99d4d4b49bfacaa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  valorDoObjeto: 1
-  metaCena1: 7
-  nomeCena1: BancadaMinigame
-  metaCena2: 6
-  nomeCena2: MinigameEPI
+  nomeCena1: MinigameEPI
+  metaCena1: 6
+  pontosIniciais1: 100
+  penalizacaoErro1: 10
+  nomeCena2: BancadaMinigame
+  metaCena2: 7
+  pontosIniciais2: 150
+  penalizacaoErro2: 20
   canvas: {fileID: 624984291}
   tagDoAlvoCorreto: s touca 1
 --- !u!50 &1452102939
@@ -3175,11 +3190,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 10584c9a8f8fe974f99d4d4b49bfacaa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  valorDoObjeto: 2
-  metaCena1: 7
-  nomeCena1: BancadaMinigame
-  metaCena2: 6
-  nomeCena2: MinigameEPI
+  nomeCena1: MinigameEPI
+  metaCena1: 6
+  pontosIniciais1: 100
+  penalizacaoErro1: 10
+  nomeCena2: BancadaMinigame
+  metaCena2: 7
+  pontosIniciais2: 150
+  penalizacaoErro2: 20
   canvas: {fileID: 624984291}
   tagDoAlvoCorreto: s uniforme 1
 --- !u!4 &1621443281

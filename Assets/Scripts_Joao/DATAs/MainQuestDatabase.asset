@@ -165,24 +165,3 @@ MonoBehaviour:
     - itemID: uniforme
       amount: 1
     targetMinigameID: bancada_producao
-  - questID: bancada_producao
-    questTitle: Organize sua Bancada
-    questDescription: 'Utilize a Tecla ''E'' para interagir com a Supervisora.
-
-'
-    questType: 4
-    targetAreaName: 
-    requiredItems:
-    - itemID: luva
-      amount: 1
-    - itemID: mascara
-      amount: 1
-    - itemID: toca
-      amount: 1
-    - itemID: bota
-      amount: 1
-    - itemID: avental
-      amount: 1
-    - itemID: uniforme
-      amount: 1
-    targetMinigameID: bancada_producao
