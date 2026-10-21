@@ -6,7 +6,7 @@ public class CarregarPosicaoJogador : MonoBehaviour
 
     void Start()
     {
-        // Se houver progresso salvo, move o jogador para onde ele estava
+        // Só carrega a posição se "TemProgressoSalvo" for igual a 1
         if (PlayerPrefs.GetInt("TemProgressoSalvo", 0) == 1)
         {
             float x = PlayerPrefs.GetFloat("PlayerX");
