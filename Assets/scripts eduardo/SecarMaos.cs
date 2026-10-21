@@ -104,6 +104,8 @@ public class SecarMaos : MonoBehaviour
 
     public void MostrarLegendaSecagem()
     {
+        Debug.LogWarning("TESTE: MostrarLegendaSecagem foi chamado!");
+
         if (!secagemConcluida && !papelDescartado)
         {
             legendaHigiene.MudarLegenda(
@@ -111,5 +113,4 @@ public class SecarMaos : MonoBehaviour
             );
         }
     }
-
 }
