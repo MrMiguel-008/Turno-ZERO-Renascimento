@@ -3,24 +3,29 @@ using UnityEngine.SceneManagement;
 
 public class ControladorMenuESC : MonoBehaviour
 {
-    [SerializeField] private string nomeCenaMenu = "MenuPrincipal";
+    [SerializeField] private Transform jogadorTransform; // Arraste seu Player aqui no Inspector
 
     void Update()
     {
-        // Detecta quando a tecla ESC é pressionada
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            // Verifica qual cena está ativa para decidir o comportamento
-            if (SceneManager.GetActiveScene().name == nomeCenaMenu)
-            {
-                // Se já estiver no menu, você pode optar por sair do jogo ou fechar um painel
-                Debug.Log("Já está no Menu Principal.");
-            }
-            else
-            {
-                // Se estiver no jogo principal, carrega a cena do menu
-                SceneManager.LoadScene(nomeCenaMenu);
-            }
+            IrParaMenuPrincipal();
         }
+    }
+
+    public void IrParaMenuPrincipal()
+    {
+        // Salva as coordenadas do jogador
+        if (jogadorTransform != null)
+        {
+            PlayerPrefs.SetFloat("PlayerX", jogadorTransform.position.x);
+            PlayerPrefs.SetFloat("PlayerY", jogadorTransform.position.y);
+            PlayerPrefs.SetFloat("PlayerZ", jogadorTransform.position.z);
+            PlayerPrefs.SetInt("TemProgressoSalvo", 1); // Marca que existe um salvamento
+            PlayerPrefs.Save();
+        }
+
+        Time.timeScale = 1f; // Garante que o tempo continue normal
+        SceneManager.LoadScene("MenuPrincipal"); // Nome exato da cena do menu
     }
 }
