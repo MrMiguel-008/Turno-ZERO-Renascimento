@@ -2868,7 +2868,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b758474c4bf6a4546909b4a01f4d9b9d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  painelMenuESC: {fileID: 0}
+  jogadorTransform: {fileID: 1047265244}
 --- !u!1 &801270576
 GameObject:
   m_ObjectHideFlags: 0
