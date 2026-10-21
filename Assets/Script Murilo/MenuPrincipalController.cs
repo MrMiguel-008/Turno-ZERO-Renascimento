@@ -12,10 +12,7 @@ public class MenuPrincipalController : MonoBehaviour
 
     void Start()
     {
-        // Garante que o jogo comece na velocidade normal
         Time.timeScale = 1f;
-
-        // Pega o modo salvo previamente (padrão é 0 - Normal)
         modoAtual = PlayerPrefs.GetInt("ModoDaltonismo", 0);
 
         if (globalVolume != null && globalVolume.profile.TryGet(out colorAdjustments))
@@ -26,8 +23,11 @@ public class MenuPrincipalController : MonoBehaviour
 
     public void BotaoJogar()
     {
-        PlayerPrefs.SetInt("CarregarUltimoSalvamento", 1);
+        // Limpa a posição guardada anteriormente para que o player comece no ponto inicial fixo
+        PlayerPrefs.DeleteKey("PlayerPosX");
+        PlayerPrefs.DeleteKey("PlayerPosY");
         PlayerPrefs.Save();
+
         Time.timeScale = 1f;
         SceneManager.LoadScene("JogoPrincipal");
     }
@@ -46,13 +46,10 @@ public class MenuPrincipalController : MonoBehaviour
 
     public void AlternarDaltonismo()
     {
-        // Avança o modo de 0 a 3 e volta para 0
         modoAtual = (modoAtual + 1) % 4;
-
         PlayerPrefs.SetInt("ModoDaltonismo", modoAtual);
         PlayerPrefs.Save();
 
-        // Se por algum motivo o colorAdjustments não tiver sido pego no Start, tenta pegar agora
         if (colorAdjustments == null && globalVolume != null)
         {
             globalVolume.profile.TryGet(out colorAdjustments);
