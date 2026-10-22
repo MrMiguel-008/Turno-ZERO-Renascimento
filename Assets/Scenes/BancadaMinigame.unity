@@ -241,7 +241,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0, y: 1.6807158}
+  m_Offset: {x: -0.0881722, y: 0.5092764}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -251,7 +251,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 4.68, y: 1.6785684}
+  m_Size: {x: 6.4686522, y: 5.381833}
   m_EdgeRadius: 0
 --- !u!1 &193294932
 GameObject:
@@ -428,11 +428,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 10584c9a8f8fe974f99d4d4b49bfacaa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  valorDoObjeto: 1
-  metaCena1: 6
   nomeCena1: MinigameEPI
-  metaCena2: 7
+  metaCena1: 6
+  pontosIniciais1: 100
+  penalizacaoErro1: 10
   nomeCena2: BancadaMinigame
+  metaCena2: 7
+  pontosIniciais2: 100
+  penalizacaoErro2: 10
+  nomeCena3: CenaTerceiroMinigame
+  metaCena3: 5
+  pontosIniciais3: 100
+  penalizacaoErro3: 10
   canvas: {fileID: 1807395901}
   tagDoAlvoCorreto: Lixeira
 --- !u!1 &404837676
@@ -1017,11 +1024,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 10584c9a8f8fe974f99d4d4b49bfacaa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  valorDoObjeto: 0.5
-  metaCena1: 6
   nomeCena1: MinigameEPI
-  metaCena2: 7
+  metaCena1: 6
+  pontosIniciais1: 100
+  penalizacaoErro1: 10
   nomeCena2: BancadaMinigame
+  metaCena2: 7
+  pontosIniciais2: 100
+  penalizacaoErro2: 10
+  nomeCena3: CenaTerceiroMinigame
+  metaCena3: 5
+  pontosIniciais3: 100
+  penalizacaoErro3: 10
   canvas: {fileID: 1807395901}
   tagDoAlvoCorreto: s caixa
 --- !u!1 &753248265
@@ -1467,11 +1481,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 10584c9a8f8fe974f99d4d4b49bfacaa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  valorDoObjeto: 1
-  metaCena1: 6
   nomeCena1: MinigameEPI
-  metaCena2: 7
+  metaCena1: 6
+  pontosIniciais1: 100
+  penalizacaoErro1: 10
   nomeCena2: BancadaMinigame
+  metaCena2: 7
+  pontosIniciais2: 100
+  penalizacaoErro2: 10
+  nomeCena3: CenaTerceiroMinigame
+  metaCena3: 5
+  pontosIniciais3: 100
+  penalizacaoErro3: 10
   canvas: {fileID: 1807395901}
   tagDoAlvoCorreto: s tablet
 --- !u!1 &1021876441
@@ -1993,11 +2014,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 10584c9a8f8fe974f99d4d4b49bfacaa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  valorDoObjeto: 1
-  metaCena1: 6
   nomeCena1: MinigameEPI
-  metaCena2: 7
+  metaCena1: 6
+  pontosIniciais1: 100
+  penalizacaoErro1: 10
   nomeCena2: BancadaMinigame
+  metaCena2: 7
+  pontosIniciais2: 100
+  penalizacaoErro2: 10
+  nomeCena3: CenaTerceiroMinigame
+  metaCena3: 5
+  pontosIniciais3: 100
+  penalizacaoErro3: 10
   canvas: {fileID: 1807395901}
   tagDoAlvoCorreto: s prancheta
 --- !u!1 &1632220055
@@ -2175,11 +2203,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 10584c9a8f8fe974f99d4d4b49bfacaa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  valorDoObjeto: 1
-  metaCena1: 6
   nomeCena1: MinigameEPI
-  metaCena2: 7
+  metaCena1: 6
+  pontosIniciais1: 100
+  penalizacaoErro1: 10
   nomeCena2: BancadaMinigame
+  metaCena2: 7
+  pontosIniciais2: 100
+  penalizacaoErro2: 10
+  nomeCena3: CenaTerceiroMinigame
+  metaCena3: 5
+  pontosIniciais3: 100
+  penalizacaoErro3: 10
   canvas: {fileID: 1807395901}
   tagDoAlvoCorreto: Lixeira
 --- !u!1 &1807395898
@@ -2459,11 +2494,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 10584c9a8f8fe974f99d4d4b49bfacaa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  valorDoObjeto: 1
-  metaCena1: 6
   nomeCena1: MinigameEPI
-  metaCena2: 7
+  metaCena1: 6
+  pontosIniciais1: 100
+  penalizacaoErro1: 10
   nomeCena2: BancadaMinigame
+  metaCena2: 7
+  pontosIniciais2: 100
+  penalizacaoErro2: 10
+  nomeCena3: CenaTerceiroMinigame
+  metaCena3: 5
+  pontosIniciais3: 100
+  penalizacaoErro3: 10
   canvas: {fileID: 1807395901}
   tagDoAlvoCorreto: Lixeira
 --- !u!1 &1953696760
@@ -2774,11 +2816,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 10584c9a8f8fe974f99d4d4b49bfacaa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  valorDoObjeto: 0.5
-  metaCena1: 6
   nomeCena1: MinigameEPI
-  metaCena2: 7
+  metaCena1: 6
+  pontosIniciais1: 100
+  penalizacaoErro1: 10
   nomeCena2: BancadaMinigame
+  metaCena2: 7
+  pontosIniciais2: 100
+  penalizacaoErro2: 10
+  nomeCena3: CenaTerceiroMinigame
+  metaCena3: 5
+  pontosIniciais3: 100
+  penalizacaoErro3: 10
   canvas: {fileID: 1807395901}
   tagDoAlvoCorreto: s luva
 --- !u!1660057539 &9223372036854775807

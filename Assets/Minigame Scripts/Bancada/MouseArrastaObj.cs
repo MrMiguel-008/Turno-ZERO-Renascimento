@@ -14,11 +14,17 @@ public class MouseArrastaObj : MonoBehaviour
     [SerializeField] private float pontosIniciais1 = 100f;
     [SerializeField] private float penalizacaoErro1 = 10f;
 
-    [Header("Configuração da Cena 2 (Tapete)")]
+    [Header("Configuração da Cena 2 (Minigame 2)")]
     [SerializeField] private string nomeCena2 = "CenaOutroMinigame";
     [SerializeField] private int metaCena2 = 6;
-    [SerializeField] private float pontosIniciais2 = 150f;
-    [SerializeField] private float penalizacaoErro2 = 20f;
+    [SerializeField] private float pontosIniciais2 = 100f;
+    [SerializeField] private float penalizacaoErro2 = 10f;
+
+    [Header("Configuração da Cena 3 (Novo Minigame)")]
+    [SerializeField] private string nomeCena3 = "CenaTerceiroMinigame";
+    [SerializeField] private int metaCena3 = 5;
+    [SerializeField] private float pontosIniciais3 = 100f;
+    [SerializeField] private float penalizacaoErro3 = 10f;
 
     private int objetivosNecessariosDestaCena = 7;
 
@@ -34,7 +40,6 @@ public class MouseArrastaObj : MonoBehaviour
     private int ordemArrastando = 100;
     private bool travado = false;
 
-    // Reseta os dados sempre que uma nova cena carrega
     [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.BeforeSceneLoad)]
     private static void InicializarOuvinteDeCenas()
     {
@@ -59,7 +64,6 @@ public class MouseArrastaObj : MonoBehaviour
 
         string nomeCenaAtual = SceneManager.GetActiveScene().name;
 
-        // Configura a pontuação inicial baseada na cena apenas na primeira execução da cena
         if (cenaAtualContada != nomeCenaAtual)
         {
             totalSucessos = 0;
@@ -75,16 +79,18 @@ public class MouseArrastaObj : MonoBehaviour
                 pontuacaoAtualMinigame = pontosIniciais2;
                 penalizacaoAtual = penalizacaoErro2;
             }
+            else if (nomeCenaAtual == nomeCena3)
+            {
+                pontuacaoAtualMinigame = pontosIniciais3;
+                penalizacaoAtual = penalizacaoErro3;
+            }
             else
             {
                 pontuacaoAtualMinigame = pontosIniciais1;
                 penalizacaoAtual = penalizacaoErro1;
             }
-
-            Debug.Log($"[Minigame] Cena: {nomeCenaAtual} | Pontos Iniciais: {pontuacaoAtualMinigame} | Penalização por Erro: {penalizacaoAtual}");
         }
 
-        // Define a quantidade de itens necessários para a cena atual
         if (nomeCenaAtual == nomeCena1)
         {
             objetivosNecessariosDestaCena = metaCena1;
@@ -92,6 +98,10 @@ public class MouseArrastaObj : MonoBehaviour
         else if (nomeCenaAtual == nomeCena2)
         {
             objetivosNecessariosDestaCena = metaCena2;
+        }
+        else if (nomeCenaAtual == nomeCena3)
+        {
+            objetivosNecessariosDestaCena = metaCena3;
         }
         else
         {
@@ -158,10 +168,7 @@ public class MouseArrastaObj : MonoBehaviour
     private void RegistrarErro(string motivo)
     {
         transform.position = posicaoOriginal;
-
-        // Desconta a penalização da cena, garantindo que o limite mínimo seja exatamente 0
         pontuacaoAtualMinigame = Mathf.Max(0f, pontuacaoAtualMinigame - penalizacaoAtual);
-
         Debug.LogWarning($"[ERRO] {motivo} -{penalizacaoAtual} pts. Pontuação atual: {pontuacaoAtualMinigame} pts");
     }
 
@@ -171,8 +178,6 @@ public class MouseArrastaObj : MonoBehaviour
 
         travado = true;
         totalSucessos++;
-
-        Debug.Log($"Objeto depositado! Total itens: {totalSucessos}/{objetivosNecessariosDestaCena} | Pontuação atual: {pontuacaoAtualMinigame} pts");
 
         if (tagDoAlvoCorreto == "Lixeira")
         {
@@ -186,14 +191,10 @@ public class MouseArrastaObj : MonoBehaviour
             if (meuCollider != null) meuCollider.enabled = false;
         }
 
-        // Verifica se completou todos os itens da cena atual
         if (totalSucessos >= objetivosNecessariosDestaCena)
         {
-            Debug.Log($"Minigame concluído com sucesso! Pontuação final enviada: {pontuacaoAtualMinigame} pontos.");
-
-            // Envia a pontuação obtida para o gestor global do jogo
+            Debug.Log($"Minigame concluído! Pontuação final enviada: {pontuacaoAtualMinigame} pontos.");
             GameScoreManager.AdicionarPontosMinigame(SceneManager.GetActiveScene().name, pontuacaoAtualMinigame);
-
             InteracaoMinigame.FinalizarMinigame(true);
         }
     }
