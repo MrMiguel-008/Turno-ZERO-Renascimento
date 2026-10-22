@@ -2,9 +2,24 @@ using System.Collections;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class TapeteSanitizanteMinigame : MonoBehaviour, IObjetivoMinigame
 {
+    // =========================================================
+    // SISTEMA DE PONTUAÇÃO
+    // =========================================================
+
+    private static float pontuacaoTapete = 150f;
+    private const float PONTUACAO_MAXIMA = 150f;
+    private const float PENALIZACAO_ERRO = 20f;
+
+    [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.BeforeSceneLoad)]
+    private static void ResetarPontuacaoTapete()
+    {
+        pontuacaoTapete = 150f;
+    }
+
     // =========================================================
     // UI
     // =========================================================
@@ -93,6 +108,9 @@ public class TapeteSanitizanteMinigame : MonoBehaviour, IObjetivoMinigame
 
     private void Start()
     {
+        // Reseta os pontos ao iniciar a cena do minigame do tapete
+        pontuacaoTapete = 150f;
+
         // Guarda a posição original da bota.
         posicaoInicialBota = bota.anchoredPosition;
 
@@ -102,7 +120,7 @@ public class TapeteSanitizanteMinigame : MonoBehaviour, IObjetivoMinigame
         // Mostra a primeira tecla.
         AtualizarTeclaNaTela();
 
-        Debug.Log("Minigame do Tapete Sanitizante iniciado!");
+        Debug.Log("Minigame do Tapete Sanitizante iniciado! Pontuação inicial: " + pontuacaoTapete);
     }
 
     private void Update()
@@ -189,7 +207,9 @@ public class TapeteSanitizanteMinigame : MonoBehaviour, IObjetivoMinigame
             "Acertou! Progresso: " +
             acertos +
             "/" +
-            quantidadeAcertosNecessarios
+            quantidadeAcertosNecessarios +
+            " | Pontuação atual: " +
+            pontuacaoTapete
         );
 
         // -----------------------------------------------------
@@ -225,7 +245,10 @@ public class TapeteSanitizanteMinigame : MonoBehaviour, IObjetivoMinigame
 
     private void Errou()
     {
-        Debug.Log("Tecla errada!");
+        // Desconta 20 pontos por erro, garantindo que nunca baixe de 0
+        pontuacaoTapete = Mathf.Max(0f, pontuacaoTapete - PENALIZACAO_ERRO);
+
+        Debug.LogWarning("Tecla errada! -20 pontos. Pontuação atual: " + pontuacaoTapete + "/" + PONTUACAO_MAXIMA);
 
         StartCoroutine(SacudirTecla());
     }
@@ -516,7 +539,10 @@ public class TapeteSanitizanteMinigame : MonoBehaviour, IObjetivoMinigame
         minigameConcluido = true;
         Concluido = true;
 
-        Debug.Log("TAPETE CONCLUÍDO!");
+        Debug.Log("TAPETE CONCLUÍDO! Pontuação final obtida: " + pontuacaoTapete);
+
+        // Envia a pontuação obtida para o gestor global para somar no final do jogo
+        GameScoreManager.AdicionarPontosMinigame(SceneManager.GetActiveScene().name, pontuacaoTapete);
 
         StartCoroutine(FinalizarComAtraso());
     }
@@ -527,14 +553,6 @@ public class TapeteSanitizanteMinigame : MonoBehaviour, IObjetivoMinigame
         yield return new WaitForSeconds(tempoAntesDeVoltar);
 
         // Avisa o sistema universal que o objetivo terminou.
-        // O InteracaoMinigame cuidará de:
-        //
-        // 1. Registrar o objetivo como concluído.
-        // 2. Descarregar esta cena.
-        // 3. Reativar a cena original.
-        // 4. Manter todos os estados da cena original.
-        // 5. Desativar a interação deste objeto.
-        //
         InteracaoMinigame.FinalizarMinigame(true);
     }
 }

@@ -3,23 +3,24 @@ using UnityEngine.SceneManagement;
 
 public class MouseArrastaObj : MonoBehaviour
 {
-    // Pontuação total acumulada na cena atual
-    private static float totalPontos = 0f;
+    private static int totalSucessos = 0;
+    private static float pontuacaoAtualMinigame = 100f;
+    private static float penalizacaoAtual = 10f;
+    private static string cenaAtualContada = "";
 
-    [Header("Configuração de Valor do Objeto")]
-    [Tooltip("Quanto vale este objeto específico ao ser depositado (ex: 1, 0.5, 2, 10).")]
-    [SerializeField] private float valorDoObjeto = 1f;
-
-    [Header("Configuração de Metas por Cena")]
-    [Tooltip("Pontuação necessária para concluir a Cena 1")]
-    [SerializeField] private float metaCena1 = 7f;
+    [Header("Configuração da Cena 1 (Bancada)")]
     [SerializeField] private string nomeCena1 = "CenaBancadaDesarrumada";
+    [SerializeField] private int metaCena1 = 7;
+    [SerializeField] private float pontosIniciais1 = 100f;
+    [SerializeField] private float penalizacaoErro1 = 10f;
 
-    [Tooltip("Pontuação necessária para concluir a Cena 2")]
-    [SerializeField] private float metaCena2 = 6f;
+    [Header("Configuração da Cena 2 (Tapete)")]
     [SerializeField] private string nomeCena2 = "CenaOutroMinigame";
+    [SerializeField] private int metaCena2 = 6;
+    [SerializeField] private float pontosIniciais2 = 150f;
+    [SerializeField] private float penalizacaoErro2 = 20f;
 
-    private float pontosNecessariosDestaCena = 7f;
+    private int objetivosNecessariosDestaCena = 7;
 
     public Canvas canvas;
     public string tagDoAlvoCorreto;
@@ -33,7 +34,7 @@ public class MouseArrastaObj : MonoBehaviour
     private int ordemArrastando = 100;
     private bool travado = false;
 
-    // Reseta a pontuação sempre que uma nova cena é carregada
+    // Reseta os dados sempre que uma nova cena carrega
     [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.BeforeSceneLoad)]
     private static void InicializarOuvinteDeCenas()
     {
@@ -42,8 +43,8 @@ public class MouseArrastaObj : MonoBehaviour
 
     private static void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
-        totalPontos = 0f;
-        Debug.Log($"[MouseArrastaObj] Cena carregada: {scene.name}. Pontuação resetada para 0.");
+        totalSucessos = 0;
+        cenaAtualContada = "";
     }
 
     void Start()
@@ -56,20 +57,45 @@ public class MouseArrastaObj : MonoBehaviour
         if (canvas != null)
             canvas.gameObject.SetActive(false);
 
-        // Define a meta de pontos com base na cena ativa atual
         string nomeCenaAtual = SceneManager.GetActiveScene().name;
 
+        // Configura a pontuação inicial baseada na cena apenas na primeira execução da cena
+        if (cenaAtualContada != nomeCenaAtual)
+        {
+            totalSucessos = 0;
+            cenaAtualContada = nomeCenaAtual;
+
+            if (nomeCenaAtual == nomeCena1)
+            {
+                pontuacaoAtualMinigame = pontosIniciais1;
+                penalizacaoAtual = penalizacaoErro1;
+            }
+            else if (nomeCenaAtual == nomeCena2)
+            {
+                pontuacaoAtualMinigame = pontosIniciais2;
+                penalizacaoAtual = penalizacaoErro2;
+            }
+            else
+            {
+                pontuacaoAtualMinigame = pontosIniciais1;
+                penalizacaoAtual = penalizacaoErro1;
+            }
+
+            Debug.Log($"[Minigame] Cena: {nomeCenaAtual} | Pontos Iniciais: {pontuacaoAtualMinigame} | Penalização por Erro: {penalizacaoAtual}");
+        }
+
+        // Define a quantidade de itens necessários para a cena atual
         if (nomeCenaAtual == nomeCena1)
         {
-            pontosNecessariosDestaCena = metaCena1;
+            objetivosNecessariosDestaCena = metaCena1;
         }
         else if (nomeCenaAtual == nomeCena2)
         {
-            pontosNecessariosDestaCena = metaCena2;
+            objetivosNecessariosDestaCena = metaCena2;
         }
         else
         {
-            pontosNecessariosDestaCena = metaCena1; // Fallback
+            objetivosNecessariosDestaCena = metaCena1;
         }
     }
 
@@ -98,13 +124,20 @@ public class MouseArrastaObj : MonoBehaviour
         segurandoObjeto = false;
         spriteRenderer.sortingOrder = ordemInicial;
 
-        if (zonaDeColisaoAtual != null && zonaDeColisaoAtual.CompareTag(tagDoAlvoCorreto))
+        if (zonaDeColisaoAtual != null)
         {
-            SucessoNoDeposito();
+            if (zonaDeColisaoAtual.CompareTag(tagDoAlvoCorreto))
+            {
+                SucessoNoDeposito();
+            }
+            else
+            {
+                RegistrarErro("Colocou o item na zona incorreta!");
+            }
         }
         else
         {
-            transform.position = posicaoOriginal;
+            RegistrarErro("Soltou o item fora de qualquer zona!");
         }
     }
 
@@ -122,16 +155,24 @@ public class MouseArrastaObj : MonoBehaviour
         }
     }
 
+    private void RegistrarErro(string motivo)
+    {
+        transform.position = posicaoOriginal;
+
+        // Desconta a penalização da cena, garantindo que o limite mínimo seja exatamente 0
+        pontuacaoAtualMinigame = Mathf.Max(0f, pontuacaoAtualMinigame - penalizacaoAtual);
+
+        Debug.LogWarning($"[ERRO] {motivo} -{penalizacaoAtual} pts. Pontuação atual: {pontuacaoAtualMinigame} pts");
+    }
+
     private void SucessoNoDeposito()
     {
         if (travado) return;
 
         travado = true;
+        totalSucessos++;
 
-        // Adiciona o valor personalizado deste objeto específico à pontuação total
-        totalPontos += valorDoObjeto;
-
-        Debug.Log($"Objeto depositado (+{valorDoObjeto} pts). Total acumulado: {totalPontos}/{pontosNecessariosDestaCena}");
+        Debug.Log($"Objeto depositado! Total itens: {totalSucessos}/{objetivosNecessariosDestaCena} | Pontuação atual: {pontuacaoAtualMinigame} pts");
 
         if (tagDoAlvoCorreto == "Lixeira")
         {
@@ -145,10 +186,14 @@ public class MouseArrastaObj : MonoBehaviour
             if (meuCollider != null) meuCollider.enabled = false;
         }
 
-        // Verifica se a pontuação total atingiu a meta da cena
-        if (totalPontos >= pontosNecessariosDestaCena)
+        // Verifica se completou todos os itens da cena atual
+        if (totalSucessos >= objetivosNecessariosDestaCena)
         {
-            Debug.Log("Meta de pontos atingida! A finalizar minigame...");
+            Debug.Log($"Minigame concluído com sucesso! Pontuação final enviada: {pontuacaoAtualMinigame} pontos.");
+
+            // Envia a pontuação obtida para o gestor global do jogo
+            GameScoreManager.AdicionarPontosMinigame(SceneManager.GetActiveScene().name, pontuacaoAtualMinigame);
+
             InteracaoMinigame.FinalizarMinigame(true);
         }
     }
