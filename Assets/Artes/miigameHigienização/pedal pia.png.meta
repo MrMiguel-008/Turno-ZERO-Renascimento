@@ -134,7 +134,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      pedal pia_0: 8779268581182929544
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
