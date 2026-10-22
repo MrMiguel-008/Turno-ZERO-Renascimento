@@ -23,12 +23,10 @@ public class MenuPrincipalController : MonoBehaviour
 
     public void BotaoJogar()
     {
-        // Limpa a posição guardada anteriormente para que o player comece no ponto inicial fixo
-        PlayerPrefs.DeleteKey("PlayerPosX");
-        PlayerPrefs.DeleteKey("PlayerPosY");
-        PlayerPrefs.Save();
-
+        // Retoma o tempo do jogo caso estivesse pausado
         Time.timeScale = 1f;
+
+        // Apenas carrega a cena do jogo sem apagar nenhuma coordenada do jogador
         SceneManager.LoadScene("JogoPrincipal");
     }
 
