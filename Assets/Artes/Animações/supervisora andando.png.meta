@@ -159,7 +159,9 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      supervisora andando_0: -8806198079071435529
+      supervisora andando_1: 1156964617424136062
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

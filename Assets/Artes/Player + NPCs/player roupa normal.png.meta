@@ -134,7 +134,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      player roupa normal_0: 4376745146655659710
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
