@@ -1,30 +1,31 @@
 
 using UnityEngine;
-using System.Collections.Generic;
 
 public class AreaSecagemMaos : MonoBehaviour
 {
+    private int maosNaArea = 0;
     public SecarMaos secarMaos;
-
-    private HashSet<Collider2D> maosNaArea = new HashSet<Collider2D>();
 
     public bool DuasMaosNaArea()
     {
-        return maosNaArea.Count >= 2;
+        return maosNaArea >= 2;
     }
 
     private void OnTriggerEnter2D(Collider2D outro)
     {
-        if (!outro.CompareTag("Mao"))
-            return;
-
-        maosNaArea.Add(outro);
-
-        Debug.Log("Mãos na área de secagem: " + maosNaArea.Count);
-
-        if (DuasMaosNaArea() && secarMaos != null)
+        if (outro.CompareTag("Mao"))
         {
-            secarMaos.MostrarLegendaSecagem();
+            maosNaArea++;
+
+            if (maosNaArea > 2)
+                maosNaArea = 2;
+
+            Debug.Log("Mãos na área de secagem: " + maosNaArea);
+
+            if (maosNaArea >= 2)
+            {
+                secarMaos.MostrarLegendaSecagem();
+            }
         }
     }
 
@@ -32,9 +33,10 @@ public class AreaSecagemMaos : MonoBehaviour
     {
         if (outro.CompareTag("Mao"))
         {
-            maosNaArea.Remove(outro);
+            maosNaArea--;
 
-            Debug.Log("Mãos na área de secagem: " + maosNaArea.Count);
+            if (maosNaArea < 0)
+                maosNaArea = 0;
         }
     }
 }
