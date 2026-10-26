@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.Rendering;
 using UnityEngine.Rendering.Universal;
+using System.Collections;
 
 public class AplicarFiltroJogo : MonoBehaviour
 {
@@ -9,6 +10,14 @@ public class AplicarFiltroJogo : MonoBehaviour
 
     void Start()
     {
+        // Espera a cena carregar 100% para aplicar a cor sem falhar
+        StartCoroutine(AplicarFiltroComAtraso());
+    }
+
+    IEnumerator AplicarFiltroComAtraso()
+    {
+        yield return null; // Pausa de 1 frame para o Global Volume acordar
+
         if (globalVolume == null)
         {
             globalVolume = FindFirstObjectByType<Volume>();
