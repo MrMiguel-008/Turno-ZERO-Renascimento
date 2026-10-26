@@ -2899,6 +2899,7 @@ GameObject:
   m_Component:
   - component: {fileID: 760165916}
   - component: {fileID: 760165917}
+  - component: {fileID: 760165918}
   m_Layer: 0
   m_Name: GerenciadorESC
   m_TagString: Untagged
@@ -2934,6 +2935,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   jogadorTransform: {fileID: 1047265244}
+--- !u!114 &760165918
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 760165914}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 448ad2b4587855c49a078518cc542385, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  canvasMenu: {fileID: 0}
 --- !u!1 &801270576
 GameObject:
   m_ObjectHideFlags: 0
@@ -4516,7 +4530,6 @@ GameObject:
   - component: {fileID: 1297838767}
   - component: {fileID: 1297838768}
   - component: {fileID: 1297838769}
-  - component: {fileID: 1297838770}
   m_Layer: 0
   m_Name: supervisora
   m_TagString: Untagged
@@ -4696,18 +4709,6 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: be5dc2b1c032b8a48b327c90f8980b1a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &1297838770
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1297838763}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 37b3681e7bc091e4f8842a588d175244, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!114 &1307647099 stripped

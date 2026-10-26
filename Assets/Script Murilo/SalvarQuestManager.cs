@@ -1,33 +1,45 @@
 using UnityEngine;
+using System.Collections;
 
 public class SalvarQuestManager : MonoBehaviour
 {
+    private QuestManager questManagerRef;
+
+    void Awake()
+    {
+        questManagerRef = GetComponent<QuestManager>();
+    }
+
     void Start()
     {
-        // Quando a cena do jogo carrega, recupera o ID da miss„o ativa e aplica-o ao QuestManager
-        if (PlayerPrefs.HasKey("QuestAtivaID"))
+        // Usa uma corrotina para garantir que aplicamos a miss√£o salva 
+        // AP√ìS todos os Start() originais do jogo correrem
+        StartCoroutine(RestaurarQuestAtrasada());
+    }
+
+    IEnumerator RestaurarQuestAtrasada()
+    {
+        // Espera um frame para garantir que o QuestManager j√° inicializou tudo dele
+        yield return null;
+
+        if (PlayerPrefs.HasKey("QuestAtivaID") && questManagerRef != null)
         {
             string questSalva = PlayerPrefs.GetString("QuestAtivaID");
-
-            // Atribui diretamente ‡ vari·vel do QuestManager
-            if (GetComponent<QuestManager>() != null)
-            {
-                GetComponent<QuestManager>().activeQuestID = questSalva;
-            }
+            questManagerRef.activeQuestID = questSalva;
+            
+            // Se o teu QuestManager tiver alguma fun√ß√£o para atualizar a UI da miss√£o, 
+            // podes cham√°-la aqui se souberes o nome, por exemplo:
+            // questManagerRef.AtualizarInterfaceMissao();
         }
     }
 
     void OnDisable()
     {
-        // Quando o jogo vai para o menu (mudanÁa de cena), guarda a miss„o ativa atual
-        if (GetComponent<QuestManager>() != null)
+        // Guarda a miss√£o ativa imediatamente antes de sair para o menu
+        if (questManagerRef != null && !string.IsNullOrEmpty(questManagerRef.activeQuestID))
         {
-            string questAtual = GetComponent<QuestManager>().activeQuestID;
-            if (!string.IsNullOrEmpty(questAtual))
-            {
-                PlayerPrefs.SetString("QuestAtivaID", questAtual);
-                PlayerPrefs.Save();
-            }
+            PlayerPrefs.SetString("QuestAtivaID", questManagerRef.activeQuestID);
+            PlayerPrefs.Save();
         }
     }
 }
