@@ -10,13 +10,12 @@ public class AplicarFiltroJogo : MonoBehaviour
 
     void Start()
     {
-        // Espera a cena carregar 100% para aplicar a cor sem falhar
         StartCoroutine(AplicarFiltroComAtraso());
     }
 
     IEnumerator AplicarFiltroComAtraso()
     {
-        yield return null; // Pausa de 1 frame para o Global Volume acordar
+        yield return null; // Espera a cena carregar 100%
 
         if (globalVolume == null)
         {
@@ -25,8 +24,18 @@ public class AplicarFiltroJogo : MonoBehaviour
 
         if (globalVolume != null && globalVolume.profile.TryGet(out colorAdjustments))
         {
+            // Força a ativação dos overrides por código para garantir que o Unity aceite a mudança
+            colorAdjustments.hueShift.overrideState = true;
+            colorAdjustments.saturation.overrideState = true;
+
             int modoSalvo = PlayerPrefs.GetInt("ModoDaltonismo", 0);
             AplicarModoDaltonismo(modoSalvo);
+
+            Debug.Log("Filtro aplicado com sucesso! Modo: " + modoSalvo);
+        }
+        else
+        {
+            Debug.LogWarning("Global Volume ou Color Adjustments não encontrados nesta cena!");
         }
     }
 

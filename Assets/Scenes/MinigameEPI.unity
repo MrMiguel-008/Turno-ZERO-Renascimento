@@ -1591,7 +1591,7 @@ MonoBehaviour:
     m_Bits: 1
   m_VolumeTrigger: {fileID: 0}
   m_VolumeFrameworkUpdateModeOption: 2
-  m_RenderPostProcessing: 0
+  m_RenderPostProcessing: 1
   m_Antialiasing: 0
   m_AntialiasingQuality: 2
   m_StopNaN: 0
@@ -4124,6 +4124,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8288492120369424549, guid: 5634029012326264083fe368c448813f, type: 3}
+      propertyPath: sharedProfile
+      value: 
+      objectReference: {fileID: 11400000, guid: 2ca62ad8c30ec4a469fa40606338e71d, type: 2}
     - target: {fileID: 8513243901723717806, guid: 5634029012326264083fe368c448813f, type: 3}
       propertyPath: m_Name
       value: Global Volume
