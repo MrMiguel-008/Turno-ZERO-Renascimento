@@ -61,8 +61,6 @@ public class QuestManager : MonoBehaviour
             if (q.questID == questID) return q;
         }
         return new QuestData.QuestInfo();
-
-
     }
 
     void UpdateQuestUI()
@@ -103,12 +101,10 @@ public class QuestManager : MonoBehaviour
 
             if (currentQuest.questType == QuestType.ColetarItens)
             {
-                // Percorre a lista de itens exigidos na missão
                 if (currentQuest.requiredItems != null)
                 {
                     foreach (var req in currentQuest.requiredItems)
                     {
-                        // Se o item coletado corresponde a um dos itens exigidos pela missão
                         if (req.itemID == itemColetadoID)
                         {
                             ValidarEConcluir(currentQuest);
@@ -134,20 +130,15 @@ public class QuestManager : MonoBehaviour
         }
     }
 
-    // **NOVO:** Valida se a missão requer itens no inventário antes de permitir concluí-la de vez
-    // Valida se a missão requer múltiplos itens no inventário antes de permitir concluí-la
     void ValidarEConcluir(QuestData.QuestInfo quest)
     {
-        // Se a missão exigir itens no inventário
         if (quest.requiredItems != null && quest.requiredItems.Length > 0)
         {
             InventarioHUD inventario = InventarioHUD.Instance;
             if (inventario != null)
             {
-                // Percorre cada item exigido pela missão
                 foreach (var req in quest.requiredItems)
                 {
-                    // Como o máximo é 1, verificamos apenas se o player possui o item
                     if (!inventario.PossuiItem(req.itemID))
                     {
                         Debug.Log($"Falta o item necessário: '{req.itemID}'.");
@@ -171,6 +162,9 @@ public class QuestManager : MonoBehaviour
             var currentQuest = GetQuestInfo(activeQuestID);
             isQuestCompleted = true;
             Debug.Log($"Missão Concluída: {currentQuest.questTitle}!");
+
+            // Dispara a verificação e lógica de fim de jogo se esta for a última missão
+            ConcluirMissao(activeQuestID);
 
             NPCSupervisorController supervisor = FindObjectOfType<NPCSupervisorController>();
             if (supervisor != null)
@@ -216,6 +210,27 @@ public class QuestManager : MonoBehaviour
                 {
                     ValidarEConcluir(currentQuest);
                 }
+            }
+        }
+    }
+
+    public void ConcluirMissao(string idDaMissao)
+    {
+        Debug.Log($"Missão concluída: {idDaMissao}");
+
+        // Substitui "NomeDaUltimaMissao" pelo ID exato da última missão do teu QuestData
+        if (idDaMissao == "NomeDaUltimaMissao")
+        {
+            Debug.Log("Última missão concluída! Disparando tela de fim de jogo...");
+
+            FimDeJogoManager fimDeJogo = FindObjectOfType<FimDeJogoManager>();
+            if (fimDeJogo != null)
+            {
+                fimDeJogo.DispararFimDeJogo();
+            }
+            else
+            {
+                Debug.LogWarning("[QuestManager] FimDeJogoManager não foi encontrado na cena!");
             }
         }
     }
