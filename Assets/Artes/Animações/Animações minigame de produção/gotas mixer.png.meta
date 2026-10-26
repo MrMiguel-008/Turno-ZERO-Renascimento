@@ -1,0 +1,455 @@
+fileFormatVersion: 2
+guid: efa1ecfc2fcd7b64f998a24ff9adb684
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 3984263874174129949
+    second: gotas mixer_0
+  - first:
+      213: 3666958408831054068
+    second: gotas mixer_1
+  - first:
+      213: 1353503091519502789
+    second: gotas mixer_2
+  - first:
+      213: 7013415748952164767
+    second: gotas mixer_3
+  - first:
+      213: -3313934624753815179
+    second: gotas mixer_4
+  - first:
+      213: -7444507486613497964
+    second: gotas mixer_5
+  - first:
+      213: -7271214630920243314
+    second: gotas mixer_6
+  - first:
+      213: 5292366405904427167
+    second: gotas mixer_7
+  - first:
+      213: -4441638894393515230
+    second: gotas mixer_8
+  - first:
+      213: -3701100691799165758
+    second: gotas mixer_9
+  - first:
+      213: -2016988014532075429
+    second: gotas mixer_10
+  - first:
+      213: 95824901299328969
+    second: gotas mixer_11
+  - first:
+      213: 3129184076390084259
+    second: gotas mixer_12
+  - first:
+      213: 235091921085449988
+    second: gotas mixer_13
+  - first:
+      213: 2807982016733444829
+    second: gotas mixer_14
+  - first:
+      213: 5625003688133381919
+    second: gotas mixer_15
+  - first:
+      213: -2779920711058870027
+    second: gotas mixer_16
+  - first:
+      213: -7842660408469014579
+    second: gotas mixer_17
+  - first:
+      213: 2381542434351130708
+    second: gotas mixer_18
+  - first:
+      213: 179210363649179983
+    second: gotas mixer_19
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 25
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: gotas mixer_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 664
+        width: 640
+        height: 360
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d17129f42e2fa4730800000000000000
+      internalID: 3984263874174129949
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gotas mixer_1
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 664
+        width: 640
+        height: 360
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4f0b1849e37a3e230800000000000000
+      internalID: 3666958408831054068
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gotas mixer_2
+      rect:
+        serializedVersion: 2
+        x: 1280
+        y: 664
+        width: 640
+        height: 360
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5c9b96cf3eb98c210800000000000000
+      internalID: 1353503091519502789
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gotas mixer_3
+      rect:
+        serializedVersion: 2
+        x: 1920
+        y: 664
+        width: 640
+        height: 360
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f998c6a0778a45160800000000000000
+      internalID: 7013415748952164767
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gotas mixer_4
+      rect:
+        serializedVersion: 2
+        x: 2560
+        y: 664
+        width: 640
+        height: 360
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5717eaa440a8202d0800000000000000
+      internalID: -3313934624753815179
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gotas mixer_5
+      rect:
+        serializedVersion: 2
+        x: 3200
+        y: 664
+        width: 640
+        height: 360
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4979aa432ebcfa890800000000000000
+      internalID: -7444507486613497964
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gotas mixer_6
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 304
+        width: 640
+        height: 360
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e87306651d4771b90800000000000000
+      internalID: -7271214630920243314
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gotas mixer_7
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 304
+        width: 640
+        height: 360
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f98e42db433427940800000000000000
+      internalID: 5292366405904427167
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gotas mixer_8
+      rect:
+        serializedVersion: 2
+        x: 1280
+        y: 304
+        width: 640
+        height: 360
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 223ad1755f02c52c0800000000000000
+      internalID: -4441638894393515230
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gotas mixer_9
+      rect:
+        serializedVersion: 2
+        x: 1920
+        y: 304
+        width: 640
+        height: 360
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2c4bb53b78c03acc0800000000000000
+      internalID: -3701100691799165758
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gotas mixer_10
+      rect:
+        serializedVersion: 2
+        x: 2560
+        y: 304
+        width: 640
+        height: 360
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b50689556183204e0800000000000000
+      internalID: -2016988014532075429
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gotas mixer_11
+      rect:
+        serializedVersion: 2
+        x: 3200
+        y: 304
+        width: 640
+        height: 360
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9c755927d30745100800000000000000
+      internalID: 95824901299328969
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 448555e1bad973947b0d0bc7546237b9
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":640.0,"y":360.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"slicingType":1,"keepEmptyRects":false,"isAlternate":false}'
+    nameFileIdTable:
+      gotas mixer_0: 3984263874174129949
+      gotas mixer_1: 3666958408831054068
+      gotas mixer_10: -2016988014532075429
+      gotas mixer_11: 95824901299328969
+      gotas mixer_2: 1353503091519502789
+      gotas mixer_3: 7013415748952164767
+      gotas mixer_4: -3313934624753815179
+      gotas mixer_5: -7444507486613497964
+      gotas mixer_6: -7271214630920243314
+      gotas mixer_7: 5292366405904427167
+      gotas mixer_8: -4441638894393515230
+      gotas mixer_9: -3701100691799165758
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

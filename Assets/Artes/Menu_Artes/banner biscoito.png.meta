@@ -134,7 +134,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      banner biscoito_0: -456560719724848532
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
