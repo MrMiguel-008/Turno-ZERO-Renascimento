@@ -121,16 +121,30 @@ public class InteracaoMinigame : MonoBehaviour, IObjetivoMinigame
     }
 
     // =========================================================
-    // VALIDAÇÃO SE PODE INTERAGIR (AJUSTADO PARA PERMITIR INTERAÇÃO)
+    // VALIDAÇÃO SE PODE INTERAGIR (ORDEM CORRETA DAS MISSÕES)
     // =========================================================
     private bool PodeInteragir()
     {
-        // Se já foi concluído nesta partida, bloqueia
+        // Se já estiver concluído, nunca mais pode interagir
         if (concluido || ObjetivoFoiConcluido(idObjetivo))
             return false;
 
-        // Liberado para interagir sem travar na verificação estrita de missão ativa
-        return true;
+        // Valida rigidamente se a missão ativa atual é exatamente a deste minigame
+        if (QuestManager.Instance != null)
+        {
+            string questAtivaID = QuestManager.Instance.activeQuestID;
+            var questInfo = QuestManager.Instance.GetQuestInfo(questAtivaID);
+
+            // Só libera se o tipo for Minigame e o ID corresponder exatamente a este objeto
+            if (questInfo.questType == QuestType.Minigame && questInfo.targetMinigameID == idObjetivo)
+            {
+                return true;
+            }
+
+            return false; // Bloqueia se for outra missão ou estiver fora de ordem!
+        }
+
+        return true; // Fallback caso não exista QuestManager na cena
     }
 
     private void ValidarID()
