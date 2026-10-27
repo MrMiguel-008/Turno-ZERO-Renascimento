@@ -3,33 +3,36 @@ using UnityEngine.SceneManagement;
 
 public class MouseArrastaObj : MonoBehaviour
 {
+    // =========================================================
+    // VARIÁVEIS ESTÁTICAS (GLOBAIS POR CENA)
+    // =========================================================
     private static int totalSucessos = 0;
     private static float pontuacaoAtualMinigame = 100f;
     private static float penalizacaoAtual = 10f;
     private static string cenaAtualContada = "";
 
-    [Header("Configuração da Cena 1 (Bancada)")]
-    [SerializeField] private string nomeCena1 = "CenaBancadaDesarrumada";
-    [SerializeField] private int metaCena1 = 7;
-    [SerializeField] private float pontosIniciais1 = 100f;
-    [SerializeField] private float penalizacaoErro1 = 10f;
+    // =========================================================
+    // CONFIGURAÇÕES DE CENAS E METAS (PRIVATIZADAS)
+    // =========================================================
+    [Header("Configuração da Cena 1 (Minigame EPI)")]
+    [SerializeField] private string nomeCena1 = "MinigameEPI";
+    [SerializeField] private int metaCena1 = 6;
+    [SerializeField] private float pontosIniciais1 = 6f;
+    [SerializeField] private float penalizacaoErro1 = 1f;
 
-    [Header("Configuração da Cena 2 (Minigame 2)")]
-    [SerializeField] private string nomeCena2 = "CenaOutroMinigame";
-    [SerializeField] private int metaCena2 = 6;
+    [Header("Configuração da Cena 2 (Bancada)")]
+    [SerializeField] private string nomeCena2 = "BancadaMinigame";
+    [SerializeField] private int metaCena2 = 7;
     [SerializeField] private float pontosIniciais2 = 100f;
     [SerializeField] private float penalizacaoErro2 = 10f;
 
-    [Header("Configuração da Cena 3 (Novo Minigame)")]
-    [SerializeField] private string nomeCena3 = "CenaTerceiroMinigame";
-    [SerializeField] private int metaCena3 = 5;
-    [SerializeField] private float pontosIniciais3 = 100f;
-    [SerializeField] private float penalizacaoErro3 = 10f;
+    private int objetivosNecessariosDestaCena = 6;
 
-    private int objetivosNecessariosDestaCena = 7;
-
-    public Canvas canvas;
-    public string tagDoAlvoCorreto;
+    // =========================================================
+    // VARIÁVEIS DE COMPONENTES E ESTADO DO OBJETO
+    // =========================================================
+    [SerializeField] private Canvas canvas;
+    [SerializeField] private string tagDoAlvoCorreto;
     private Vector3 posicaoOriginal;
     private bool segurandoObjeto = false;
     private Collider2D zonaDeColisaoAtual;
@@ -40,6 +43,9 @@ public class MouseArrastaObj : MonoBehaviour
     private int ordemArrastando = 100;
     private bool travado = false;
 
+    // =========================================================
+    // UNITY INITIALIZATION & SCENE MANAGEMENT
+    // =========================================================
     [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.BeforeSceneLoad)]
     private static void InicializarOuvinteDeCenas()
     {
@@ -64,6 +70,9 @@ public class MouseArrastaObj : MonoBehaviour
 
         string nomeCenaAtual = SceneManager.GetActiveScene().name;
 
+        // Debug para verificar se o Unity está a ler corretamente a cena certa
+        Debug.Log($"[MouseArrastaObj] Cena detetada pelo Unity: '{nomeCenaAtual}'");
+
         if (cenaAtualContada != nomeCenaAtual)
         {
             totalSucessos = 0;
@@ -78,11 +87,6 @@ public class MouseArrastaObj : MonoBehaviour
             {
                 pontuacaoAtualMinigame = pontosIniciais2;
                 penalizacaoAtual = penalizacaoErro2;
-            }
-            else if (nomeCenaAtual == nomeCena3)
-            {
-                pontuacaoAtualMinigame = pontosIniciais3;
-                penalizacaoAtual = penalizacaoErro3;
             }
             else
             {
@@ -99,16 +103,17 @@ public class MouseArrastaObj : MonoBehaviour
         {
             objetivosNecessariosDestaCena = metaCena2;
         }
-        else if (nomeCenaAtual == nomeCena3)
-        {
-            objetivosNecessariosDestaCena = metaCena3;
-        }
         else
         {
             objetivosNecessariosDestaCena = metaCena1;
         }
+
+        Debug.Log($"[MouseArrastaObj] Meta definida para esta cena: {objetivosNecessariosDestaCena} itens.");
     }
 
+    // =========================================================
+    // INPUT DO RATO (DRAG AND DROP)
+    // =========================================================
     void OnMouseDown()
     {
         if (travado) return;
@@ -151,6 +156,9 @@ public class MouseArrastaObj : MonoBehaviour
         }
     }
 
+    // =========================================================
+    // COLISÕES COM AS ZONAS DE DEPÓSITO
+    // =========================================================
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (travado) return;
@@ -165,6 +173,9 @@ public class MouseArrastaObj : MonoBehaviour
         }
     }
 
+    // =========================================================
+    // LÓGICA DE ERRO E PENALIZAÇÃO
+    // =========================================================
     private void RegistrarErro(string motivo)
     {
         transform.position = posicaoOriginal;
@@ -172,6 +183,9 @@ public class MouseArrastaObj : MonoBehaviour
         Debug.LogWarning($"[ERRO] {motivo} -{penalizacaoAtual} pts. Pontuação atual: {pontuacaoAtualMinigame} pts");
     }
 
+    // =========================================================
+    // LÓGICA DE SUCESSO E CONCLUSÃO
+    // =========================================================
     private void SucessoNoDeposito()
     {
         if (travado) return;

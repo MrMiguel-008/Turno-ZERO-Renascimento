@@ -179,7 +179,7 @@ public class QuestManager : MonoBehaviour
 
             int nextIndex = currentIndex + 1;
 
-            // Se ainda houver próxima missão, avança. Se não, é porque era a última!
+            // Verifica se existe uma próxima missão ou se esta era a última
             if (currentIndex != -1 && nextIndex < questDatabase.quests.Length)
             {
                 string nextQuestID = questDatabase.quests[nextIndex].questID;
@@ -191,8 +191,15 @@ public class QuestManager : MonoBehaviour
                 UpdateQuestUI();
                 Debug.Log("Todas as missões foram concluídas! A disparar tela de fim de jogo...");
 
-                // Dispara o FimDeJogoManager automaticamente quando a última missão acaba
-                DispararFimDeJogoGlobal();
+                // Aciona a tela de fim de jogo de forma segura pela instância
+                if (FimDeJogoManager.Instance != null)
+                {
+                    FimDeJogoManager.Instance.DispararFimDeJogo();
+                }
+                else
+                {
+                    Debug.LogWarning("[QuestManager] FimDeJogoManager.Instance não foi encontrado na cena!");
+                }
             }
         }
     }
@@ -213,38 +220,16 @@ public class QuestManager : MonoBehaviour
         }
     }
 
-    // Método universal para acionar o fim de jogo
-    private void DispararFimDeJogoGlobal()
-    {
-        if (FimDeJogoManager.Instance != null)
-        {
-            FimDeJogoManager.Instance.DispararFimDeJogo();
-        }
-        else
-        {
-            Debug.LogWarning("[QuestManager] FimDeJogoManager.Instance não foi encontrado!");
-        }
-
-        FimDeJogoManager fimDeJogo = FindObjectOfType<FimDeJogoManager>();
-        if (fimDeJogo != null)
-        {
-            fimDeJogo.DispararFimDeJogo();
-        }
-        else
-        {
-            Debug.LogWarning("[QuestManager] FimDeJogoManager não foi encontrado na cena!");
-        }
-    }
-
-    // Mantido caso queiras chamar por ID específico no futuro
     public void ConcluirMissao(string idDaMissao)
     {
-        Debug.Log($"Missão concluída manualmente: {idDaMissao}");
+        Debug.Log($"Missão concluída: {idDaMissao}");
 
-        // Se quiseres forçar a última por ID específico podes por aqui também
         if (idDaMissao == "NomeDaUltimaMissao")
         {
-            DispararFimDeJogoGlobal();
+            if (FimDeJogoManager.Instance != null)
+            {
+                FimDeJogoManager.Instance.DispararFimDeJogo();
+            }
         }
     }
 }
