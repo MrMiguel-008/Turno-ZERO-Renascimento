@@ -5,6 +5,8 @@ using UnityEngine.UI;
 
 public class FimDeJogoManager : MonoBehaviour
 {
+    public static FimDeJogoManager Instance;
+
     [Header("Configuração de Cenas")]
     [Tooltip("Nome exato da cena do Menu Principal")]
     [SerializeField] private string nomeCenaMenu = "MenuPrincipal";
@@ -16,7 +18,7 @@ public class FimDeJogoManager : MonoBehaviour
     [Tooltip("Texto onde vai aparecer a pontuação obtida pelo jogador")]
     [SerializeField] private TMP_Text textoPontuacaoPlayer;
 
-    [Tooltip("Texto onde vai aparecer a pontuação máxima possível (ex: 400 pts)")]
+    [Tooltip("Texto onde vai aparecer a pontuação máxima possível")]
     [SerializeField] private TMP_Text textoPontuacaoMaxima;
 
     [Tooltip("Botão para reiniciar o jogo")]
@@ -26,8 +28,21 @@ public class FimDeJogoManager : MonoBehaviour
     [SerializeField] private Button botaoMenuPrincipal;
 
     [Header("Configuração de Pontuação")]
-    [Tooltip("Soma total máxima que o jogador pode conseguir em todos os minigames")]
-    [SerializeField] private float pontuacaoMaximaTotal = 400f; // Ajusta conforme o total dos teus minigames
+    [Tooltip("Soma total máxima que o jogador pode conseguir")]
+    [SerializeField] private float pontuacaoMaximaTotal = 400f;
+
+    void Awake()
+    {
+        if (Instance == null)
+        {
+            Instance = this;
+        }
+        else
+        {
+            Destroy(gameObject);
+            return;
+        }
+    }
 
     void Start()
     {
@@ -45,15 +60,22 @@ public class FimDeJogoManager : MonoBehaviour
             botaoMenuPrincipal.onClick.AddListener(VoltarAoMenu);
     }
 
-    // Podes chamar este método quando a última missão for concluída
     public void DispararFimDeJogo()
     {
+        Debug.Log("[FimDeJogoManager] DispararFimDeJogo foi executado com sucesso!");
+
         // Congela completamente o tempo do jogo
         Time.timeScale = 0f;
 
         // Ativa o HUD de fim de jogo
         if (painelFimDeJogo != null)
+        {
             painelFimDeJogo.SetActive(true);
+        }
+        else
+        {
+            Debug.LogError("[FimDeJogoManager] O Painel de Fim de Jogo não está atribuído no Inspector!");
+        }
 
         // Puxa a pontuação acumulada no GameScoreManager
         float pontosPlayer = GameScoreManager.GetPontuacaoTotal();
@@ -64,31 +86,19 @@ public class FimDeJogoManager : MonoBehaviour
 
         if (textoPontuacaoMaxima != null)
             textoPontuacaoMaxima.text = $"Pontuação Máxima: {pontuacaoMaximaTotal} pts";
-
-        Debug.Log("[FimDeJogo] Jogo concluído congelado. Pontuação exibida com sucesso.");
     }
 
     public void ReiniciarJogo()
     {
-        // Restaura o tempo antes de mudar de cena para evitar bugs de congelamento
         Time.timeScale = 1f;
-
-        // Reseta a pontuação global guardada
         GameScoreManager.ResetarPontuacao();
-
-        // Recarrega a cena atual (ou a primeira fase do jogo)
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
     public void VoltarAoMenu()
     {
-        // Restaura o tempo antes de mudar de cena
         Time.timeScale = 1f;
-
-        // Reseta a pontuação global guardada
         GameScoreManager.ResetarPontuacao();
-
-        // Vai diretamente para a cena do Menu Principal
         SceneManager.LoadScene(nomeCenaMenu);
     }
 }

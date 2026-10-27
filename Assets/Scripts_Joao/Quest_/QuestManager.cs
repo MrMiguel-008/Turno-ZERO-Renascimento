@@ -92,7 +92,6 @@ public class QuestManager : MonoBehaviour
         }
     }
 
-    // Chamado pelo ItemColetavel quando um item é apanhado
     public void CheckItemCollectionQuest(string itemColetadoID)
     {
         if (!string.IsNullOrEmpty(activeQuestID) && !isQuestCompleted)
@@ -116,7 +115,6 @@ public class QuestManager : MonoBehaviour
         }
     }
 
-    // Chamado pelo DialogueManager quando o diálogo termina
     public void OnDialogueEnded()
     {
         if (!string.IsNullOrEmpty(activeQuestID) && !isQuestCompleted)
@@ -163,9 +161,6 @@ public class QuestManager : MonoBehaviour
             isQuestCompleted = true;
             Debug.Log($"Missão Concluída: {currentQuest.questTitle}!");
 
-            // Dispara a verificação e lógica de fim de jogo se esta for a última missão
-            ConcluirMissao(activeQuestID);
-
             NPCSupervisorController supervisor = FindObjectOfType<NPCSupervisorController>();
             if (supervisor != null)
             {
@@ -183,6 +178,8 @@ public class QuestManager : MonoBehaviour
             }
 
             int nextIndex = currentIndex + 1;
+
+            // Verifica se existe uma próxima missão ou se esta era a última
             if (currentIndex != -1 && nextIndex < questDatabase.quests.Length)
             {
                 string nextQuestID = questDatabase.quests[nextIndex].questID;
@@ -192,12 +189,21 @@ public class QuestManager : MonoBehaviour
             {
                 activeQuestID = "";
                 UpdateQuestUI();
-                Debug.Log("Todas as missões foram concluídas!");
+                Debug.Log("Todas as missões foram concluídas! A disparar tela de fim de jogo...");
+
+                // Aciona a tela de fim de jogo de forma segura pela instância
+                if (FimDeJogoManager.Instance != null)
+                {
+                    FimDeJogoManager.Instance.DispararFimDeJogo();
+                }
+                else
+                {
+                    Debug.LogWarning("[QuestManager] FimDeJogoManager.Instance não foi encontrado na cena!");
+                }
             }
         }
     }
 
-    // Chamado quando um minigame termina com sucesso
     public void CheckMinigameQuest(string idMinigameConcluido)
     {
         if (!string.IsNullOrEmpty(activeQuestID) && !isQuestCompleted)
@@ -218,19 +224,11 @@ public class QuestManager : MonoBehaviour
     {
         Debug.Log($"Missão concluída: {idDaMissao}");
 
-        // Substitui "NomeDaUltimaMissao" pelo ID exato da última missão do teu QuestData
         if (idDaMissao == "NomeDaUltimaMissao")
         {
-            Debug.Log("Última missão concluída! Disparando tela de fim de jogo...");
-
-            FimDeJogoManager fimDeJogo = FindObjectOfType<FimDeJogoManager>();
-            if (fimDeJogo != null)
+            if (FimDeJogoManager.Instance != null)
             {
-                fimDeJogo.DispararFimDeJogo();
-            }
-            else
-            {
-                Debug.LogWarning("[QuestManager] FimDeJogoManager não foi encontrado na cena!");
+                FimDeJogoManager.Instance.DispararFimDeJogo();
             }
         }
     }
