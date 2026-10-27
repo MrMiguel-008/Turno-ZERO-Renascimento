@@ -209,7 +209,11 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      "bal\xE3o de fala 1_0": 7172582642500222229
+      "bal\xE3o de fala 1_1": -3654143483587967176
+      "bal\xE3o de fala 1_2": -2740467890114315076
+      "bal\xE3o de fala 1_3": -6133536613222582295
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
