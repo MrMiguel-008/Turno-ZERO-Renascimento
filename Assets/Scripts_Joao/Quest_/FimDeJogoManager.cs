@@ -33,6 +33,7 @@ public class FimDeJogoManager : MonoBehaviour
 
     void Awake()
     {
+        // Garante que o Singleton não duplique ao reiniciar a cena
         if (Instance == null)
         {
             Instance = this;
@@ -46,18 +47,24 @@ public class FimDeJogoManager : MonoBehaviour
 
     void Start()
     {
-        // Garante que o painel começa escondido e o tempo a correr normalmente
+        // Garante que o tempo roda normal e o painel começa escondido
+        Time.timeScale = 1f;
+
         if (painelFimDeJogo != null)
             painelFimDeJogo.SetActive(false);
 
-        Time.timeScale = 1f;
-
-        // Configura os ouvintes dos botões por código para garantir que funcionam sempre
+        // Configura os botões com segurança e evita cliques duplicados
         if (botaoReiniciar != null)
+        {
+            botaoReiniciar.onClick.RemoveAllListeners();
             botaoReiniciar.onClick.AddListener(ReiniciarJogo);
+        }
 
         if (botaoMenuPrincipal != null)
+        {
+            botaoMenuPrincipal.onClick.RemoveAllListeners();
             botaoMenuPrincipal.onClick.AddListener(VoltarAoMenu);
+        }
     }
 
     public void DispararFimDeJogo()
@@ -91,7 +98,20 @@ public class FimDeJogoManager : MonoBehaviour
     public void ReiniciarJogo()
     {
         Time.timeScale = 1f;
+
+        // 1. Reseta a pontuação
         GameScoreManager.ResetarPontuacao();
+
+        // 2. Reseta o QuestManager completamente (limpa estados e volta para a primeira missão)
+        if (QuestManager.Instance != null)
+        {
+            QuestManager.Instance.ReiniciarProgressoMissoes();
+        }
+
+        // 3. Reseta o estado estático dos minigames (liberta as interações com a tecla E)
+        InteracaoMinigame.LimparEstadoDaPartida();
+
+        // 4. Recarrega a cena do zero
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
@@ -99,6 +119,7 @@ public class FimDeJogoManager : MonoBehaviour
     {
         Time.timeScale = 1f;
         GameScoreManager.ResetarPontuacao();
+        InteracaoMinigame.LimparEstadoDaPartida();
         SceneManager.LoadScene(nomeCenaMenu);
     }
 }

@@ -7,6 +7,10 @@ public class PlayerTesteMovimento : MonoBehaviour
     [Header("Movimento")]
     [SerializeField] private float velocidade = 3f;
 
+    [Header("Configuração de Reinício")]
+    [Tooltip("Marque se quiser que o player SEMPRE volte com a roupa 'Antes' ao iniciar/reiniciar a cena.")]
+    [SerializeField] private bool forcarRoupaInicialNoStart = false;
+
     [Header("Customização Pós-Minigame (Animações)")]
     [Tooltip("Arraste aqui o Animator Controller com o visual ANTES do minigame.")]
     [SerializeField] private RuntimeAnimatorController controllerAntes;
@@ -41,7 +45,19 @@ public class PlayerTesteMovimento : MonoBehaviour
 
     private void Start()
     {
-        AtualizarControladorVisual();
+        // Se ativado no Inspector, limpa o estado do minigame ao iniciar a cena para forçar a skin antiga
+        if (forcarRoupaInicialNoStart)
+        {
+            // Se você estiver salvando o progresso usando PlayerPrefs, podemos apagar a chave dele aqui:
+            // PlayerPrefs.DeleteKey(idMinigameVisual);
+
+            // Força o visual de "Antes" diretamente
+            AplicarVisualAntes();
+        }
+        else
+        {
+            AtualizarControladorVisual();
+        }
     }
 
     private void Update()
@@ -77,36 +93,43 @@ public class PlayerTesteMovimento : MonoBehaviour
 
         if (oMinigameFoiConcluido)
         {
-            // 1. Força a troca do Sprite estático visível na tela imediatamente
-            if (spriteBaseDepois != null)
-            {
-                spriteRenderer.sprite = spriteBaseDepois;
-            }
-
-            // 2. Troca o pacote de animações
-            if (controllerDepois != null && animator.runtimeAnimatorController != controllerDepois)
-            {
-                animator.runtimeAnimatorController = controllerDepois;
-                animator.Rebind();
-                animator.Update(0f);
-            }
-
-            Debug.Log($"[PlayerVisual] Roupa Nova Aplicada! Sprite Base e Animator atualizados.");
+            AplicarVisualDepois();
         }
         else
         {
-            // Caso não tenha concluído, garante o visual padrão antigo
-            if (spriteBaseAntes != null)
-            {
-                spriteRenderer.sprite = spriteBaseAntes;
-            }
-
-            if (controllerAntes != null && animator.runtimeAnimatorController != controllerAntes)
-            {
-                animator.runtimeAnimatorController = controllerAntes;
-                animator.Rebind();
-                animator.Update(0f);
-            }
+            AplicarVisualAntes();
         }
+    }
+
+    private void AplicarVisualAntes()
+    {
+        if (spriteBaseAntes != null)
+        {
+            spriteRenderer.sprite = spriteBaseAntes;
+        }
+
+        if (controllerAntes != null && animator.runtimeAnimatorController != controllerAntes)
+        {
+            animator.runtimeAnimatorController = controllerAntes;
+            animator.Rebind();
+            animator.Update(0f);
+        }
+    }
+
+    private void AplicarVisualDepois()
+    {
+        if (spriteBaseDepois != null)
+        {
+            spriteRenderer.sprite = spriteBaseDepois;
+        }
+
+        if (controllerDepois != null && animator.runtimeAnimatorController != controllerDepois)
+        {
+            animator.runtimeAnimatorController = controllerDepois;
+            animator.Rebind();
+            animator.Update(0f);
+        }
+
+        Debug.Log($"[PlayerVisual] Roupa Nova Aplicada! Sprite Base e Animator atualizados.");
     }
 }

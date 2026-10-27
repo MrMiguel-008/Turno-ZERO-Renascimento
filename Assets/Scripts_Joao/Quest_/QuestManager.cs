@@ -25,6 +25,15 @@ public class QuestManager : MonoBehaviour
 
     void Start()
     {
+        ReiniciarProgressoMissoes();
+    }
+
+    // Método para resetar o estado das missões perfeitamente ao reiniciar
+    public void ReiniciarProgressoMissoes()
+    {
+        isQuestCompleted = false;
+        activeQuestID = "";
+
         if (questDatabase != null && questDatabase.quests != null && questDatabase.quests.Length > 0)
         {
             string primeiraQuestID = questDatabase.quests[0].questID;
@@ -155,7 +164,7 @@ public class QuestManager : MonoBehaviour
 
     public void CompleteQuest()
     {
-        if (!string.IsNullOrEmpty(activeQuestID))
+        if (!string.IsNullOrEmpty(activeQuestID) && !isQuestCompleted)
         {
             var currentQuest = GetQuestInfo(activeQuestID);
             isQuestCompleted = true;
@@ -179,7 +188,6 @@ public class QuestManager : MonoBehaviour
 
             int nextIndex = currentIndex + 1;
 
-            // Verifica se existe uma próxima missão ou se esta era a última
             if (currentIndex != -1 && nextIndex < questDatabase.quests.Length)
             {
                 string nextQuestID = questDatabase.quests[nextIndex].questID;
@@ -191,7 +199,6 @@ public class QuestManager : MonoBehaviour
                 UpdateQuestUI();
                 Debug.Log("Todas as missões foram concluídas! A disparar tela de fim de jogo...");
 
-                // Aciona a tela de fim de jogo de forma segura pela instância
                 if (FimDeJogoManager.Instance != null)
                 {
                     FimDeJogoManager.Instance.DispararFimDeJogo();

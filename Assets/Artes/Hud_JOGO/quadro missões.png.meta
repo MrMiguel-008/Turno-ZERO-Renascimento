@@ -209,7 +209,11 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      "quadro miss\xF5es_0": 2263330700524168512
+      "quadro miss\xF5es_1": -4085142313140480326
+      "quadro miss\xF5es_2": -5875194284389005970
+      "quadro miss\xF5es_3": -3942988128305827894
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
