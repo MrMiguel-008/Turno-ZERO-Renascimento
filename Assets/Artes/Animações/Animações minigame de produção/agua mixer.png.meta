@@ -1,0 +1,455 @@
+fileFormatVersion: 2
+guid: 80c3d6b354fe45746bc031e321b02db4
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -4146285776848086499
+    second: agua mixer_0
+  - first:
+      213: 1725342735203497161
+    second: agua mixer_1
+  - first:
+      213: -8441058739437008062
+    second: agua mixer_2
+  - first:
+      213: -7177185454547209162
+    second: agua mixer_3
+  - first:
+      213: -6822127427070564277
+    second: agua mixer_4
+  - first:
+      213: 522331670971573714
+    second: agua mixer_5
+  - first:
+      213: -4397560777498427085
+    second: agua mixer_6
+  - first:
+      213: 7853954813073392842
+    second: agua mixer_7
+  - first:
+      213: -7761012970642034148
+    second: agua mixer_8
+  - first:
+      213: 6932177518412910638
+    second: agua mixer_9
+  - first:
+      213: 3884563306029189459
+    second: agua mixer_10
+  - first:
+      213: 3646367762522540536
+    second: agua mixer_11
+  - first:
+      213: 8004554094294697117
+    second: agua mixer_12
+  - first:
+      213: -1840060518090912547
+    second: agua mixer_13
+  - first:
+      213: 3928587905107674879
+    second: agua mixer_14
+  - first:
+      213: -1072167972927110662
+    second: agua mixer_15
+  - first:
+      213: 9070900263619683623
+    second: agua mixer_16
+  - first:
+      213: -1934011223844010837
+    second: agua mixer_17
+  - first:
+      213: -4412822138261478440
+    second: agua mixer_18
+  - first:
+      213: -223798204008130691
+    second: agua mixer_19
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 25
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: agua mixer_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 664
+        width: 640
+        height: 360
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 07abbb5121b00ad43bf4d69270a10517
+      internalID: 587980402
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: agua mixer_1
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 664
+        width: 640
+        height: 360
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1b4c180cb4decef4886485e15144595a
+      internalID: 1834369963
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: agua mixer_2
+      rect:
+        serializedVersion: 2
+        x: 1280
+        y: 664
+        width: 640
+        height: 360
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6c915cc1a273c8a438aa66bfd49d271d
+      internalID: -683405402
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: agua mixer_3
+      rect:
+        serializedVersion: 2
+        x: 1920
+        y: 664
+        width: 640
+        height: 360
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 225975ecfc1a44749a2be00ef3b28eaa
+      internalID: 164931271
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: agua mixer_4
+      rect:
+        serializedVersion: 2
+        x: 2560
+        y: 664
+        width: 640
+        height: 360
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a69eee195a2a2db4c8b7b04a4fa1ac63
+      internalID: -543149729
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: agua mixer_5
+      rect:
+        serializedVersion: 2
+        x: 3200
+        y: 664
+        width: 640
+        height: 360
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 172dafe4257f0324caccef9a5ee9d51f
+      internalID: 1442598182
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: agua mixer_6
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 304
+        width: 640
+        height: 360
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 97c20f1d36a4aa74ab66dff693b3c0c4
+      internalID: 353567261
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: agua mixer_7
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 304
+        width: 640
+        height: 360
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 76c327b0bb766c8429a110a7161d125b
+      internalID: -11230965
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: agua mixer_8
+      rect:
+        serializedVersion: 2
+        x: 1280
+        y: 304
+        width: 640
+        height: 360
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ddf0d4b9c1d895e4dae8b651f6100135
+      internalID: -836624461
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: agua mixer_9
+      rect:
+        serializedVersion: 2
+        x: 1920
+        y: 304
+        width: 640
+        height: 360
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dae7ec58d768d6843aa4c5ec2e025de9
+      internalID: -1371811783
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: agua mixer_10
+      rect:
+        serializedVersion: 2
+        x: 2560
+        y: 304
+        width: 640
+        height: 360
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 12a3dee1230dc024babe5d0346514907
+      internalID: 233327164
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: agua mixer_11
+      rect:
+        serializedVersion: 2
+        x: 3200
+        y: 304
+        width: 640
+        height: 360
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0cd2645007154ed46871d05ab90b37c5
+      internalID: -1871067547
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 3d01b1180298d0346911fd00d5cd100a
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":640.0,"y":360.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"slicingType":1,"keepEmptyRects":false,"isAlternate":false}'
+    nameFileIdTable:
+      agua mixer_0: 587980402
+      agua mixer_1: 1834369963
+      agua mixer_10: 233327164
+      agua mixer_11: -1871067547
+      agua mixer_2: -683405402
+      agua mixer_3: 164931271
+      agua mixer_4: -543149729
+      agua mixer_5: 1442598182
+      agua mixer_6: 353567261
+      agua mixer_7: -11230965
+      agua mixer_8: -836624461
+      agua mixer_9: -1371811783
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

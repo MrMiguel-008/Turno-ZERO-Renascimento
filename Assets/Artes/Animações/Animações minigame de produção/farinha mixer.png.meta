@@ -1,0 +1,449 @@
+fileFormatVersion: 2
+guid: bc36d923cf60f824bbc0dbb22947739c
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -2906131557105875450
+    second: farinha mixer_0
+  - first:
+      213: -8599326383292217896
+    second: farinha mixer_1
+  - first:
+      213: 1113828338845468006
+    second: farinha mixer_2
+  - first:
+      213: -5582407045827436752
+    second: farinha mixer_3
+  - first:
+      213: -8367174803959903532
+    second: farinha mixer_4
+  - first:
+      213: -4200025191328728829
+    second: farinha mixer_5
+  - first:
+      213: -1830687204963102539
+    second: farinha mixer_6
+  - first:
+      213: -5812209217678644028
+    second: farinha mixer_7
+  - first:
+      213: -7589836848071411717
+    second: farinha mixer_8
+  - first:
+      213: 445773087386527658
+    second: farinha mixer_9
+  - first:
+      213: -913005099045657761
+    second: farinha mixer_10
+  - first:
+      213: 8280719265928220540
+    second: farinha mixer_11
+  - first:
+      213: 6678035764310474377
+    second: farinha mixer_12
+  - first:
+      213: -2012452041382028128
+    second: farinha mixer_13
+  - first:
+      213: -4774877301267366867
+    second: farinha mixer_14
+  - first:
+      213: 6951717360004721540
+    second: farinha mixer_15
+  - first:
+      213: -8845331674060104673
+    second: farinha mixer_16
+  - first:
+      213: -4704414443583462708
+    second: farinha mixer_17
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 25
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: farinha mixer_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 664
+        width: 640
+        height: 360
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 606c6240fb85ba7d0800000000000000
+      internalID: -2906131557105875450
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: farinha mixer_1
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 664
+        width: 640
+        height: 360
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8d50930373e09a880800000000000000
+      internalID: -8599326383292217896
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: farinha mixer_2
+      rect:
+        serializedVersion: 2
+        x: 1280
+        y: 664
+        width: 640
+        height: 360
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 665c5ad09fc157f00800000000000000
+      internalID: 1113828338845468006
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: farinha mixer_3
+      rect:
+        serializedVersion: 2
+        x: 1920
+        y: 664
+        width: 640
+        height: 360
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 03f51d16e5e4782b0800000000000000
+      internalID: -5582407045827436752
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: farinha mixer_4
+      rect:
+        serializedVersion: 2
+        x: 2560
+        y: 664
+        width: 640
+        height: 360
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4da0f54d8d2d1eb80800000000000000
+      internalID: -8367174803959903532
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: farinha mixer_5
+      rect:
+        serializedVersion: 2
+        x: 3200
+        y: 664
+        width: 640
+        height: 360
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 309b827575386b5c0800000000000000
+      internalID: -4200025191328728829
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: farinha mixer_6
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 304
+        width: 640
+        height: 360
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5b0525dbfa71896e0800000000000000
+      internalID: -1830687204963102539
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: farinha mixer_7
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 304
+        width: 640
+        height: 360
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4cc630cc282e65fa0800000000000000
+      internalID: -5812209217678644028
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: farinha mixer_8
+      rect:
+        serializedVersion: 2
+        x: 1280
+        y: 304
+        width: 640
+        height: 360
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bf7788f699b7ba690800000000000000
+      internalID: -7589836848071411717
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: farinha mixer_9
+      rect:
+        serializedVersion: 2
+        x: 1920
+        y: 304
+        width: 640
+        height: 360
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: aa76a1cd244bf2600800000000000000
+      internalID: 445773087386527658
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: farinha mixer_10
+      rect:
+        serializedVersion: 2
+        x: 2560
+        y: 304
+        width: 640
+        height: 360
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f53634123ba5453f0800000000000000
+      internalID: -913005099045657761
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: farinha mixer_11
+      rect:
+        serializedVersion: 2
+        x: 3200
+        y: 304
+        width: 640
+        height: 360
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c7f826a9c460be270800000000000000
+      internalID: 8280719265928220540
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 150518b08661b9d4fbe62f16b3b5560d
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":640.0,"y":360.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"slicingType":1,"keepEmptyRects":false,"isAlternate":false}'
+    nameFileIdTable:
+      farinha mixer_0: -2906131557105875450
+      farinha mixer_1: -8599326383292217896
+      farinha mixer_10: -913005099045657761
+      farinha mixer_11: 8280719265928220540
+      farinha mixer_2: 1113828338845468006
+      farinha mixer_3: -5582407045827436752
+      farinha mixer_4: -8367174803959903532
+      farinha mixer_5: -4200025191328728829
+      farinha mixer_6: -1830687204963102539
+      farinha mixer_7: -5812209217678644028
+      farinha mixer_8: -7589836848071411717
+      farinha mixer_9: 445773087386527658
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

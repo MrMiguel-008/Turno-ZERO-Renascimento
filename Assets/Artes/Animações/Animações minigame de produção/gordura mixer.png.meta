@@ -1,0 +1,449 @@
+fileFormatVersion: 2
+guid: 4b1e2b36c542fd647b6d8cd6394797d0
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 3308038689131873879
+    second: gordura mixer_0
+  - first:
+      213: -6886499199200497348
+    second: gordura mixer_1
+  - first:
+      213: 1720761005378211606
+    second: gordura mixer_2
+  - first:
+      213: 3933696154155411465
+    second: gordura mixer_3
+  - first:
+      213: 3063704790665065182
+    second: gordura mixer_4
+  - first:
+      213: 3857076939455495301
+    second: gordura mixer_5
+  - first:
+      213: 4484293990333615718
+    second: gordura mixer_6
+  - first:
+      213: 4517292654808543372
+    second: gordura mixer_7
+  - first:
+      213: 3926245019110524938
+    second: gordura mixer_8
+  - first:
+      213: 1404894026697018086
+    second: gordura mixer_9
+  - first:
+      213: 643287354046325781
+    second: gordura mixer_10
+  - first:
+      213: 4635232777707654886
+    second: gordura mixer_11
+  - first:
+      213: -8842571032928939648
+    second: gordura mixer_12
+  - first:
+      213: -4932111621127841224
+    second: gordura mixer_13
+  - first:
+      213: -2875244791613622961
+    second: gordura mixer_14
+  - first:
+      213: -227122892464568744
+    second: gordura mixer_15
+  - first:
+      213: 7041258171610465192
+    second: gordura mixer_16
+  - first:
+      213: -7202479169325312524
+    second: gordura mixer_17
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 25
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: gordura mixer_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 664
+        width: 640
+        height: 360
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 75644f839a388ed20800000000000000
+      internalID: 3308038689131873879
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gordura mixer_1
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 664
+        width: 640
+        height: 360
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c3174ade67d3e60a0800000000000000
+      internalID: -6886499199200497348
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gordura mixer_2
+      rect:
+        serializedVersion: 2
+        x: 1280
+        y: 664
+        width: 640
+        height: 360
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 61f89e4740f51e710800000000000000
+      internalID: 1720761005378211606
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gordura mixer_3
+      rect:
+        serializedVersion: 2
+        x: 1920
+        y: 664
+        width: 640
+        height: 360
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 908e0c28fcb479630800000000000000
+      internalID: 3933696154155411465
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gordura mixer_4
+      rect:
+        serializedVersion: 2
+        x: 2560
+        y: 664
+        width: 640
+        height: 360
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ed2f0406647748a20800000000000000
+      internalID: 3063704790665065182
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gordura mixer_5
+      rect:
+        serializedVersion: 2
+        x: 3200
+        y: 664
+        width: 640
+        height: 360
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 58c789f6a07178530800000000000000
+      internalID: 3857076939455495301
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gordura mixer_6
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 304
+        width: 640
+        height: 360
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 66e014a10a96b3e30800000000000000
+      internalID: 4484293990333615718
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gordura mixer_7
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 304
+        width: 640
+        height: 360
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c8038546cb5a0be30800000000000000
+      internalID: 4517292654808543372
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gordura mixer_8
+      rect:
+        serializedVersion: 2
+        x: 1280
+        y: 304
+        width: 640
+        height: 360
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a08ca31fa03dc7630800000000000000
+      internalID: 3926245019110524938
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gordura mixer_9
+      rect:
+        serializedVersion: 2
+        x: 1920
+        y: 304
+        width: 640
+        height: 360
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6ea08508caf2f7310800000000000000
+      internalID: 1404894026697018086
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gordura mixer_10
+      rect:
+        serializedVersion: 2
+        x: 2560
+        y: 304
+        width: 640
+        height: 360
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 514ae62b07a6de800800000000000000
+      internalID: 643287354046325781
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gordura mixer_11
+      rect:
+        serializedVersion: 2
+        x: 3200
+        y: 304
+        width: 640
+        height: 360
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6ee038e17a7a35040800000000000000
+      internalID: 4635232777707654886
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 4d449169011ffc54d80ea1d763b93b2d
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":640.0,"y":360.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"slicingType":1,"keepEmptyRects":false,"isAlternate":false}'
+    nameFileIdTable:
+      gordura mixer_0: 3308038689131873879
+      gordura mixer_1: -6886499199200497348
+      gordura mixer_10: 643287354046325781
+      gordura mixer_11: 4635232777707654886
+      gordura mixer_2: 1720761005378211606
+      gordura mixer_3: 3933696154155411465
+      gordura mixer_4: 3063704790665065182
+      gordura mixer_5: 3857076939455495301
+      gordura mixer_6: 4484293990333615718
+      gordura mixer_7: 4517292654808543372
+      gordura mixer_8: 3926245019110524938
+      gordura mixer_9: 1404894026697018086
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

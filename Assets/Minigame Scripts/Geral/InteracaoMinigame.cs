@@ -7,6 +7,7 @@ using UnityEngine.SceneManagement;
 [RequireComponent(typeof(Collider2D))]
 public class InteracaoMinigame : MonoBehaviour, IObjetivoMinigame
 {
+
     // =========================================================
     // IDENTIFICAÇÃO DO OBJETIVO
     // =========================================================
@@ -541,6 +542,7 @@ public class InteracaoMinigame : MonoBehaviour, IObjetivoMinigame
     public static void FinalizarMinigame(
         bool objetivoConcluido)
     {
+
         if (!transicaoEmAndamento)
         {
             Debug.LogWarning(
