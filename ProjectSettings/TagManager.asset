@@ -21,6 +21,7 @@ TagManager:
   - S avental 1
   - s luvas 1
   - s botas 1
+  - MesaCaixa
   layers:
   - Default
   - TransparentFX
