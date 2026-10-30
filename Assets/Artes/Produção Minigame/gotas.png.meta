@@ -103,10 +103,10 @@ TextureImporter:
       name: gotas_0
       rect:
         serializedVersion: 2
-        x: 34
-        y: 29
-        width: 45
-        height: 47
+        x: 22
+        y: 33
+        width: 73
+        height: 53
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
