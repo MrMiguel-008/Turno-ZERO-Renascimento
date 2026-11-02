@@ -165,3 +165,41 @@ MonoBehaviour:
     - itemID: uniforme
       amount: 1
     targetMinigameID: bancada_producao
+  - questID: m7
+    questTitle: Fale com a Supervisora
+    questDescription: Utilize a Tecla 'E' para interagir com a Supervisora.
+    questType: 2
+    targetAreaName: 
+    requiredItems:
+    - itemID: luva
+      amount: 1
+    - itemID: mascara
+      amount: 1
+    - itemID: toca
+      amount: 1
+    - itemID: bota
+      amount: 1
+    - itemID: avental
+      amount: 1
+    - itemID: uniforme
+      amount: 1
+    targetMinigameID: 
+  - questID: m7
+    questTitle: Fale com a Supervisora
+    questDescription: Utilize a Tecla 'E' para interagir com a Supervisora.
+    questType: 2
+    targetAreaName: 
+    requiredItems:
+    - itemID: luva
+      amount: 1
+    - itemID: mascara
+      amount: 1
+    - itemID: toca
+      amount: 1
+    - itemID: bota
+      amount: 1
+    - itemID: avental
+      amount: 1
+    - itemID: uniforme
+      amount: 1
+    targetMinigameID: 

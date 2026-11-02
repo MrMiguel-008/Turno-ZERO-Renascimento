@@ -668,13 +668,9 @@ MonoBehaviour:
   pontosIniciais1: 100
   penalizacaoErro1: 10
   nomeCena2: BancadaMinigame
-  metaCena2: 7
-  pontosIniciais2: 150
-  penalizacaoErro2: 20
-  nomeCena3: CenaTerceiroMinigame
-  metaCena3: 5
-  pontosIniciais3: 100
-  penalizacaoErro3: 10
+  metaCena2: 6
+  pontosIniciais2: 100
+  penalizacaoErro2: 10
   canvas: {fileID: 624984291}
   tagDoAlvoCorreto: S avental 1
 --- !u!4 &243335859
@@ -894,13 +890,9 @@ MonoBehaviour:
   pontosIniciais1: 100
   penalizacaoErro1: 10
   nomeCena2: BancadaMinigame
-  metaCena2: 7
-  pontosIniciais2: 150
-  penalizacaoErro2: 20
-  nomeCena3: CenaTerceiroMinigame
-  metaCena3: 5
-  pontosIniciais3: 100
-  penalizacaoErro3: 10
+  metaCena2: 6
+  pontosIniciais2: 100
+  penalizacaoErro2: 10
   canvas: {fileID: 624984291}
   tagDoAlvoCorreto: s botas 1
 --- !u!50 &417958571
@@ -1245,13 +1237,9 @@ MonoBehaviour:
   pontosIniciais1: 100
   penalizacaoErro1: 10
   nomeCena2: BancadaMinigame
-  metaCena2: 7
-  pontosIniciais2: 150
-  penalizacaoErro2: 20
-  nomeCena3: CenaTerceiroMinigame
-  metaCena3: 5
-  pontosIniciais3: 100
-  penalizacaoErro3: 10
+  metaCena2: 6
+  pontosIniciais2: 100
+  penalizacaoErro2: 10
   canvas: {fileID: 624984291}
   tagDoAlvoCorreto: s mascara 1
 --- !u!50 &437579895
@@ -1751,13 +1739,9 @@ MonoBehaviour:
   pontosIniciais1: 100
   penalizacaoErro1: 10
   nomeCena2: BancadaMinigame
-  metaCena2: 7
-  pontosIniciais2: 150
-  penalizacaoErro2: 20
-  nomeCena3: CenaTerceiroMinigame
-  metaCena3: 5
-  pontosIniciais3: 100
-  penalizacaoErro3: 10
+  metaCena2: 6
+  pontosIniciais2: 100
+  penalizacaoErro2: 10
   canvas: {fileID: 624984291}
   tagDoAlvoCorreto: s luvas 1
 --- !u!50 &669735453
@@ -2867,13 +2851,9 @@ MonoBehaviour:
   pontosIniciais1: 100
   penalizacaoErro1: 10
   nomeCena2: BancadaMinigame
-  metaCena2: 7
-  pontosIniciais2: 150
-  penalizacaoErro2: 20
-  nomeCena3: CenaTerceiroMinigame
-  metaCena3: 5
-  pontosIniciais3: 100
-  penalizacaoErro3: 10
+  metaCena2: 6
+  pontosIniciais2: 100
+  penalizacaoErro2: 10
   canvas: {fileID: 624984291}
   tagDoAlvoCorreto: s touca 1
 --- !u!50 &1452102939
@@ -3271,13 +3251,9 @@ MonoBehaviour:
   pontosIniciais1: 100
   penalizacaoErro1: 10
   nomeCena2: BancadaMinigame
-  metaCena2: 7
-  pontosIniciais2: 150
-  penalizacaoErro2: 20
-  nomeCena3: CenaTerceiroMinigame
-  metaCena3: 5
-  pontosIniciais3: 100
-  penalizacaoErro3: 10
+  metaCena2: 6
+  pontosIniciais2: 100
+  penalizacaoErro2: 10
   canvas: {fileID: 624984291}
   tagDoAlvoCorreto: s uniforme 1
 --- !u!4 &1621443281

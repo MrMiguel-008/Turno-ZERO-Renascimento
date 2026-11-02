@@ -103,12 +103,12 @@ TextureImporter:
       name: avental invent_0
       rect:
         serializedVersion: 2
-        x: 12
-        y: 3
-        width: 21
-        height: 45
+        x: 1
+        y: 4
+        width: 43
+        height: 43
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -125,7 +125,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 03a66862eb004bd4aaef363026efe10f
     internalID: 0
     vertices: []
     indices: 
