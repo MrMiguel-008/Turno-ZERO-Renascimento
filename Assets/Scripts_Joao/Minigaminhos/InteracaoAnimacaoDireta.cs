@@ -26,7 +26,6 @@ public class InteracaoAnimacaoDireta : MonoBehaviour
     {
         animator = GetComponent<Animator>();
 
-        // Diagnóstico inicial para ajudar a detetar erros de configuração no Inspector
         if (mensagemUI == null)
         {
             Debug.LogWarning($"[InteracaoAnimacaoDireta] O campo 'Mensagem UI' não está atribuído no objeto '{gameObject.name}'!", this);
@@ -45,7 +44,6 @@ public class InteracaoAnimacaoDireta : MonoBehaviour
     {
         if (concluido || emAndamento) return;
 
-        // Atualiza a posição da mensagem continuamente enquanto o jogador estiver na área
         if (jogadorNaArea && mensagemUI != null && mensagemUI.gameObject.activeSelf)
         {
             AtualizarPosicaoMensagem();
@@ -130,14 +128,12 @@ public class InteracaoAnimacaoDireta : MonoBehaviour
         Camera cameraPrincipal = Camera.main;
         if (cameraPrincipal == null) return;
 
-        // Converte a posição do mundo 2D para coordenadas de tela do UI
         Vector3 posicaoMundo = transform.position + deslocamentoMensagem;
         Vector3 posicaoTela = cameraPrincipal.WorldToScreenPoint(posicaoMundo);
 
         mensagemUI.transform.position = posicaoTela;
     }
 
-    // Desenha uma esfera amarela no editor Unity para veres onde a mensagem vai aparecer
     private void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.yellow;
