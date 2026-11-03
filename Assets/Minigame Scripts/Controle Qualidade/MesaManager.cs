@@ -59,6 +59,8 @@ public class MesaManager : MonoBehaviour
 
     void FinalizarMinigame()
     {
-        // Insira aqui o código para liberar a movimentação do jogador
+        // Informa o sistema de transição aditiva para concluir a missão, 
+        // fechar a cena do minigame e devolver o player à posição exata na cena principal.
+        InteracaoMinigame.FinalizarMinigame(true);
     }
 }

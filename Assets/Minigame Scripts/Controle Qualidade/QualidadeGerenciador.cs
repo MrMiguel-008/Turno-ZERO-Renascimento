@@ -15,7 +15,6 @@ public class QualidadeGerenciador : MonoBehaviour
     public List<Transform> pontosDeSpawn = new List<Transform>();
     public float intervaloSpawn = 0.8f;
 
-    // ALTERADO: Separamos os prefabs em duas listas para o gerenciador poder escolher de forma inteligente
     [Header("Categorias de Embalagens")]
     public List<GameObject> prefabsNormais = new List<GameObject>();
     public List<GameObject> prefabsDanificadas = new List<GameObject>();
@@ -24,7 +23,6 @@ public class QualidadeGerenciador : MonoBehaviour
     private bool esteiraAtiva = false;
     private List<Embalagem> embalagensNaCena = new List<Embalagem>();
 
-    // Controle interno do requisito do ciclo
     private bool danificadaGeradaNesteCiclo = false;
 
     void Awake()
@@ -39,23 +37,20 @@ public class QualidadeGerenciador : MonoBehaviour
     {
         if (pontosDeSpawn.Count == 0 || prefabsNormais.Count == 0 || prefabsDanificadas.Count == 0)
         {
-            Debug.LogError("Por favor, configure os Pontos de Spawn e as duas listas de Prefabs (Normais e Danificadas) no Inspetor!");
+            Debug.LogError("Por favor, configure os Pontos de Spawn e as duas listas de Prefabs no Inspetor!");
             return;
         }
 
         StartCoroutine(FluxoDoMinigame());
     }
 
-    // 1. CONTROLADOR DOS TURNOS / CICLOS
     IEnumerator FluxoDoMinigame()
     {
         for (cicloAtual = 1; cicloAtual <= totalCiclos; cicloAtual++)
         {
             Debug.Log($"--- INICIANDO CICLO {cicloAtual}/{totalCiclos} ---");
 
-            // Reseta a checagem para o novo ciclo
             danificadaGeradaNesteCiclo = false;
-
             esteiraAtiva = true;
             DefinirMovimentoDasEmbalagens(true);
 
@@ -76,14 +71,27 @@ public class QualidadeGerenciador : MonoBehaviour
         }
 
         Debug.Log("Minigame Totalmente Concluído com Sucesso!");
-        SceneManager.LoadScene(1);
+
+        // No final do método FluxoDoMinigame() em QualidadeGerenciador.cs:
+        if (QuestManager.Instance != null)
+        {
+            // Substitui exatamente pelo ID que está no teu Main Quest Database
+            QuestManager.Instance.CheckMinigameQuest("qualidade");
+        }
+        else
+        {
+            Debug.LogWarning("[QualidadeGerenciador] QuestManager não encontrado na cena!");
+        }
+
+        Debug.Log("Minigame Totalmente Concluído com Sucesso!");
+
+        // Informa o InteracaoMinigame que o objetivo foi concluído com sucesso e retorna à cena original
+        InteracaoMinigame.FinalizarMinigame(true);
     }
 
-    // 2. ROTINA DE SPAWN ALEATÓRIO E INTELIGENTE
     IEnumerator SpawnarEmbalagens()
     {
         int totalSpawnsNesteCiclo = 0;
-        // Calcula aproximadamente quantos itens vão spawnar baseado no tempo total e no intervalo
         int maxSpawnsEstimados = Mathf.FloorToInt(tempoMovendoEsteira / intervaloSpawn);
 
         while (esteiraAtiva)
@@ -91,18 +99,14 @@ public class QualidadeGerenciador : MonoBehaviour
             totalSpawnsNesteCiclo++;
             GameObject prefabEscolhido = null;
 
-            // REGRA DA EMBALAGEM DANIFICADA:
-            // Se for o ÚLTIMO spawn possível do ciclo e nenhuma danificada nasceu ainda, FORÇA uma danificada.
             if (!danificadaGeradaNesteCiclo && totalSpawnsNesteCiclo >= maxSpawnsEstimados)
             {
                 int randomIndex = Random.Range(0, prefabsDanificadas.Count);
                 prefabEscolhido = prefabsDanificadas[randomIndex];
                 danificadaGeradaNesteCiclo = true;
-                Debug.Log("Sorteio Forçado: Garantindo a embalagem danificada do ciclo!");
             }
             else
             {
-                // Caso contrário, deixa o jogo sortear aleatoriamente entre normal ou danificada (chance de 30% de vir danificada naturalmente)
                 bool sortearDanificada = Random.Range(0f, 1f) < 0.3f;
 
                 if (sortearDanificada)
@@ -118,7 +122,6 @@ public class QualidadeGerenciador : MonoBehaviour
                 }
             }
 
-            // Seleção de um dos 5 pontos
             int randomPontoIndex = Random.Range(0, pontosDeSpawn.Count);
             Transform pontoEscolhido = pontosDeSpawn[randomPontoIndex];
 
@@ -138,7 +141,6 @@ public class QualidadeGerenciador : MonoBehaviour
         }
     }
 
-    // 3. ATIVA OU DESATIVA O MOVIMENTO DE TODAS AS EMBALAGENS PRESENTES
     void DefinirMovimentoDasEmbalagens(bool mover)
     {
         embalagensNaCena.RemoveAll(item => item == null);
@@ -151,7 +153,6 @@ public class QualidadeGerenciador : MonoBehaviour
         }
     }
 
-    // 4. CHECA SE AINDA EXISTE ALGUMA EMBALAGEM DANIFICADA NA TELA
     bool TodasDanificadasForamRemovidas()
     {
         embalagensNaCena.RemoveAll(item => item == null);
@@ -165,7 +166,6 @@ public class QualidadeGerenciador : MonoBehaviour
         return true;
     }
 
-    // 5. REMOVE A REFERÊNCIA DA CAIXA QUANDO ELA É DESTRUÍDA
     public void RemoverDaLista(Embalagem emb)
     {
         if (embalagensNaCena.Contains(emb))
@@ -178,4 +178,6 @@ public class QualidadeGerenciador : MonoBehaviour
     {
         return esteiraAtiva;
     }
+
+
 }

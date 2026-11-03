@@ -784,17 +784,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   totalCiclos: 3
-  tempoMovendoEsteira: 7.5
+  tempoMovendoEsteira: 6
   pontosDeSpawn:
   - {fileID: 1419216279}
   - {fileID: 962904345}
   - {fileID: 1169169393}
   - {fileID: 390272897}
   - {fileID: 1259074296}
-  intervaloSpawn: 2
+  intervaloSpawn: 1
   prefabsNormais:
-  - {fileID: 532296366}
-  - {fileID: 371199466}
   - {fileID: 2072907047}
   prefabsDanificadas:
   - {fileID: 1246539521}

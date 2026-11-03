@@ -1,92 +1,85 @@
 using UnityEngine;
 using TMPro;
 
-[RequireComponent(typeof(Animator))]
 [RequireComponent(typeof(Collider2D))]
 public class InteracaoAnimacaoDireta : MonoBehaviour
 {
-    [Header("Identificação")]
-    [SerializeField] private string idObjetivo = "objetivo_animado";
+    [Header("Identificação da Missão")]
+    [Tooltip("ID da missão que precisa estar ativa para permitir a interação.")]
+    [SerializeField] private string idMissaoRequerida;
 
-    [Header("UI e Mensagem")]
+    [Header("Configuração de Animação")]
+    [SerializeField] private Animator animator;
+    [SerializeField] private string nomeAnimacao;
+
+    [Header("Interação UI (Opcional)")]
     [SerializeField] private string mensagemInteracao = "E - Interagir";
     [SerializeField] private TMP_Text mensagemUI;
-    [SerializeField] private Vector3 deslocamentoMensagem = new Vector3(0f, 1f, 0f);
 
-    [Header("Configuração da Animação")]
-    [SerializeField] private string triggerAnimacao = "TocarAnimacao";
-    [SerializeField] private float duracaoAnimacao = 2f;
-
-    private Animator animator;
     private bool jogadorNaArea = false;
-    private bool emAndamento = false;
-    private bool concluido = false;
+    private bool jaInteragiu = false;
 
     void Start()
     {
-        animator = GetComponent<Animator>();
-
-        if (mensagemUI == null)
-        {
-            Debug.LogWarning($"[InteracaoAnimacaoDireta] O campo 'Mensagem UI' não está atribuído no objeto '{gameObject.name}'!", this);
-        }
-
+        if (animator == null) animator = GetComponent<Animator>();
         EsconderMensagem();
+    }
 
-        if (InteracaoMinigame.ObjetivoFoiConcluido(idObjetivo))
+    // Valida se o jogador está na missão correta
+    private bool PodeInteragir()
+    {
+        if (jaInteragiu) return false;
+
+        if (QuestManager.Instance != null)
         {
-            concluido = true;
-            enabled = false;
+            string questAtivaID = QuestManager.Instance.activeQuestID;
+            var questInfo = QuestManager.Instance.GetQuestInfo(questAtivaID);
+
+            // Só permite interagir se a missão ativa for exatamente a requerida
+            return questInfo.questID == idMissaoRequerida;
         }
+
+        return true; // Fallback caso não haja QuestManager
     }
 
     void Update()
     {
-        if (concluido || emAndamento) return;
-
-        if (jogadorNaArea && mensagemUI != null && mensagemUI.gameObject.activeSelf)
+        // Se o jogador estiver na área, pressionar 'E' e a missão estiver correta
+        if (jogadorNaArea && !jaInteragiu && Input.GetKeyDown(KeyCode.E))
         {
-            AtualizarPosicaoMensagem();
-        }
-
-        if (jogadorNaArea && Input.GetKeyDown(KeyCode.E))
-        {
-            IniciarAnimacaoEMissao();
+            if (PodeInteragir())
+            {
+                ExecutarAcao();
+            }
+            else
+            {
+                Debug.Log("[InteracaoAnimacaoDireta] A missão atual não permite esta interação!");
+            }
         }
     }
 
-    void IniciarAnimacaoEMissao()
+    void ExecutarAcao()
     {
-        emAndamento = true;
+        jaInteragiu = true;
         EsconderMensagem();
 
-        if (animator != null)
+        if (animator != null && !string.IsNullOrEmpty(nomeAnimacao))
         {
-            animator.SetTrigger(triggerAnimacao);
+            animator.Play(nomeAnimacao);
+            Debug.Log("[InteracaoAnimacaoDireta] Animação executada com sucesso!");
         }
 
-        StartCoroutine(EsperarFimDaAnimacao());
-    }
-
-    System.Collections.IEnumerator EsperarFimDaAnimacao()
-    {
-        yield return new WaitForSeconds(duracaoAnimacao);
-
-        concluido = true;
-        Debug.Log($"[InteracaoAnimacaoDireta] Animação concluída para: {idObjetivo}");
-
+        // Se quiseres avançar a missão automaticamente ao interagir:
         if (QuestManager.Instance != null)
         {
-            QuestManager.Instance.CheckMinigameQuest(idObjetivo);
+            // Opcional: Podes chamar uma verificação de minigame ou evento aqui, se aplicável
+            // QuestManager.Instance.CheckMinigameQuest(idMissaoRequerida);
         }
-
-        enabled = false;
     }
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (concluido || emAndamento) return;
-        if (other.CompareTag("Player"))
+        if (other.CompareTag("Player") && PodeInteragir())
         {
             jogadorNaArea = true;
             MostrarMensagem();
@@ -104,39 +97,18 @@ public class InteracaoAnimacaoDireta : MonoBehaviour
 
     void MostrarMensagem()
     {
-        if (mensagemUI == null)
+        if (mensagemUI != null)
         {
-            Debug.LogError($"[InteracaoAnimacaoDireta] Tentativa de mostrar mensagem, mas 'Mensagem UI' é nula em '{gameObject.name}'!");
-            return;
+            mensagemUI.text = mensagemInteracao;
+            mensagemUI.gameObject.SetActive(true);
         }
-
-        mensagemUI.text = mensagemInteracao;
-        mensagemUI.gameObject.SetActive(true);
-        AtualizarPosicaoMensagem();
     }
 
     void EsconderMensagem()
     {
-        if (mensagemUI == null) return;
-        mensagemUI.gameObject.SetActive(false);
-    }
-
-    void AtualizarPosicaoMensagem()
-    {
-        if (mensagemUI == null) return;
-
-        Camera cameraPrincipal = Camera.main;
-        if (cameraPrincipal == null) return;
-
-        Vector3 posicaoMundo = transform.position + deslocamentoMensagem;
-        Vector3 posicaoTela = cameraPrincipal.WorldToScreenPoint(posicaoMundo);
-
-        mensagemUI.transform.position = posicaoTela;
-    }
-
-    private void OnDrawGizmosSelected()
-    {
-        Gizmos.color = Color.yellow;
-        Gizmos.DrawWireSphere(transform.position + deslocamentoMensagem, 0.3f);
+        if (mensagemUI != null)
+        {
+            mensagemUI.gameObject.SetActive(false);
+        }
     }
 }

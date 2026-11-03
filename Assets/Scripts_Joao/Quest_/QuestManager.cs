@@ -19,16 +19,30 @@ public class QuestManager : MonoBehaviour
 
     void Awake()
     {
-        if (Instance == null) Instance = this;
-        else Destroy(gameObject);
+        if (Instance == null)
+        {
+            Instance = this;
+            DontDestroyOnLoad(gameObject); // <--- Mantém o QuestManager ativo entre mudanças de cena
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
     }
 
     void Start()
     {
-        ReiniciarProgressoMissoes();
+        // Garante que só reinicia se não houver já uma missão ativa guardada
+        if (string.IsNullOrEmpty(activeQuestID))
+        {
+            ReiniciarProgressoMissoes();
+        }
+        else
+        {
+            UpdateQuestUI();
+        }
     }
 
-    // Método para resetar o estado das missões perfeitamente ao reiniciar
     public void ReiniciarProgressoMissoes()
     {
         isQuestCompleted = false;
