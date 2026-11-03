@@ -23,6 +23,8 @@ public class MenuPrincipalController : MonoBehaviour
 
     public void BotaoJogar()
     {
+        SoundManager.Tocar(Som.CliqueBotao);
+
         // Retoma o tempo do jogo caso estivesse pausado
         Time.timeScale = 1f;
 
@@ -32,18 +34,24 @@ public class MenuPrincipalController : MonoBehaviour
 
     public void AbrirConfiguracoes()
     {
+        SoundManager.Tocar(Som.CliqueBotao);
+
         if (painelConfiguracoes != null)
             painelConfiguracoes.SetActive(true);
     }
 
     public void FecharConfiguracoes()
     {
+        SoundManager.Tocar(Som.CliqueBotao);
+
         if (painelConfiguracoes != null)
             painelConfiguracoes.SetActive(false);
     }
 
     public void AlternarDaltonismo()
     {
+        SoundManager.Tocar(Som.CliqueBotao);
+
         modoAtual = (modoAtual + 1) % 4;
         PlayerPrefs.SetInt("ModoDaltonismo", modoAtual);
         PlayerPrefs.Save();

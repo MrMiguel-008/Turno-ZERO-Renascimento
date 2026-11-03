@@ -54,6 +54,7 @@ public class InteracaoAnimacaoDireta : MonoBehaviour
             else
             {
                 Debug.Log("[InteracaoAnimacaoDireta] A missão atual não permite esta interação!");
+                SoundManager.Tocar(Som.Erro);
             }
         }
     }
@@ -62,6 +63,7 @@ public class InteracaoAnimacaoDireta : MonoBehaviour
     {
         jaInteragiu = true;
         EsconderMensagem();
+        SoundManager.TocarProducao();
 
         if (animator != null && !string.IsNullOrEmpty(nomeAnimacao))
         {

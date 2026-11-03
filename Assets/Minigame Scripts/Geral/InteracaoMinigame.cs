@@ -75,6 +75,8 @@ public class InteracaoMinigame : MonoBehaviour, IObjetivoMinigame
 
     public bool Concluido => concluido;
 
+    public static bool EstaEmTransicao => transicaoEmAndamento;
+
     [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.SubsystemRegistration)]
     private static void ResetarEstadosEstaticos()
     {
@@ -238,6 +240,7 @@ public class InteracaoMinigame : MonoBehaviour, IObjetivoMinigame
         idObjetivoAtual = idObjetivo;
         interacaoComPrompt = null;
         EsconderMensagem();
+        SoundManager.Tocar(Som.InteracaoItem);
 
         runtimeManager.IniciarTransicao(this);
     }

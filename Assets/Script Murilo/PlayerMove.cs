@@ -21,6 +21,7 @@ public class PlayerMove : MonoBehaviour
 
         // Junta as entradas em um Vector2 e normaliza para não andar mais rápido na diagonal
         moveInput = new Vector2(moveX, moveY).normalized;
+        if (moveInput != Vector2.zero) SoundManager.ManterPassos();
     }
 
     void FixedUpdate()

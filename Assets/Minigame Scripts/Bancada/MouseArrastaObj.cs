@@ -120,6 +120,7 @@ public class MouseArrastaObj : MonoBehaviour
 
         segurandoObjeto = true;
         spriteRenderer.sortingOrder = ordemArrastando;
+        SoundManager.Tocar(Som.InteracaoItem);
     }
 
     void OnMouseDrag()
@@ -178,6 +179,7 @@ public class MouseArrastaObj : MonoBehaviour
     // =========================================================
     private void RegistrarErro(string motivo)
     {
+        SoundManager.Tocar(Som.Erro);
         transform.position = posicaoOriginal;
         pontuacaoAtualMinigame = Mathf.Max(0f, pontuacaoAtualMinigame - penalizacaoAtual);
         Debug.LogWarning($"[ERRO] {motivo} -{penalizacaoAtual} pts. Pontuação atual: {pontuacaoAtualMinigame} pts");
@@ -195,10 +197,12 @@ public class MouseArrastaObj : MonoBehaviour
 
         if (tagDoAlvoCorreto == "Lixeira")
         {
+            SoundManager.Tocar(Som.Lixo);
             Destroy(gameObject);
         }
         else
         {
+            SoundManager.Tocar(Som.EncaixeBancada);
             transform.position = zonaDeColisaoAtual.transform.position;
 
             Collider2D meuCollider = GetComponent<Collider2D>();

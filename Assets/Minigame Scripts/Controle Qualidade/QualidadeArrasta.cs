@@ -15,6 +15,7 @@ public class QualidadeArrasta : MonoBehaviour
     void OnMouseDown()
     {
         posicaoOriginal = transform.position;
+        SoundManager.Tocar(Som.ColetaBiscoito);
         if (embalagemScript != null)
         {
             embalagemScript.DefinirArrasto(true);
@@ -33,6 +34,7 @@ public class QualidadeArrasta : MonoBehaviour
 
     void OnMouseUp()
     {
+        SoundManager.Tocar(Som.SoltarItem);
         transform.position = new Vector3(transform.position.x, posicaoOriginal.y, transform.position.z);
 
         if (embalagemScript != null)

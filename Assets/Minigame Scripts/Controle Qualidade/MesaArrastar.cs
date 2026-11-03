@@ -25,6 +25,7 @@ public class MesaArrastar : MonoBehaviour
     void OnMouseDown()
     {
         arrastando = true;
+        SoundManager.Tocar(Som.InteracaoItem);
         if (spriteArrastando != null) spriteRenderer.sprite = spriteArrastando;
     }
 
@@ -52,6 +53,7 @@ public class MesaArrastar : MonoBehaviour
         else
         {
             // Se largou fora da caixa, volta para o lugar original
+            SoundManager.Tocar(Som.SoltarItem);
             RetornarOrigem();
         }
     }

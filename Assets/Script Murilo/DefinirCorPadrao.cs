@@ -10,6 +10,8 @@ public class DefinirCorPadrao : MonoBehaviour
     // Função para redefinir para o modo Normal (0)
     public void ResetarParaCorPadrao()
     {
+        SoundManager.Tocar(Som.CliqueBotao);
+
         // Se o volume não foi arrastado no Inspector, tenta encontrá-lo na cena
         if (globalVolume == null)
         {

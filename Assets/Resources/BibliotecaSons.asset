@@ -1,0 +1,98 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a92c5e36096346b5a4b1ba59e165424a, type: 3}
+  m_Name: BibliotecaSons
+  m_EditorClassIdentifier: 
+  volumeMusica: 0.35
+  volumeAmbiente: 0.25
+  volumeEfeitos: 0.9
+  musicaMenu:
+    clip: {fileID: 8300000, guid: 71b07a2908f2c3047875141c51352637, type: 3}
+    volume: 1
+  musicaJogo:
+    clip: {fileID: 8300000, guid: 7f253c57bdd5fce4b9879227949af46f, type: 3}
+    volume: 0.3
+  cenasComMusica:
+  - JogoPrincipal
+  - MinigameEPI
+  - TapeteSanitizanteMinigame
+  - BancadaMinigame
+  - Eduardo
+  musicasDeCena:
+  - clip: {fileID: 8300000, guid: b3e1f7a24c5d4e8f9a6b1c2d3e4f5a61, type: 3}
+    volume: 0.25
+    cena: EsteiraControle
+  - clip: {fileID: 8300000, guid: d4a8c1f6e27b4953a0c7b6d15e9f3a28, type: 3}
+    volume: 0.3
+    cena: MesaControle
+  passos:
+  - {fileID: 8300000, guid: cb4e81500107e905508eb3c51ccd4c29, type: 3}
+  - {fileID: 8300000, guid: f1508ada74d98d194231102f8d8e8b6c, type: 3}
+  - {fileID: 8300000, guid: cf0fae25badc3af629c033026ef056d0, type: 3}
+  - {fileID: 8300000, guid: 6d2a2ef5d5ac1001066fd87a67659d36, type: 3}
+  - {fileID: 8300000, guid: 1e3748b118792e51e5583d79bb21407b, type: 3}
+  volumePassos: 0.45
+  intervaloPassos: 0.32
+  esfregarTapete:
+    clip: {fileID: 8300000, guid: 8f992ef79dea58cecbf03b1ee9d4a3fe, type: 3}
+    volume: 0.8
+  bolhas:
+    clip: {fileID: 8300000, guid: 9bbf2b2d3143342cb8dc00c9bbff622c, type: 3}
+    volume: 0.7
+  interacaoItem:
+    clip: {fileID: 8300000, guid: a6c03e8c194612261dec7b9f01d48bad, type: 3}
+    volume: 0.7
+  soltarItem:
+    clip: {fileID: 8300000, guid: 433fe5a3b5402b2132c79d25e6cd6f19, type: 3}
+    volume: 0.7
+  cliqueBotao:
+    clip: {fileID: 8300000, guid: 1711746efc863c2de60026b9460e9fc3, type: 3}
+    volume: 0.7
+  mensagemSupervisora:
+    clip: {fileID: 8300000, guid: ba5cea8e5b0807cd986e8f94b9173b18, type: 3}
+    volume: 0.5
+  coletaItem:
+    clip: {fileID: 8300000, guid: b79e83a2c7c4b710714c72e62d15fe83, type: 3}
+    volume: 0.9
+  coletaProducao:
+    clip: {fileID: 8300000, guid: 395026faff881e0df0128731646c5726, type: 3}
+    volume: 0.9
+  coletaBiscoito:
+    clip: {fileID: 8300000, guid: f7c86d25e535b52df3c16386af566e01, type: 3}
+    volume: 0.9
+  lixo:
+    clip: {fileID: 8300000, guid: af931eef8165ab6c4f2b60416143b10f, type: 3}
+    volume: 0.9
+  ambienteIndustrial:
+    clip: {fileID: 0}
+    volume: 1
+  producaoFuncionando:
+    clip: {fileID: 8300000, guid: 97fc4cfe346e23173e87d1e1dc987000, type: 3}
+    volume: 0.8
+  encaixeBancada:
+    clip: {fileID: 8300000, guid: 054944853d0bf68ab4f74d25ab83f031, type: 3}
+    volume: 0.9
+  esteiraQualidade:
+    clip: {fileID: 8300000, guid: fcdcacbac68342458f046fef37fcdb0f, type: 3}
+    volume: 0.6
+  bipCaixa:
+    clip: {fileID: 8300000, guid: 3077efbc59db4beb8201a670f7220a28, type: 3}
+    volume: 0.7
+  acerto:
+    clip: {fileID: 8300000, guid: 58bc28f272f012ec3cd31992ba5afafc, type: 3}
+    volume: 0.8
+  erro:
+    clip: {fileID: 8300000, guid: 3ae703492d2654614779fa3cf82313bf, type: 3}
+    volume: 0.8
+  vitoria:
+    clip: {fileID: 8300000, guid: 051581355161077afabe2d5489c81520, type: 3}
+    volume: 1
