@@ -7572,12 +7572,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4bcf729db6a318249835194be674e271, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  idObjetivo: producao
+  idMissaoRequerida: 
+  animator: {fileID: 0}
+  nomeAnimacao: 
   mensagemInteracao: E - Interagir
   mensagemUI: {fileID: 1190316326}
-  deslocamentoMensagem: {x: -12.6, y: 9.05, z: 0}
-  triggerAnimacao: TocarAnimacao
-  duracaoAnimacao: 9
 --- !u!95 &1273463520
 Animator:
   serializedVersion: 7
@@ -95712,7 +95711,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1569112879
 MonoBehaviour:
   m_ObjectHideFlags: 0
