@@ -31,7 +31,7 @@ public class AplicarFiltroJogo : MonoBehaviour
             int modoSalvo = PlayerPrefs.GetInt("ModoDaltonismo", 0);
             AplicarModoDaltonismo(modoSalvo);
 
-            Debug.Log("Filtro aplicado com sucesso! Modo: " + modoSalvo);
+            Debug.Log("Filtro com intensidade intermediária aplicado com sucesso! Modo: " + modoSalvo);
         }
         else
         {
@@ -43,23 +43,27 @@ public class AplicarFiltroJogo : MonoBehaviour
     {
         if (colorAdjustments == null) return;
 
+        // Garante que o override está ativo
+        colorAdjustments.hueShift.overrideState = true;
+        colorAdjustments.saturation.overrideState = true;
+
         switch (tipoModo)
         {
             case 0: // Normal
                 colorAdjustments.hueShift.value = 0f;
                 colorAdjustments.saturation.value = 0f;
                 break;
-            case 1: // Protanopia
-                colorAdjustments.hueShift.value = -20f;
-                colorAdjustments.saturation.value = 10f;
+            case 1: // Protanopia (Forte, mas equilibrado)
+                colorAdjustments.hueShift.value = -45f;
+                colorAdjustments.saturation.value = 25f;
                 break;
-            case 2: // Deuteranopia
-                colorAdjustments.hueShift.value = 20f;
-                colorAdjustments.saturation.value = 15f;
+            case 2: // Deuteranopia (Forte, mas equilibrado)
+                colorAdjustments.hueShift.value = 45f;
+                colorAdjustments.saturation.value = 25f;
                 break;
-            case 3: // Tritanopia
-                colorAdjustments.hueShift.value = -50f;
-                colorAdjustments.saturation.value = 5f;
+            case 3: // Tritanopia (Forte, mas equilibrado)
+                colorAdjustments.hueShift.value = -40f;
+                colorAdjustments.saturation.value = 20f;
                 break;
         }
     }
