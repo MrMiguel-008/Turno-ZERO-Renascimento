@@ -204,6 +204,7 @@ public class QuestManager : MonoBehaviour
 
             if (currentIndex != -1 && nextIndex < questDatabase.quests.Length)
             {
+                SoundManager.Tocar(Som.Acerto);
                 string nextQuestID = questDatabase.quests[nextIndex].questID;
                 SetActiveQuest(nextQuestID);
             }

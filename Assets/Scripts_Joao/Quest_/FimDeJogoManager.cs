@@ -73,6 +73,7 @@ public class FimDeJogoManager : MonoBehaviour
 
         // Congela completamente o tempo do jogo
         Time.timeScale = 0f;
+        SoundManager.Tocar(Som.Vitoria);
 
         // Ativa o HUD de fim de jogo
         if (painelFimDeJogo != null)
@@ -97,6 +98,7 @@ public class FimDeJogoManager : MonoBehaviour
 
     public void ReiniciarJogo()
     {
+        SoundManager.Tocar(Som.CliqueBotao);
         Time.timeScale = 1f;
 
         // 1. Reseta a pontuação
@@ -117,6 +119,7 @@ public class FimDeJogoManager : MonoBehaviour
 
     public void VoltarAoMenu()
     {
+        SoundManager.Tocar(Som.CliqueBotao);
         Time.timeScale = 1f;
         GameScoreManager.ResetarPontuacao();
         InteracaoMinigame.LimparEstadoDaPartida();

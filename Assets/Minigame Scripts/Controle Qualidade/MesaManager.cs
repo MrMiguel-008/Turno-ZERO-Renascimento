@@ -31,6 +31,7 @@ public class MesaManager : MonoBehaviour
         {
             // Passo 1: Scanner levado até a caixa
             scannerJaFoi = true;
+            SoundManager.Tocar(Som.BipCaixa);
             if (computadorAtualizado != null) rendererComputador.sprite = computadorAtualizado;
 
             // Retorna o scanner para a posição inicial na mesa
@@ -41,6 +42,7 @@ public class MesaManager : MonoBehaviour
         {
             // Passo 2: Fita levada até a caixa (só funciona se o scanner já foi)
             minigameConcluido = true;
+            SoundManager.Tocar(Som.EncaixeBancada);
             if (caixaAtualizada != null) rendererCaixa.sprite = caixaAtualizada;
 
             // Retorna a fita para a posição inicial na mesa
@@ -52,6 +54,7 @@ public class MesaManager : MonoBehaviour
         else
         {
             // Se tentar a fita antes do scanner, ou qualquer ação inválida, os itens voltam
+            SoundManager.Tocar(Som.Erro);
             if (tipoItem == "Scanner") scriptScanner.RetornarOrigem();
             if (tipoItem == "Fita") scriptFita.RetornarOrigem();
         }

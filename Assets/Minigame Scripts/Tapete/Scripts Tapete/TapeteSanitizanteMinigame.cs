@@ -107,6 +107,7 @@ public class TapeteSanitizanteMinigame : MonoBehaviour, IObjetivoMinigame
         barraProgresso.value = acertos;
 
         MovimentarBota();
+        SoundManager.Tocar(Som.EsfregarTapete);
         CriarBolhas();
 
         if (acertos >= quantidadeAcertosNecessarios)
@@ -123,6 +124,7 @@ public class TapeteSanitizanteMinigame : MonoBehaviour, IObjetivoMinigame
     {
         pontuacaoTapete = Mathf.Max(0f, pontuacaoTapete - PENALIZACAO_ERRO);
         Debug.LogWarning($"Tecla errada! -20 pontos. Pontuação atual: {pontuacaoTapete}/{PONTUACAO_MAXIMA}");
+        SoundManager.Tocar(Som.Erro);
         StartCoroutine(SacudirTecla());
     }
 
@@ -178,6 +180,7 @@ public class TapeteSanitizanteMinigame : MonoBehaviour, IObjetivoMinigame
     private void CriarBolhas()
     {
         if (bolhaPrefab == null || bolhasContainer == null) return;
+        SoundManager.Tocar(Som.Bolhas);
 
         for (int i = 0; i < quantidadeBolhas; i++)
         {

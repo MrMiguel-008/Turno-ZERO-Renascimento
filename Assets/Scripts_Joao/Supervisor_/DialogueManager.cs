@@ -54,6 +54,7 @@ public class DialogueManager : MonoBehaviour
             dialogueBoxPanel.SetActive(true);
 
         dialogueText.text = currentLines[currentLineIndex];
+        SoundManager.Tocar(Som.MensagemSupervisora);
     }
 
     void DisplayNextLine()
@@ -63,6 +64,7 @@ public class DialogueManager : MonoBehaviour
         if (currentLineIndex < currentLines.Length)
         {
             dialogueText.text = currentLines[currentLineIndex];
+            SoundManager.Tocar(Som.MensagemSupervisora);
         }
         else
         {

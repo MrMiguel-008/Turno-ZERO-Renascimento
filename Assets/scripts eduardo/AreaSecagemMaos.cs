@@ -1,30 +1,31 @@
-
-using UnityEngine;
 using System.Collections.Generic;
+using UnityEngine;
 
+// O HashSet impede contar a mesma m√£o duas vezes, e a sa√≠da tira a m√£o da contagem.
 public class AreaSecagemMaos : MonoBehaviour
 {
-    public SecarMaos secarMaos;
+    public SistemaHigiene sistemaHigiene;
 
-    private HashSet<Collider2D> maosNaArea = new HashSet<Collider2D>();
+    private readonly HashSet<Collider2D> maosNaArea = new HashSet<Collider2D>();
 
     public bool DuasMaosNaArea()
     {
         return maosNaArea.Count >= 2;
     }
 
+    public void VerificarMaos()
+    {
+        if (DuasMaosNaArea())
+        {
+            sistemaHigiene.MaosChegaramNaSecagem();
+        }
+    }
+
     private void OnTriggerEnter2D(Collider2D outro)
     {
-        if (!outro.CompareTag("Mao"))
-            return;
-
-        maosNaArea.Add(outro);
-
-        Debug.Log("M„os na ·rea de secagem: " + maosNaArea.Count);
-
-        if (DuasMaosNaArea() && secarMaos != null)
+        if (outro.CompareTag("Mao") && maosNaArea.Add(outro))
         {
-            secarMaos.MostrarLegendaSecagem();
+            VerificarMaos();
         }
     }
 
@@ -33,8 +34,6 @@ public class AreaSecagemMaos : MonoBehaviour
         if (outro.CompareTag("Mao"))
         {
             maosNaArea.Remove(outro);
-
-            Debug.Log("M„os na ·rea de secagem: " + maosNaArea.Count);
         }
     }
 }

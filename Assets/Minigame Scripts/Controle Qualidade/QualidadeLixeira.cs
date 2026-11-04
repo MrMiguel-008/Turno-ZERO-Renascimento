@@ -14,10 +14,14 @@ public class Lixeira : MonoBehaviour
                 // Sucesso: Destrói o objeto
                 Destroy(other.gameObject);
                 Debug.Log("Embalagem danificada reciclada!");
+                SoundManager.Tocar(Som.Lixo);
+                SoundManager.Tocar(Som.Acerto);
             }
             else
             {
                 // Erro: Jogador jogou uma embalagem boa na lixeira
+                SoundManager.Tocar(Som.Lixo);
+                SoundManager.Tocar(Som.Erro);
                 Debug.Log("Você destruiu uma embalagem boa! Perdeu vida.");
                 Destroy(other.gameObject);
             }

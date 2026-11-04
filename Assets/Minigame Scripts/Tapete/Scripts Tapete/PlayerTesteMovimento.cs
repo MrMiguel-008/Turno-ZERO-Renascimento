@@ -68,6 +68,7 @@ public class PlayerTesteMovimento : MonoBehaviour
         Vector2 movimento = new Vector2(horizontal, vertical).normalized;
 
         transform.position += (Vector3)(movimento * velocidade * Time.deltaTime);
+        if (movimento != Vector2.zero) SoundManager.ManterPassos();
 
         if (animator != null)
         {

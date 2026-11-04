@@ -1,0 +1,31 @@
+Origem dos efeitos sonoros desta pasta
+
+PACOTES KENNEY (kenney.nl) - licença Creative Commons CC0 (domínio público)
+Podem ser usados em projetos comerciais e não exigem crédito.
+https://creativecommons.org/publicdomain/zero/1.0/
+
+Impact Sounds - https://kenney.nl/assets/impact-sounds
+  passo_1 a passo_5     footstep_concrete_000 a footstep_concrete_004
+  lixo                  impactTin_medium_001
+
+Interface Sounds - https://kenney.nl/assets/interface-sounds
+  interacao_item        select_003
+  clique_botao          click_001
+  soltar_item           drop_002
+  coleta_item           pluck_001
+  coleta_producao       pluck_002
+  acerto                confirmation_001
+  erro                  error_004
+
+RPG Audio - https://kenney.nl/assets/rpg-audio
+  encaixe_bancada       metalLatch
+
+MÚSICAS DA PASTA ACIMA (Audios_Joao) - OpenGameArt, licença CC0 (domínio público)
+  musica esteira controle   "Empacotatron" (arquivo empacotatron_loop.ogg), de Fupi
+                            https://opengameart.org/content/empacotatron
+  musica mesa controle      "Insect Factory" (arquivo insect_factory.mp3), de Zane Little Music
+                            https://opengameart.org/content/insect-factory-wii-style-music
+
+CRIADOS POR CÓDIGO PARA ESTE PROJETO - não usam nenhuma amostra de terceiros
+  esfregar_tapete, bolhas, mensagem_supervisora, coleta_biscoito, bip_caixa, vitoria,
+  ambiente_industrial_loop, esteira_qualidade_loop, producao_funcionando

@@ -62,6 +62,7 @@ public class ObjetoMovimento : MonoBehaviour
         playerEstaSegurandoAlgo = true; // Informa que o player agora está ocupado segurando algo
 
         if (colCaixa != null) colCaixa.enabled = false;
+        SoundManager.Tocar(Som.InteracaoItem);
 
         transform.SetParent(playerTransform);
         transform.localPosition = posicaoRelativa;
@@ -83,6 +84,7 @@ public class ObjetoMovimento : MonoBehaviour
         }
 
         if (colCaixa != null) colCaixa.enabled = true;
+        SoundManager.Tocar(Som.SoltarItem);
     }
 
     void OnDrawGizmosSelected()

@@ -53,6 +53,7 @@ public class QualidadeGerenciador : MonoBehaviour
             danificadaGeradaNesteCiclo = false;
             esteiraAtiva = true;
             DefinirMovimentoDasEmbalagens(true);
+            SoundManager.DefinirEsteira(true);
 
             Coroutine rotinaSpawn = StartCoroutine(SpawnarEmbalagens());
 
@@ -62,6 +63,7 @@ public class QualidadeGerenciador : MonoBehaviour
 
             esteiraAtiva = false;
             DefinirMovimentoDasEmbalagens(false);
+            SoundManager.DefinirEsteira(false);
             Debug.Log("Esteira parada! Remova as embalagens danificadas.");
 
             yield return new WaitUntil(() => TodasDanificadasForamRemovidas());

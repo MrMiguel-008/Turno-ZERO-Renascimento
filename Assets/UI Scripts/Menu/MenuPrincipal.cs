@@ -41,6 +41,7 @@ public class MenuPrincipal : MonoBehaviour
     // Chamado pelo botão SAIR.
     public void Sair()
     {
+        SoundManager.Tocar(Som.CliqueBotao);
 #if UNITY_EDITOR
         Debug.Log(
             "[MenuPrincipal] Encerrando o Play Mode no Editor."

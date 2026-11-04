@@ -22,6 +22,7 @@ TagManager:
   - s luvas 1
   - s botas 1
   - MesaCaixa
+  - AreaLixo
   layers:
   - Default
   - TransparentFX

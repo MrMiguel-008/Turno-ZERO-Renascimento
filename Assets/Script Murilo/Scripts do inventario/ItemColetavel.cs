@@ -40,6 +40,7 @@ public class ItemColetavel : MonoBehaviour
 
             if (foiAdicionado)
             {
+                SoundManager.TocarColeta(nomeItem);
                 // **NOVIDADE:** Avisa o QuestManager que um item foi coletado
                 if (QuestManager.Instance != null)
                 {
