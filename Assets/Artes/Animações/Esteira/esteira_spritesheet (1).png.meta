@@ -433,12 +433,12 @@ TextureImporter:
       name: esteira_spritesheet (1)_0
       rect:
         serializedVersion: 2
-        x: 28
-        y: 7600
-        width: 443
-        height: 588
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 29
+        y: 7601
+        width: 441
+        height: 586
+      alignment: 9
+      pivot: {x: 0.5, y: 0.8}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -455,12 +455,12 @@ TextureImporter:
       name: esteira_spritesheet (1)_1
       rect:
         serializedVersion: 2
-        x: 508
-        y: 7600
-        width: 443
-        height: 588
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 509
+        y: 7601
+        width: 441
+        height: 586
+      alignment: 9
+      pivot: {x: 0.5, y: 0.8}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -477,12 +477,12 @@ TextureImporter:
       name: esteira_spritesheet (1)_2
       rect:
         serializedVersion: 2
-        x: 988
-        y: 7600
-        width: 443
-        height: 588
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 989
+        y: 7601
+        width: 441
+        height: 586
+      alignment: 9
+      pivot: {x: 0.5, y: 0.8}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -499,12 +499,12 @@ TextureImporter:
       name: esteira_spritesheet (1)_3
       rect:
         serializedVersion: 2
-        x: 1468
-        y: 7600
-        width: 443
-        height: 588
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 1469
+        y: 7601
+        width: 441
+        height: 586
+      alignment: 9
+      pivot: {x: 0.5, y: 0.8}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -521,12 +521,12 @@ TextureImporter:
       name: esteira_spritesheet (1)_4
       rect:
         serializedVersion: 2
-        x: 1948
-        y: 7600
-        width: 443
-        height: 588
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 1949
+        y: 7601
+        width: 441
+        height: 586
+      alignment: 9
+      pivot: {x: 0.5, y: 0.8}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -543,12 +543,12 @@ TextureImporter:
       name: esteira_spritesheet (1)_5
       rect:
         serializedVersion: 2
-        x: 2428
-        y: 7600
-        width: 443
-        height: 588
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 2429
+        y: 7601
+        width: 441
+        height: 586
+      alignment: 9
+      pivot: {x: 0.5, y: 0.8}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -565,12 +565,12 @@ TextureImporter:
       name: esteira_spritesheet (1)_6
       rect:
         serializedVersion: 2
-        x: 2908
-        y: 7600
-        width: 443
-        height: 588
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 2909
+        y: 7601
+        width: 441
+        height: 586
+      alignment: 9
+      pivot: {x: 0.5, y: 0.8}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -587,12 +587,12 @@ TextureImporter:
       name: esteira_spritesheet (1)_7
       rect:
         serializedVersion: 2
-        x: 3388
-        y: 7600
-        width: 443
-        height: 588
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 3389
+        y: 7601
+        width: 441
+        height: 586
+      alignment: 9
+      pivot: {x: 0.5, y: 0.8}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -609,12 +609,12 @@ TextureImporter:
       name: esteira_spritesheet (1)_8
       rect:
         serializedVersion: 2
-        x: 3868
-        y: 7600
-        width: 443
-        height: 588
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 3869
+        y: 7601
+        width: 441
+        height: 586
+      alignment: 9
+      pivot: {x: 0.5, y: 0.8}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -631,12 +631,12 @@ TextureImporter:
       name: esteira_spritesheet (1)_9
       rect:
         serializedVersion: 2
-        x: 4348
-        y: 7600
-        width: 443
-        height: 588
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 4349
+        y: 7601
+        width: 441
+        height: 586
+      alignment: 9
+      pivot: {x: 0.5, y: 0.8}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -653,12 +653,12 @@ TextureImporter:
       name: esteira_spritesheet (1)_10
       rect:
         serializedVersion: 2
-        x: 4828
-        y: 7600
-        width: 443
-        height: 588
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 4829
+        y: 7601
+        width: 441
+        height: 586
+      alignment: 9
+      pivot: {x: 0.5, y: 0.8}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -675,12 +675,12 @@ TextureImporter:
       name: esteira_spritesheet (1)_11
       rect:
         serializedVersion: 2
-        x: 5308
-        y: 7600
-        width: 443
-        height: 588
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 5309
+        y: 7601
+        width: 441
+        height: 586
+      alignment: 9
+      pivot: {x: 0.5, y: 0.8}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -697,12 +697,12 @@ TextureImporter:
       name: esteira_spritesheet (1)_12
       rect:
         serializedVersion: 2
-        x: 5788
-        y: 7600
-        width: 443
-        height: 588
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 5789
+        y: 7601
+        width: 441
+        height: 586
+      alignment: 9
+      pivot: {x: 0.5, y: 0.8}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -719,12 +719,12 @@ TextureImporter:
       name: esteira_spritesheet (1)_13
       rect:
         serializedVersion: 2
-        x: 6268
-        y: 7600
-        width: 443
-        height: 588
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 6269
+        y: 7601
+        width: 441
+        height: 586
+      alignment: 9
+      pivot: {x: 0.5, y: 0.8}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -741,12 +741,12 @@ TextureImporter:
       name: esteira_spritesheet (1)_14
       rect:
         serializedVersion: 2
-        x: 6748
-        y: 7600
-        width: 443
-        height: 588
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 6749
+        y: 7601
+        width: 441
+        height: 586
+      alignment: 9
+      pivot: {x: 0.5, y: 0.8}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -763,12 +763,12 @@ TextureImporter:
       name: esteira_spritesheet (1)_15
       rect:
         serializedVersion: 2
-        x: 7228
-        y: 7600
-        width: 443
-        height: 588
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 7229
+        y: 7601
+        width: 441
+        height: 586
+      alignment: 9
+      pivot: {x: 0.5, y: 0.8}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -785,12 +785,12 @@ TextureImporter:
       name: esteira_spritesheet (1)_16
       rect:
         serializedVersion: 2
-        x: 7708
-        y: 7600
-        width: 443
-        height: 588
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 7709
+        y: 7601
+        width: 441
+        height: 586
+      alignment: 9
+      pivot: {x: 0.5, y: 0.8}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -807,12 +807,12 @@ TextureImporter:
       name: esteira_spritesheet (1)_17
       rect:
         serializedVersion: 2
-        x: 28
-        y: 6640
-        width: 443
-        height: 588
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 29
+        y: 6641
+        width: 441
+        height: 586
+      alignment: 9
+      pivot: {x: 0.5, y: 0.8}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -829,12 +829,12 @@ TextureImporter:
       name: esteira_spritesheet (1)_18
       rect:
         serializedVersion: 2
-        x: 508
-        y: 6640
-        width: 443
-        height: 588
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 509
+        y: 6641
+        width: 441
+        height: 586
+      alignment: 9
+      pivot: {x: 0.5, y: 0.8}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -851,12 +851,12 @@ TextureImporter:
       name: esteira_spritesheet (1)_19
       rect:
         serializedVersion: 2
-        x: 988
-        y: 6640
-        width: 443
-        height: 588
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 989
+        y: 6641
+        width: 441
+        height: 586
+      alignment: 9
+      pivot: {x: 0.5, y: 0.8}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -873,12 +873,12 @@ TextureImporter:
       name: esteira_spritesheet (1)_20
       rect:
         serializedVersion: 2
-        x: 1468
-        y: 6640
-        width: 443
-        height: 588
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 1469
+        y: 6641
+        width: 441
+        height: 586
+      alignment: 9
+      pivot: {x: 0.5, y: 0.8}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -895,12 +895,12 @@ TextureImporter:
       name: esteira_spritesheet (1)_21
       rect:
         serializedVersion: 2
-        x: 1948
-        y: 6640
-        width: 443
-        height: 588
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 1949
+        y: 6641
+        width: 441
+        height: 586
+      alignment: 9
+      pivot: {x: 0.5, y: 0.8}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -917,12 +917,12 @@ TextureImporter:
       name: esteira_spritesheet (1)_22
       rect:
         serializedVersion: 2
-        x: 2428
-        y: 6640
-        width: 443
-        height: 588
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 2429
+        y: 6641
+        width: 441
+        height: 586
+      alignment: 9
+      pivot: {x: 0.5, y: 0.8}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -939,12 +939,12 @@ TextureImporter:
       name: esteira_spritesheet (1)_23
       rect:
         serializedVersion: 2
-        x: 2908
-        y: 6640
-        width: 443
-        height: 588
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 2909
+        y: 6641
+        width: 441
+        height: 586
+      alignment: 9
+      pivot: {x: 0.5, y: 0.8}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -961,12 +961,12 @@ TextureImporter:
       name: esteira_spritesheet (1)_24
       rect:
         serializedVersion: 2
-        x: 3388
-        y: 6640
-        width: 443
-        height: 588
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 3389
+        y: 6641
+        width: 441
+        height: 586
+      alignment: 9
+      pivot: {x: 0.5, y: 0.8}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -983,12 +983,12 @@ TextureImporter:
       name: esteira_spritesheet (1)_25
       rect:
         serializedVersion: 2
-        x: 3868
-        y: 6640
-        width: 443
-        height: 588
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 3869
+        y: 6641
+        width: 441
+        height: 586
+      alignment: 9
+      pivot: {x: 0.5, y: 0.8}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -1005,12 +1005,12 @@ TextureImporter:
       name: esteira_spritesheet (1)_26
       rect:
         serializedVersion: 2
-        x: 4348
-        y: 6640
-        width: 443
-        height: 588
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 4349
+        y: 6641
+        width: 441
+        height: 586
+      alignment: 9
+      pivot: {x: 0.5, y: 0.8}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -1027,12 +1027,12 @@ TextureImporter:
       name: esteira_spritesheet (1)_27
       rect:
         serializedVersion: 2
-        x: 4828
-        y: 6640
-        width: 443
-        height: 588
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 4829
+        y: 6641
+        width: 441
+        height: 586
+      alignment: 9
+      pivot: {x: 0.5, y: 0.8}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -1049,12 +1049,12 @@ TextureImporter:
       name: esteira_spritesheet (1)_28
       rect:
         serializedVersion: 2
-        x: 5308
-        y: 6640
-        width: 443
-        height: 588
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 5309
+        y: 6641
+        width: 441
+        height: 586
+      alignment: 9
+      pivot: {x: 0.5, y: 0.8}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -1071,12 +1071,12 @@ TextureImporter:
       name: esteira_spritesheet (1)_29
       rect:
         serializedVersion: 2
-        x: 5788
-        y: 6640
-        width: 443
-        height: 588
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 5789
+        y: 6641
+        width: 441
+        height: 586
+      alignment: 9
+      pivot: {x: 0.5, y: 0.8}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -1093,12 +1093,12 @@ TextureImporter:
       name: esteira_spritesheet (1)_30
       rect:
         serializedVersion: 2
-        x: 6268
-        y: 6640
-        width: 443
-        height: 588
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 6269
+        y: 6641
+        width: 441
+        height: 586
+      alignment: 9
+      pivot: {x: 0.5, y: 0.8}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -1115,12 +1115,12 @@ TextureImporter:
       name: esteira_spritesheet (1)_31
       rect:
         serializedVersion: 2
-        x: 6748
-        y: 6640
-        width: 443
-        height: 588
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 6749
+        y: 6641
+        width: 441
+        height: 586
+      alignment: 9
+      pivot: {x: 0.5, y: 0.8}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -1137,12 +1137,12 @@ TextureImporter:
       name: esteira_spritesheet (1)_32
       rect:
         serializedVersion: 2
-        x: 7228
-        y: 6640
-        width: 443
-        height: 588
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 7229
+        y: 6641
+        width: 441
+        height: 586
+      alignment: 9
+      pivot: {x: 0.5, y: 0.8}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -1159,12 +1159,12 @@ TextureImporter:
       name: esteira_spritesheet (1)_33
       rect:
         serializedVersion: 2
-        x: 7708
-        y: 6640
-        width: 443
-        height: 588
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 7709
+        y: 6641
+        width: 441
+        height: 586
+      alignment: 9
+      pivot: {x: 0.5, y: 0.8}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -1181,12 +1181,12 @@ TextureImporter:
       name: esteira_spritesheet (1)_34
       rect:
         serializedVersion: 2
-        x: 28
-        y: 5680
-        width: 443
-        height: 588
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 29
+        y: 5681
+        width: 441
+        height: 586
+      alignment: 9
+      pivot: {x: 0.5, y: 0.8}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -1203,12 +1203,12 @@ TextureImporter:
       name: esteira_spritesheet (1)_35
       rect:
         serializedVersion: 2
-        x: 508
-        y: 5680
-        width: 443
-        height: 588
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 509
+        y: 5681
+        width: 441
+        height: 586
+      alignment: 9
+      pivot: {x: 0.5, y: 0.8}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -1225,12 +1225,12 @@ TextureImporter:
       name: esteira_spritesheet (1)_36
       rect:
         serializedVersion: 2
-        x: 988
-        y: 5680
-        width: 443
-        height: 588
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 989
+        y: 5681
+        width: 441
+        height: 586
+      alignment: 9
+      pivot: {x: 0.5, y: 0.8}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -1247,12 +1247,12 @@ TextureImporter:
       name: esteira_spritesheet (1)_37
       rect:
         serializedVersion: 2
-        x: 1468
-        y: 5680
-        width: 443
-        height: 588
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 1469
+        y: 5681
+        width: 441
+        height: 586
+      alignment: 9
+      pivot: {x: 0.5, y: 0.8}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -1269,12 +1269,12 @@ TextureImporter:
       name: esteira_spritesheet (1)_38
       rect:
         serializedVersion: 2
-        x: 1948
-        y: 5680
-        width: 443
-        height: 588
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 1949
+        y: 5681
+        width: 441
+        height: 586
+      alignment: 9
+      pivot: {x: 0.5, y: 0.8}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -1291,12 +1291,12 @@ TextureImporter:
       name: esteira_spritesheet (1)_39
       rect:
         serializedVersion: 2
-        x: 2428
-        y: 5680
-        width: 443
-        height: 588
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 2429
+        y: 5681
+        width: 441
+        height: 586
+      alignment: 9
+      pivot: {x: 0.5, y: 0.8}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -1313,12 +1313,12 @@ TextureImporter:
       name: esteira_spritesheet (1)_40
       rect:
         serializedVersion: 2
-        x: 2908
-        y: 5680
-        width: 443
-        height: 588
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 2909
+        y: 5681
+        width: 441
+        height: 586
+      alignment: 9
+      pivot: {x: 0.5, y: 0.8}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -1335,12 +1335,12 @@ TextureImporter:
       name: esteira_spritesheet (1)_41
       rect:
         serializedVersion: 2
-        x: 3388
-        y: 5680
-        width: 443
-        height: 588
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 3389
+        y: 5681
+        width: 441
+        height: 586
+      alignment: 9
+      pivot: {x: 0.5, y: 0.8}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -1357,12 +1357,12 @@ TextureImporter:
       name: esteira_spritesheet (1)_42
       rect:
         serializedVersion: 2
-        x: 3868
-        y: 5680
-        width: 443
-        height: 588
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 3869
+        y: 5681
+        width: 441
+        height: 586
+      alignment: 9
+      pivot: {x: 0.5, y: 0.8}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -1379,12 +1379,12 @@ TextureImporter:
       name: esteira_spritesheet (1)_43
       rect:
         serializedVersion: 2
-        x: 4348
-        y: 5680
-        width: 443
-        height: 588
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 4349
+        y: 5681
+        width: 441
+        height: 586
+      alignment: 9
+      pivot: {x: 0.5, y: 0.8}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -1401,12 +1401,12 @@ TextureImporter:
       name: esteira_spritesheet (1)_44
       rect:
         serializedVersion: 2
-        x: 4828
-        y: 5680
-        width: 443
-        height: 588
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 4829
+        y: 5681
+        width: 441
+        height: 586
+      alignment: 9
+      pivot: {x: 0.5, y: 0.8}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -1423,12 +1423,12 @@ TextureImporter:
       name: esteira_spritesheet (1)_45
       rect:
         serializedVersion: 2
-        x: 5308
-        y: 5680
-        width: 443
-        height: 588
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 5309
+        y: 5681
+        width: 441
+        height: 586
+      alignment: 9
+      pivot: {x: 0.5, y: 0.8}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -1445,12 +1445,12 @@ TextureImporter:
       name: esteira_spritesheet (1)_46
       rect:
         serializedVersion: 2
-        x: 5788
-        y: 5680
-        width: 443
-        height: 588
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 5789
+        y: 5681
+        width: 441
+        height: 586
+      alignment: 9
+      pivot: {x: 0.5, y: 0.8}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -1467,12 +1467,12 @@ TextureImporter:
       name: esteira_spritesheet (1)_47
       rect:
         serializedVersion: 2
-        x: 6268
-        y: 5680
-        width: 443
-        height: 588
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 6269
+        y: 5681
+        width: 441
+        height: 586
+      alignment: 9
+      pivot: {x: 0.5, y: 0.8}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -1489,12 +1489,12 @@ TextureImporter:
       name: esteira_spritesheet (1)_48
       rect:
         serializedVersion: 2
-        x: 6748
-        y: 5680
-        width: 443
-        height: 588
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 6749
+        y: 5681
+        width: 441
+        height: 586
+      alignment: 9
+      pivot: {x: 0.5, y: 0.8}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -1511,12 +1511,12 @@ TextureImporter:
       name: esteira_spritesheet (1)_49
       rect:
         serializedVersion: 2
-        x: 7228
-        y: 5680
-        width: 443
-        height: 588
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 7229
+        y: 5681
+        width: 441
+        height: 586
+      alignment: 9
+      pivot: {x: 0.5, y: 0.8}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -1533,12 +1533,12 @@ TextureImporter:
       name: esteira_spritesheet (1)_50
       rect:
         serializedVersion: 2
-        x: 7708
-        y: 5680
-        width: 443
-        height: 588
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 7709
+        y: 5681
+        width: 441
+        height: 586
+      alignment: 9
+      pivot: {x: 0.5, y: 0.8}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -1555,12 +1555,12 @@ TextureImporter:
       name: esteira_spritesheet (1)_51
       rect:
         serializedVersion: 2
-        x: 28
-        y: 4720
-        width: 443
-        height: 588
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 29
+        y: 4721
+        width: 441
+        height: 586
+      alignment: 9
+      pivot: {x: 0.5, y: 0.8}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -1577,12 +1577,12 @@ TextureImporter:
       name: esteira_spritesheet (1)_52
       rect:
         serializedVersion: 2
-        x: 508
-        y: 4720
-        width: 443
-        height: 588
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 509
+        y: 4721
+        width: 441
+        height: 586
+      alignment: 9
+      pivot: {x: 0.5, y: 0.8}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -1599,12 +1599,12 @@ TextureImporter:
       name: esteira_spritesheet (1)_53
       rect:
         serializedVersion: 2
-        x: 988
-        y: 4720
-        width: 443
-        height: 588
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 989
+        y: 4721
+        width: 441
+        height: 586
+      alignment: 9
+      pivot: {x: 0.5, y: 0.8}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -1621,12 +1621,12 @@ TextureImporter:
       name: esteira_spritesheet (1)_54
       rect:
         serializedVersion: 2
-        x: 1468
-        y: 4720
-        width: 443
-        height: 588
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 1469
+        y: 4721
+        width: 441
+        height: 586
+      alignment: 9
+      pivot: {x: 0.5, y: 0.8}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -1643,12 +1643,12 @@ TextureImporter:
       name: esteira_spritesheet (1)_55
       rect:
         serializedVersion: 2
-        x: 1948
-        y: 4720
-        width: 443
-        height: 588
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 1949
+        y: 4721
+        width: 441
+        height: 586
+      alignment: 9
+      pivot: {x: 0.5, y: 0.8}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -1665,12 +1665,12 @@ TextureImporter:
       name: esteira_spritesheet (1)_56
       rect:
         serializedVersion: 2
-        x: 2428
-        y: 4720
-        width: 443
-        height: 588
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 2429
+        y: 4721
+        width: 441
+        height: 586
+      alignment: 9
+      pivot: {x: 0.5, y: 0.8}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -1687,12 +1687,12 @@ TextureImporter:
       name: esteira_spritesheet (1)_57
       rect:
         serializedVersion: 2
-        x: 2908
-        y: 4720
-        width: 443
-        height: 588
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 2909
+        y: 4721
+        width: 441
+        height: 586
+      alignment: 9
+      pivot: {x: 0.5, y: 0.8}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -1709,12 +1709,12 @@ TextureImporter:
       name: esteira_spritesheet (1)_58
       rect:
         serializedVersion: 2
-        x: 3388
-        y: 4720
-        width: 443
-        height: 588
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 3389
+        y: 4721
+        width: 441
+        height: 586
+      alignment: 9
+      pivot: {x: 0.5, y: 0.8}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -1731,12 +1731,12 @@ TextureImporter:
       name: esteira_spritesheet (1)_59
       rect:
         serializedVersion: 2
-        x: 3868
-        y: 4720
-        width: 443
-        height: 588
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 3869
+        y: 4721
+        width: 441
+        height: 586
+      alignment: 9
+      pivot: {x: 0.5, y: 0.8}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -1753,12 +1753,12 @@ TextureImporter:
       name: esteira_spritesheet (1)_60
       rect:
         serializedVersion: 2
-        x: 4348
-        y: 4720
-        width: 443
-        height: 588
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 4349
+        y: 4721
+        width: 441
+        height: 586
+      alignment: 9
+      pivot: {x: 0.5, y: 0.8}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -1775,12 +1775,12 @@ TextureImporter:
       name: esteira_spritesheet (1)_61
       rect:
         serializedVersion: 2
-        x: 4828
-        y: 4720
-        width: 443
-        height: 588
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 4829
+        y: 4721
+        width: 441
+        height: 586
+      alignment: 9
+      pivot: {x: 0.5, y: 0.8}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -1797,12 +1797,12 @@ TextureImporter:
       name: esteira_spritesheet (1)_62
       rect:
         serializedVersion: 2
-        x: 5308
-        y: 4720
-        width: 443
-        height: 588
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 5309
+        y: 4721
+        width: 441
+        height: 586
+      alignment: 9
+      pivot: {x: 0.5, y: 0.8}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -1819,12 +1819,12 @@ TextureImporter:
       name: esteira_spritesheet (1)_63
       rect:
         serializedVersion: 2
-        x: 5788
-        y: 4720
-        width: 443
-        height: 588
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 5789
+        y: 4721
+        width: 441
+        height: 586
+      alignment: 9
+      pivot: {x: 0.5, y: 0.8}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -1841,12 +1841,12 @@ TextureImporter:
       name: esteira_spritesheet (1)_64
       rect:
         serializedVersion: 2
-        x: 6268
-        y: 4720
-        width: 443
-        height: 588
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 6269
+        y: 4721
+        width: 441
+        height: 586
+      alignment: 9
+      pivot: {x: 0.5, y: 0.8}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -1863,12 +1863,12 @@ TextureImporter:
       name: esteira_spritesheet (1)_65
       rect:
         serializedVersion: 2
-        x: 6748
-        y: 4720
-        width: 443
-        height: 588
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 6749
+        y: 4721
+        width: 441
+        height: 586
+      alignment: 9
+      pivot: {x: 0.5, y: 0.8}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -1885,12 +1885,12 @@ TextureImporter:
       name: esteira_spritesheet (1)_66
       rect:
         serializedVersion: 2
-        x: 7228
-        y: 4720
-        width: 443
-        height: 588
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 7229
+        y: 4721
+        width: 441
+        height: 586
+      alignment: 9
+      pivot: {x: 0.5, y: 0.8}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -1907,12 +1907,12 @@ TextureImporter:
       name: esteira_spritesheet (1)_67
       rect:
         serializedVersion: 2
-        x: 7708
-        y: 4720
-        width: 443
-        height: 588
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 7709
+        y: 4721
+        width: 441
+        height: 586
+      alignment: 9
+      pivot: {x: 0.5, y: 0.8}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -1929,12 +1929,12 @@ TextureImporter:
       name: esteira_spritesheet (1)_68
       rect:
         serializedVersion: 2
-        x: 28
-        y: 3760
-        width: 443
-        height: 588
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 29
+        y: 3761
+        width: 441
+        height: 586
+      alignment: 9
+      pivot: {x: 0.5, y: 0.8}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -1951,12 +1951,12 @@ TextureImporter:
       name: esteira_spritesheet (1)_69
       rect:
         serializedVersion: 2
-        x: 508
-        y: 3760
-        width: 443
-        height: 588
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 509
+        y: 3761
+        width: 441
+        height: 586
+      alignment: 9
+      pivot: {x: 0.5, y: 0.8}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -1973,12 +1973,12 @@ TextureImporter:
       name: esteira_spritesheet (1)_70
       rect:
         serializedVersion: 2
-        x: 988
-        y: 3760
-        width: 443
-        height: 588
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 989
+        y: 3761
+        width: 441
+        height: 586
+      alignment: 9
+      pivot: {x: 0.5, y: 0.8}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -1995,12 +1995,12 @@ TextureImporter:
       name: esteira_spritesheet (1)_71
       rect:
         serializedVersion: 2
-        x: 1468
-        y: 3760
-        width: 443
-        height: 588
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 1469
+        y: 3761
+        width: 441
+        height: 586
+      alignment: 9
+      pivot: {x: 0.5, y: 0.8}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -2017,12 +2017,12 @@ TextureImporter:
       name: esteira_spritesheet (1)_72
       rect:
         serializedVersion: 2
-        x: 1948
-        y: 3760
-        width: 443
-        height: 588
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 1949
+        y: 3761
+        width: 441
+        height: 586
+      alignment: 9
+      pivot: {x: 0.5, y: 0.8}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -2039,12 +2039,12 @@ TextureImporter:
       name: esteira_spritesheet (1)_73
       rect:
         serializedVersion: 2
-        x: 2428
-        y: 3760
-        width: 443
-        height: 588
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 2429
+        y: 3761
+        width: 441
+        height: 586
+      alignment: 9
+      pivot: {x: 0.5, y: 0.8}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -2061,12 +2061,12 @@ TextureImporter:
       name: esteira_spritesheet (1)_74
       rect:
         serializedVersion: 2
-        x: 2908
-        y: 3760
-        width: 443
-        height: 588
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 2909
+        y: 3761
+        width: 441
+        height: 586
+      alignment: 9
+      pivot: {x: 0.5, y: 0.8}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -2083,12 +2083,12 @@ TextureImporter:
       name: esteira_spritesheet (1)_75
       rect:
         serializedVersion: 2
-        x: 3388
-        y: 3760
-        width: 443
-        height: 588
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 3389
+        y: 3761
+        width: 441
+        height: 586
+      alignment: 9
+      pivot: {x: 0.5, y: 0.8}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -2105,12 +2105,12 @@ TextureImporter:
       name: esteira_spritesheet (1)_76
       rect:
         serializedVersion: 2
-        x: 3868
-        y: 3760
-        width: 443
-        height: 588
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 3869
+        y: 3761
+        width: 441
+        height: 586
+      alignment: 9
+      pivot: {x: 0.5, y: 0.8}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -2127,12 +2127,12 @@ TextureImporter:
       name: esteira_spritesheet (1)_77
       rect:
         serializedVersion: 2
-        x: 4348
-        y: 3760
-        width: 443
-        height: 588
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 4349
+        y: 3761
+        width: 441
+        height: 586
+      alignment: 9
+      pivot: {x: 0.5, y: 0.8}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -2149,12 +2149,12 @@ TextureImporter:
       name: esteira_spritesheet (1)_78
       rect:
         serializedVersion: 2
-        x: 4828
-        y: 3760
-        width: 443
-        height: 588
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 4829
+        y: 3761
+        width: 441
+        height: 586
+      alignment: 9
+      pivot: {x: 0.5, y: 0.8}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -2171,12 +2171,12 @@ TextureImporter:
       name: esteira_spritesheet (1)_79
       rect:
         serializedVersion: 2
-        x: 5308
-        y: 3760
-        width: 443
-        height: 588
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 5309
+        y: 3761
+        width: 441
+        height: 586
+      alignment: 9
+      pivot: {x: 0.5, y: 0.8}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -2193,12 +2193,12 @@ TextureImporter:
       name: esteira_spritesheet (1)_80
       rect:
         serializedVersion: 2
-        x: 5788
-        y: 3760
-        width: 443
-        height: 588
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 5789
+        y: 3761
+        width: 441
+        height: 586
+      alignment: 9
+      pivot: {x: 0.5, y: 0.8}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -2215,12 +2215,12 @@ TextureImporter:
       name: esteira_spritesheet (1)_81
       rect:
         serializedVersion: 2
-        x: 6268
-        y: 3760
-        width: 443
-        height: 588
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 6269
+        y: 3761
+        width: 441
+        height: 586
+      alignment: 9
+      pivot: {x: 0.5, y: 0.8}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -2237,12 +2237,12 @@ TextureImporter:
       name: esteira_spritesheet (1)_82
       rect:
         serializedVersion: 2
-        x: 6748
-        y: 3760
-        width: 443
-        height: 588
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 6749
+        y: 3761
+        width: 441
+        height: 586
+      alignment: 9
+      pivot: {x: 0.5, y: 0.8}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -2259,12 +2259,12 @@ TextureImporter:
       name: esteira_spritesheet (1)_83
       rect:
         serializedVersion: 2
-        x: 7228
-        y: 3760
-        width: 443
-        height: 588
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 7229
+        y: 3761
+        width: 441
+        height: 586
+      alignment: 9
+      pivot: {x: 0.5, y: 0.8}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -2281,12 +2281,12 @@ TextureImporter:
       name: esteira_spritesheet (1)_84
       rect:
         serializedVersion: 2
-        x: 7708
-        y: 3760
-        width: 443
-        height: 588
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 7709
+        y: 3761
+        width: 441
+        height: 586
+      alignment: 9
+      pivot: {x: 0.5, y: 0.8}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -2303,12 +2303,12 @@ TextureImporter:
       name: esteira_spritesheet (1)_85
       rect:
         serializedVersion: 2
-        x: 28
-        y: 2800
-        width: 443
-        height: 588
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 29
+        y: 2801
+        width: 441
+        height: 586
+      alignment: 9
+      pivot: {x: 0.5, y: 0.8}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -2325,12 +2325,12 @@ TextureImporter:
       name: esteira_spritesheet (1)_86
       rect:
         serializedVersion: 2
-        x: 508
-        y: 2800
-        width: 443
-        height: 588
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 509
+        y: 2801
+        width: 441
+        height: 586
+      alignment: 9
+      pivot: {x: 0.5, y: 0.8}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -2347,12 +2347,12 @@ TextureImporter:
       name: esteira_spritesheet (1)_87
       rect:
         serializedVersion: 2
-        x: 988
-        y: 2800
-        width: 443
-        height: 588
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 989
+        y: 2801
+        width: 441
+        height: 586
+      alignment: 9
+      pivot: {x: 0.5, y: 0.8}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -2369,12 +2369,12 @@ TextureImporter:
       name: esteira_spritesheet (1)_88
       rect:
         serializedVersion: 2
-        x: 1468
-        y: 2800
-        width: 443
-        height: 588
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 1469
+        y: 2801
+        width: 441
+        height: 586
+      alignment: 9
+      pivot: {x: 0.5, y: 0.8}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -2391,12 +2391,12 @@ TextureImporter:
       name: esteira_spritesheet (1)_89
       rect:
         serializedVersion: 2
-        x: 1948
-        y: 2800
-        width: 443
-        height: 588
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 1949
+        y: 2801
+        width: 441
+        height: 586
+      alignment: 9
+      pivot: {x: 0.5, y: 0.8}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -2413,12 +2413,12 @@ TextureImporter:
       name: esteira_spritesheet (1)_90
       rect:
         serializedVersion: 2
-        x: 2428
-        y: 2800
-        width: 443
-        height: 588
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 2429
+        y: 2801
+        width: 441
+        height: 586
+      alignment: 9
+      pivot: {x: 0.5, y: 0.8}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -2435,12 +2435,12 @@ TextureImporter:
       name: esteira_spritesheet (1)_91
       rect:
         serializedVersion: 2
-        x: 2908
-        y: 2800
-        width: 443
-        height: 588
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 2909
+        y: 2801
+        width: 441
+        height: 586
+      alignment: 9
+      pivot: {x: 0.5, y: 0.8}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -2457,12 +2457,12 @@ TextureImporter:
       name: esteira_spritesheet (1)_92
       rect:
         serializedVersion: 2
-        x: 3388
-        y: 2800
-        width: 443
-        height: 588
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 3389
+        y: 2801
+        width: 441
+        height: 586
+      alignment: 9
+      pivot: {x: 0.5, y: 0.8}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -2479,12 +2479,12 @@ TextureImporter:
       name: esteira_spritesheet (1)_93
       rect:
         serializedVersion: 2
-        x: 3868
-        y: 2800
-        width: 443
-        height: 588
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 3869
+        y: 2801
+        width: 441
+        height: 586
+      alignment: 9
+      pivot: {x: 0.5, y: 0.8}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -2501,12 +2501,12 @@ TextureImporter:
       name: esteira_spritesheet (1)_94
       rect:
         serializedVersion: 2
-        x: 4348
-        y: 2800
-        width: 443
-        height: 588
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 4349
+        y: 2801
+        width: 441
+        height: 586
+      alignment: 9
+      pivot: {x: 0.5, y: 0.8}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -2523,12 +2523,12 @@ TextureImporter:
       name: esteira_spritesheet (1)_95
       rect:
         serializedVersion: 2
-        x: 4828
-        y: 2800
-        width: 443
-        height: 588
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 4829
+        y: 2801
+        width: 441
+        height: 586
+      alignment: 9
+      pivot: {x: 0.5, y: 0.8}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -2545,12 +2545,12 @@ TextureImporter:
       name: esteira_spritesheet (1)_96
       rect:
         serializedVersion: 2
-        x: 5308
-        y: 2800
-        width: 443
-        height: 588
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 5309
+        y: 2801
+        width: 441
+        height: 586
+      alignment: 9
+      pivot: {x: 0.5, y: 0.8}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -2567,12 +2567,12 @@ TextureImporter:
       name: esteira_spritesheet (1)_97
       rect:
         serializedVersion: 2
-        x: 5788
-        y: 2800
-        width: 443
-        height: 588
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 5789
+        y: 2801
+        width: 441
+        height: 586
+      alignment: 9
+      pivot: {x: 0.5, y: 0.8}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -2589,12 +2589,12 @@ TextureImporter:
       name: esteira_spritesheet (1)_98
       rect:
         serializedVersion: 2
-        x: 6268
-        y: 2800
-        width: 443
-        height: 588
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 6269
+        y: 2801
+        width: 441
+        height: 586
+      alignment: 9
+      pivot: {x: 0.5, y: 0.8}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -2611,12 +2611,12 @@ TextureImporter:
       name: esteira_spritesheet (1)_99
       rect:
         serializedVersion: 2
-        x: 6748
-        y: 2800
-        width: 443
-        height: 588
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 6749
+        y: 2801
+        width: 441
+        height: 586
+      alignment: 9
+      pivot: {x: 0.5, y: 0.8}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -2633,12 +2633,12 @@ TextureImporter:
       name: esteira_spritesheet (1)_100
       rect:
         serializedVersion: 2
-        x: 7228
-        y: 2800
-        width: 443
-        height: 588
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 7229
+        y: 2801
+        width: 441
+        height: 586
+      alignment: 9
+      pivot: {x: 0.5, y: 0.8}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -2655,12 +2655,12 @@ TextureImporter:
       name: esteira_spritesheet (1)_101
       rect:
         serializedVersion: 2
-        x: 7708
-        y: 2800
-        width: 443
-        height: 588
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 7709
+        y: 2801
+        width: 441
+        height: 586
+      alignment: 9
+      pivot: {x: 0.5, y: 0.8}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -2677,12 +2677,12 @@ TextureImporter:
       name: esteira_spritesheet (1)_102
       rect:
         serializedVersion: 2
-        x: 28
-        y: 1840
-        width: 443
-        height: 588
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 29
+        y: 1841
+        width: 441
+        height: 586
+      alignment: 9
+      pivot: {x: 0.5, y: 0.8}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -2699,12 +2699,12 @@ TextureImporter:
       name: esteira_spritesheet (1)_103
       rect:
         serializedVersion: 2
-        x: 508
-        y: 1840
-        width: 443
-        height: 588
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 509
+        y: 1841
+        width: 441
+        height: 586
+      alignment: 9
+      pivot: {x: 0.5, y: 0.8}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -2721,12 +2721,12 @@ TextureImporter:
       name: esteira_spritesheet (1)_104
       rect:
         serializedVersion: 2
-        x: 988
-        y: 1840
-        width: 443
-        height: 588
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 989
+        y: 1841
+        width: 441
+        height: 586
+      alignment: 9
+      pivot: {x: 0.5, y: 0.8}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -2743,12 +2743,12 @@ TextureImporter:
       name: esteira_spritesheet (1)_105
       rect:
         serializedVersion: 2
-        x: 1468
-        y: 1840
-        width: 443
-        height: 588
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 1469
+        y: 1841
+        width: 441
+        height: 586
+      alignment: 9
+      pivot: {x: 0.5, y: 0.8}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -2765,12 +2765,12 @@ TextureImporter:
       name: esteira_spritesheet (1)_106
       rect:
         serializedVersion: 2
-        x: 1948
-        y: 1840
-        width: 443
-        height: 588
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 1949
+        y: 1841
+        width: 441
+        height: 586
+      alignment: 9
+      pivot: {x: 0.5, y: 0.8}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -2787,12 +2787,12 @@ TextureImporter:
       name: esteira_spritesheet (1)_107
       rect:
         serializedVersion: 2
-        x: 2428
-        y: 1840
-        width: 443
-        height: 588
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 2429
+        y: 1841
+        width: 441
+        height: 586
+      alignment: 9
+      pivot: {x: 0.5, y: 0.8}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -2809,12 +2809,12 @@ TextureImporter:
       name: esteira_spritesheet (1)_108
       rect:
         serializedVersion: 2
-        x: 2908
-        y: 1840
-        width: 443
-        height: 588
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 2909
+        y: 1841
+        width: 441
+        height: 586
+      alignment: 9
+      pivot: {x: 0.5, y: 0.8}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -2831,12 +2831,12 @@ TextureImporter:
       name: esteira_spritesheet (1)_109
       rect:
         serializedVersion: 2
-        x: 3388
-        y: 1840
-        width: 443
-        height: 588
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 3389
+        y: 1841
+        width: 441
+        height: 586
+      alignment: 9
+      pivot: {x: 0.5, y: 0.8}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -2853,12 +2853,12 @@ TextureImporter:
       name: esteira_spritesheet (1)_110
       rect:
         serializedVersion: 2
-        x: 3868
-        y: 1840
-        width: 443
-        height: 588
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 3869
+        y: 1841
+        width: 441
+        height: 586
+      alignment: 9
+      pivot: {x: 0.5, y: 0.8}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -2875,7 +2875,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 382974d8751077d408d3af0730fe61f4
     internalID: 0
     vertices: []
     indices: 
@@ -2883,7 +2883,9 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     spriteCustomMetadata:
-      entries: []
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":64.0,"y":64.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.800000011920929},"autoSlicingMethod":0,"spriteAlignment":9,"slicingType":0,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
       esteira_spritesheet (1)_0: -7802081179864082274
       esteira_spritesheet (1)_1: -9155257566171645974
