@@ -85,6 +85,64 @@ MonoBehaviour:
     - itemID: uniforme
       amount: 1
     targetMinigameID: Vestir_EPI
+  - questID: interacao_higienizacao
+    questTitle: Fale com a Supervisora
+    questDescription: Utilize a Tecla 'E' para interagir com a Supervisora.
+    questType: 2
+    targetAreaName: 
+    requiredItems:
+    - itemID: acucar
+      amount: 1
+    - itemID: agua
+      amount: 1
+    - itemID: farinha
+      amount: 1
+    - itemID: gordura
+      amount: 1
+    - itemID: gotas
+      amount: 1
+    - itemID: uniforme
+      amount: 1
+    - itemID: toca
+      amount: 1
+    - itemID: mascara
+      amount: 1
+    - itemID: luva
+      amount: 1
+    - itemID: bota
+      amount: 1
+    - itemID: avental
+      amount: 1
+    targetMinigameID: 
+  - questID: higienizacao
+    questTitle: "Dirija-se \xE0 pia"
+    questDescription: "Utilize a tecla E' para lavar as m\xE3os"
+    questType: 4
+    targetAreaName: 
+    requiredItems:
+    - itemID: acucar
+      amount: 1
+    - itemID: agua
+      amount: 1
+    - itemID: farinha
+      amount: 1
+    - itemID: gordura
+      amount: 1
+    - itemID: gotas
+      amount: 1
+    - itemID: uniforme
+      amount: 1
+    - itemID: toca
+      amount: 1
+    - itemID: mascara
+      amount: 1
+    - itemID: luva
+      amount: 1
+    - itemID: bota
+      amount: 1
+    - itemID: avental
+      amount: 1
+    targetMinigameID: objetivo_01
   - questID: m5
     questTitle: Fale com a Supervisora
     questDescription: Utilize a Tecla 'E' para interagir com a Supervisora.
