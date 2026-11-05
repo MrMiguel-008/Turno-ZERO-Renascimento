@@ -30,7 +30,7 @@ MonoBehaviour:
     - "chegando l\xE1 explicarei melhor."
     - Pode ir na frente.
   - condition:
-      requiredLocation: vestiario
+      requiredLocation: 
       requiredQuestID: m3
     dialogueLines:
     - "Utilize a tecla 'E' para avan\xE7ar o di\xE1logo."
@@ -38,6 +38,7 @@ MonoBehaviour:
     - "Onde todos os funcion\xE1rios passam para vestir seus EPIs antes de colocar
       a m\xE3o na massa."
     - "O Seu arm\xE1rio est\xE1 logo al\xED em cima."
+    - "\xC9 s\xF3 pegar seus EPIs."
     - Boa sorte!
   - condition:
       requiredLocation: 
@@ -45,20 +46,27 @@ MonoBehaviour:
     dialogueLines:
     - "Utilize a tecla 'E' para avan\xE7ar o di\xE1logo."
     - "Agora que voc\xEA pegou os equipamentos, est\xE1 na hora de equipa-los"
-    - "Se troque na parte de baixo do vesti\xE1rio."
+    - "Se troque na parte da diteita em cima do vesti\xE1rio."
+    - "Apos vestir eles, v\xE1 para a parte de baixo da sala e Lave suas m\xE3os."
   - condition:
       requiredLocation: 
       requiredQuestID: Vestir_EPI
     dialogueLines:
     - "Utilize a tecla 'E' para avan\xE7ar o di\xE1logo."
     - "Agora que voc\xEA pegou os equipamentos, est\xE1 na hora de equipa-los"
-    - "Se troque na parte de baixo do vesti\xE1rio."
+    - "Se troque na parte da direita em cima do vesti\xE1rio."
+  - condition:
+      requiredLocation: 
+      requiredQuestID: higienizacao
+    dialogueLines:
+    - "Utilize a tecla 'E' para avan\xE7ar o di\xE1logo."
+    - "Agora que vestiu seus EPIs, v\xE1 a pia e lave suas m\xE3os."
   - condition:
       requiredLocation: 
       requiredQuestID: m5
     dialogueLines:
     - "Utilize a tecla 'E' para avan\xE7ar o di\xE1logo."
-    - Agora que equipado com os EPIs, vamos sanitizar esse par de botas.
+    - Agora que equipado com os EPIs e limpo, vamos sanitizar esse par de botas.
     - "Seguindo o corredor aqui da direita voc\xEA encontrar\xE1 o tapete."
     - Boa Sorte!
   - condition:
@@ -92,9 +100,62 @@ MonoBehaviour:
       requiredQuestID: m7
     dialogueLines:
     - "Utilize a tecla 'E' para avan\xE7ar o di\xE1logo."
-    - "\xC9 isso que temos por enquanto."
-    - COMING SOON...
+    - Boa!
+    - "Agora que est\xE1 organizado, vamos botar a m\xE3o na massa."
+    - "v\xE1 at\xE9 o estoque e pegue os ingredientes pra fazer o nosso produto."
+    - "v\xE1 a frente de dispensa de ingredintes e inicie a produ\xE7\xE3o."
+    - respectivamente.
+    - respectivamente.
+    - Boa sorte
+  - condition:
+      requiredLocation: 
+      requiredQuestID: m8
+    dialogueLines:
+    - "Utilize a tecla 'E' para avan\xE7ar o di\xE1logo."
+    - "Siga a seta que est\xE1 direcionando para cima da parte de produ\xE7\xE3o"
+    - pegue os ingredientes e depois coloque-os na maquina
+  - condition:
+      requiredLocation: 
+      requiredQuestID: producao
+    dialogueLines:
+    - "Utilize a tecla 'E' para avan\xE7ar o di\xE1logo."
+    - Coloque os ingrentes no deposito para fazer os biscoitos.
+    - fique atento no processo.
+  - condition:
+      requiredLocation: 
+      requiredQuestID: m9
+    dialogueLines:
+    - "Utilize a tecla 'E' para avan\xE7ar o di\xE1logo."
+    - "agora que a maquina embalou os biscoitos, vamos ver se sa\xEDram como planejado"
+    - "v\xE1 para a sa\xEDda dos biscoitos."
+    - "\xE9 o ultimo maquin\xE1rio antes da caixa."
+  - condition:
+      requiredLocation: 
+      requiredQuestID: Qualidade_1
+    dialogueLines:
+    - "Utilize a tecla 'E' para avan\xE7ar o di\xE1logo."
+    - "v\xE1 para a sa\xEDda dos biscoitos."
+    - "\xE9 o ultimo maquin\xE1rio antes da caixa."
+    - Interaja com o 'E'
+  - condition:
+      requiredLocation: 
+      requiredQuestID: m10
+    dialogueLines:
+    - "Utilize a tecla 'E' para avan\xE7ar o di\xE1logo."
+    - 'Chegamos na ultima Etapa. '
+    - "agora que administramos os pacotes, v\xE1 a mesa que esta no canto esquerdo
+      superior do controle de qualidade"
+    - "Interaja com o 'E' e Fa\xE7a a valida\xE7\xE3o dod Produtos"
+  - condition:
+      requiredLocation: 
+      requiredQuestID: Qualidade_2
+    dialogueLines:
+    - "Utilize a tecla 'E' para avan\xE7ar o di\xE1logo."
+    - "v\xE1 a mesa que esta no canto esquerdo superior do controle de qualidade"
+    - "Interaja com o 'E' e Fa\xE7a a valida\xE7\xE3o dod Produtos"
+    - Bora Bora!!!
   defaultDialogueLines:
   - "Utilize a tecla 'E' para avan\xE7ar o di\xE1logo."
   - Oi...
   - Tudo bem???
+  - se vc ta vendo essa mensagem, aconselho apertar a tecla 'ESC' e sair do jogo.

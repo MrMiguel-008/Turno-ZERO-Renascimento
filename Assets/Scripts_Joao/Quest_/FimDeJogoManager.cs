@@ -27,13 +27,8 @@ public class FimDeJogoManager : MonoBehaviour
     [Tooltip("Botão para voltar ao menu principal")]
     [SerializeField] private Button botaoMenuPrincipal;
 
-    [Header("Configuração de Pontuação")]
-    [Tooltip("Soma total máxima que o jogador pode conseguir")]
-    [SerializeField] private float pontuacaoMaximaTotal = 400f;
-
     void Awake()
     {
-        // Garante que o Singleton não duplique ao reiniciar a cena
         if (Instance == null)
         {
             Instance = this;
@@ -47,13 +42,11 @@ public class FimDeJogoManager : MonoBehaviour
 
     void Start()
     {
-        // Garante que o tempo roda normal e o painel começa escondido
         Time.timeScale = 1f;
 
         if (painelFimDeJogo != null)
             painelFimDeJogo.SetActive(false);
 
-        // Configura os botões com segurança e evita cliques duplicados
         if (botaoReiniciar != null)
         {
             botaoReiniciar.onClick.RemoveAllListeners();
@@ -71,11 +64,9 @@ public class FimDeJogoManager : MonoBehaviour
     {
         Debug.Log("[FimDeJogoManager] DispararFimDeJogo foi executado com sucesso!");
 
-        // Congela completamente o tempo do jogo
         Time.timeScale = 0f;
         SoundManager.Tocar(Som.Vitoria);
 
-        // Ativa o HUD de fim de jogo
         if (painelFimDeJogo != null)
         {
             painelFimDeJogo.SetActive(true);
@@ -85,15 +76,21 @@ public class FimDeJogoManager : MonoBehaviour
             Debug.LogError("[FimDeJogoManager] O Painel de Fim de Jogo não está atribuído no Inspector!");
         }
 
-        // Puxa a pontuação acumulada no GameScoreManager
-        float pontosPlayer = GameScoreManager.GetPontuacaoTotal();
+        int pontosPlayer = 0;
+        int pontosMaximos = 0;
 
-        // Atualiza os textos na tela
+        // Puxa dinamicamente a pontuação acumulada e o máximo real do QuestManager
+        if (QuestManager.Instance != null)
+        {
+            pontosPlayer = QuestManager.Instance.pontuacaoTotalAcumulada;
+            pontosMaximos = QuestManager.Instance.pontuacaoMaximaAcumulada;
+        }
+
         if (textoPontuacaoPlayer != null)
             textoPontuacaoPlayer.text = $"Sua Pontuação: {pontosPlayer} pts";
 
         if (textoPontuacaoMaxima != null)
-            textoPontuacaoMaxima.text = $"Pontuação Máxima: {pontuacaoMaximaTotal} pts";
+            textoPontuacaoMaxima.text = $"Pontuação Máxima: {pontosMaximos} pts";
     }
 
     public void ReiniciarJogo()
@@ -101,19 +98,12 @@ public class FimDeJogoManager : MonoBehaviour
         SoundManager.Tocar(Som.CliqueBotao);
         Time.timeScale = 1f;
 
-        // 1. Reseta a pontuação
-        GameScoreManager.ResetarPontuacao();
-
-        // 2. Reseta o QuestManager completamente (limpa estados e volta para a primeira missão)
         if (QuestManager.Instance != null)
         {
             QuestManager.Instance.ReiniciarProgressoMissoes();
         }
 
-        // 3. Reseta o estado estático dos minigames (liberta as interações com a tecla E)
         InteracaoMinigame.LimparEstadoDaPartida();
-
-        // 4. Recarrega a cena do zero
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
@@ -121,7 +111,12 @@ public class FimDeJogoManager : MonoBehaviour
     {
         SoundManager.Tocar(Som.CliqueBotao);
         Time.timeScale = 1f;
-        GameScoreManager.ResetarPontuacao();
+
+        if (QuestManager.Instance != null)
+        {
+            QuestManager.Instance.ReiniciarProgressoMissoes();
+        }
+
         InteracaoMinigame.LimparEstadoDaPartida();
         SceneManager.LoadScene(nomeCenaMenu);
     }

@@ -1,16 +1,17 @@
 using UnityEngine;
 using TMPro;
+using System.Collections;
 
 [RequireComponent(typeof(Collider2D))]
 public class InteracaoAnimacaoDireta : MonoBehaviour
 {
     [Header("Identificação da Missão")]
     [Tooltip("ID da missão que precisa estar ativa para permitir a interação.")]
-    [SerializeField] private string idMissaoRequerida;
+    [SerializeField] private string idMissaoRequerida = "producao";
 
     [Header("Configuração de Animação")]
     [SerializeField] private Animator animator;
-    [SerializeField] private string nomeAnimacao;
+    [SerializeField] private string nomeAnimacao = "Produção";
 
     [Header("Interação UI (Opcional)")]
     [SerializeField] private string mensagemInteracao = "E - Interagir";
@@ -25,7 +26,6 @@ public class InteracaoAnimacaoDireta : MonoBehaviour
         EsconderMensagem();
     }
 
-    // Valida se o jogador está na missão correta
     private bool PodeInteragir()
     {
         if (jaInteragiu) return false;
@@ -35,47 +35,63 @@ public class InteracaoAnimacaoDireta : MonoBehaviour
             string questAtivaID = QuestManager.Instance.activeQuestID;
             var questInfo = QuestManager.Instance.GetQuestInfo(questAtivaID);
 
-            // Só permite interagir se a missão ativa for exatamente a requerida
-            return questInfo.questID == idMissaoRequerida;
+            return questInfo.questType == QuestType.Minigame && questInfo.targetMinigameID == idMissaoRequerida;
         }
 
-        return true; // Fallback caso não haja QuestManager
+        return true;
     }
 
     void Update()
     {
-        // Se o jogador estiver na área, pressionar 'E' e a missão estiver correta
         if (jogadorNaArea && !jaInteragiu && Input.GetKeyDown(KeyCode.E))
         {
             if (PodeInteragir())
             {
-                ExecutarAcao();
+                StartCoroutine(ExecutarAcaoEAguardarAnimacao());
             }
             else
             {
                 Debug.Log("[InteracaoAnimacaoDireta] A missão atual não permite esta interação!");
-                SoundManager.Tocar(Som.Erro);
             }
         }
     }
 
-    void ExecutarAcao()
+    IEnumerator ExecutarAcaoEAguardarAnimacao()
     {
         jaInteragiu = true;
         EsconderMensagem();
-        SoundManager.TocarProducao();
 
         if (animator != null && !string.IsNullOrEmpty(nomeAnimacao))
         {
             animator.Play(nomeAnimacao);
-            Debug.Log("[InteracaoAnimacaoDireta] Animação executada com sucesso!");
+            Debug.Log("[InteracaoAnimacaoDireta] Animação iniciada...");
+
+            // Aguarda 1 frame para garantir que o Animator mudou de estado e obteve o comprimento correto do clip
+            yield return null;
+
+            // Descobre quanto tempo dura a animação atual em segundos
+            AnimatorStateInfo stateInfo = animator.GetCurrentAnimatorStateInfo(0);
+            float duracaoAnimacao = stateInfo.length;
+
+            // Se por algum motivo o Unity não conseguir ler a duração, define um valor de segurança (ex: 2 segundos)
+            if (duracaoAnimacao <= 0f) duracaoAnimacao = 2f;
+
+            // Espera exatamente o tempo que a animação demora a terminar
+            yield return new WaitForSeconds(duracaoAnimacao);
+
+            Debug.Log("[InteracaoAnimacaoDireta] Animação concluída com sucesso!");
+        }
+        else
+        {
+            // Fallback caso não haja animator, espera 1 segundo
+            yield return new WaitForSeconds(1f);
         }
 
-        // Se quiseres avançar a missão automaticamente ao interagir:
+        // --- SÓ AVANÇA A MISSÃO DEPOIS DA ANIMAÇÃO ACABAR ---
         if (QuestManager.Instance != null)
         {
-            // Opcional: Podes chamar uma verificação de minigame ou evento aqui, se aplicável
-            // QuestManager.Instance.CheckMinigameQuest(idMissaoRequerida);
+            QuestManager.Instance.CheckMinigameQuest(idMissaoRequerida);
+            Debug.Log("[InteracaoAnimacaoDireta] Missão avançada no QuestManager!");
         }
     }
 

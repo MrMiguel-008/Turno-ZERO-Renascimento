@@ -290,14 +290,7 @@ public class SistemaHigiene : MonoBehaviour
     {
         yield return new WaitForSeconds(tempoAntesDeVoltar);
 
-        if (InteracaoMinigame.EstaEmTransicao)
-        {
-            // Registra o objetivo e devolve o jogador ao ponto em que estava na fábrica.
-            InteracaoMinigame.FinalizarMinigame(true);
-        }
-        else
-        {
-            SceneManager.LoadScene(cenaFabrica);
-        }
+        // Informa o InteracaoMinigame para concluir o objetivo e retornar à cena principal
+        InteracaoMinigame.FinalizarMinigame(true);
     }
 }

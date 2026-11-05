@@ -11,6 +11,10 @@ public class QualidadeGerenciador : MonoBehaviour
     public int totalCiclos = 3;
     public float tempoMovendoEsteira = 4f;
 
+    [Header("Sistema de Pontuação")]
+    public int pontosAtuais = 200; // Pontuação inicial máxima do minigame
+    public int penalidadePorErro = 30; // Pontos perdidos ao errar (jogar item bom no lixo)
+
     [Header("Prefabs e Spawner")]
     public List<Transform> pontosDeSpawn = new List<Transform>();
     public float intervaloSpawn = 0.8f;
@@ -28,9 +32,13 @@ public class QualidadeGerenciador : MonoBehaviour
     void Awake()
     {
         if (Instancia == null)
+        {
             Instancia = this;
+        }
         else
+        {
             Destroy(gameObject);
+        }
     }
 
     void Start()
@@ -53,7 +61,6 @@ public class QualidadeGerenciador : MonoBehaviour
             danificadaGeradaNesteCiclo = false;
             esteiraAtiva = true;
             DefinirMovimentoDasEmbalagens(true);
-            SoundManager.DefinirEsteira(true);
 
             Coroutine rotinaSpawn = StartCoroutine(SpawnarEmbalagens());
 
@@ -63,7 +70,6 @@ public class QualidadeGerenciador : MonoBehaviour
 
             esteiraAtiva = false;
             DefinirMovimentoDasEmbalagens(false);
-            SoundManager.DefinirEsteira(false);
             Debug.Log("Esteira parada! Remova as embalagens danificadas.");
 
             yield return new WaitUntil(() => TodasDanificadasForamRemovidas());
@@ -72,23 +78,31 @@ public class QualidadeGerenciador : MonoBehaviour
             yield return new WaitForSeconds(1.5f);
         }
 
-        Debug.Log("Minigame Totalmente Concluído com Sucesso!");
+        Debug.Log($"Minigame Concluído! Pontuação Final Obtida: {pontosAtuais}");
 
-        // No final do método FluxoDoMinigame() em QualidadeGerenciador.cs:
+        // --- ENVIA A PONTUAÇÃO OBTIDA E O MÁXIMO (200) PARA O GESTOR GLOBAL ---
         if (QuestManager.Instance != null)
         {
-            // Substitui exatamente pelo ID que está no teu Main Quest Database
-            QuestManager.Instance.CheckMinigameQuest("qualidade");
-        }
-        else
-        {
-            Debug.LogWarning("[QualidadeGerenciador] QuestManager não encontrado na cena!");
+            int pontuacaoMaximaDesteMinigame = 200;
+            QuestManager.Instance.AdicionarPontosMinigame(pontosAtuais, pontuacaoMaximaDesteMinigame);
         }
 
-        Debug.Log("Minigame Totalmente Concluído com Sucesso!");
-
-        // Informa o InteracaoMinigame que o objetivo foi concluído com sucesso e retorna à cena original
+        // Informa o sistema de transição aditiva (InteracaoMinigame) para concluir a missão e voltar
         InteracaoMinigame.FinalizarMinigame(true);
+    }
+
+    // Método chamado pela Lixeira quando o jogador erra e joga um item bom fora
+    public void RegistarErro()
+    {
+        pontosAtuais -= penalidadePorErro;
+
+        // Garante que os pontos nunca descem abaixo de 0
+        if (pontosAtuais < 0)
+        {
+            pontosAtuais = 0;
+        }
+
+        Debug.Log($"Erro! Menos {penalidadePorErro} pontos. Pontuação atual: {pontosAtuais}");
     }
 
     IEnumerator SpawnarEmbalagens()
@@ -180,6 +194,4 @@ public class QualidadeGerenciador : MonoBehaviour
     {
         return esteiraAtiva;
     }
-
-
 }

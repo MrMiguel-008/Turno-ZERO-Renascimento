@@ -23,14 +23,14 @@ MonoBehaviour:
     targetMinigameID: 
   - questID: m2
     questTitle: "V\xE1 para o Vesti\xE1rio"
-    questDescription: Primeira sala a Esquerda no fim do corredor
+    questDescription: "Siga a faixa representada pela imagem na parede da recep\xE7\xE3o."
     questType: 1
     targetAreaName: vestiario
     requiredItems: []
     targetMinigameID: 
   - questID: m3
     questTitle: Pegue seu equipamento
-    questDescription: Utilize a tecla 'F' para pegar os EPIs
+    questDescription: Utilize a tecla 'F' para pegar os EPIs.
     questType: 3
     targetAreaName: vestiario
     requiredItems:
@@ -68,7 +68,8 @@ MonoBehaviour:
     targetMinigameID: 
   - questID: Vestir_EPI
     questTitle: Vista seus EPIs
-    questDescription: "Voc\xEA pode se trocar no armario na parte de baixo da sala.\n"
+    questDescription: "Voc\xEA pode se trocar no armario na parte superior direita
+      do Vesti\xE1rio."
     questType: 4
     targetAreaName: 
     requiredItems:
@@ -85,51 +86,13 @@ MonoBehaviour:
     - itemID: uniforme
       amount: 1
     targetMinigameID: Vestir_EPI
-  - questID: interacao_higienizacao
-    questTitle: Fale com a Supervisora
-    questDescription: Utilize a Tecla 'E' para interagir com a Supervisora.
-    questType: 2
-    targetAreaName: 
-    requiredItems:
-    - itemID: acucar
-      amount: 1
-    - itemID: agua
-      amount: 1
-    - itemID: farinha
-      amount: 1
-    - itemID: gordura
-      amount: 1
-    - itemID: gotas
-      amount: 1
-    - itemID: uniforme
-      amount: 1
-    - itemID: toca
-      amount: 1
-    - itemID: mascara
-      amount: 1
-    - itemID: luva
-      amount: 1
-    - itemID: bota
-      amount: 1
-    - itemID: avental
-      amount: 1
-    targetMinigameID: 
   - questID: higienizacao
-    questTitle: "Dirija-se \xE0 pia"
-    questDescription: "Utilize a tecla E' para lavar as m\xE3os"
+    questTitle: "Lave suas m\xE3os na pia"
+    questDescription: "Utilize a tecla E' para lavar as m\xE3os na pia que fica na
+      parte de baixo do Vestiario."
     questType: 4
     targetAreaName: 
     requiredItems:
-    - itemID: acucar
-      amount: 1
-    - itemID: agua
-      amount: 1
-    - itemID: farinha
-      amount: 1
-    - itemID: gordura
-      amount: 1
-    - itemID: gotas
-      amount: 1
     - itemID: uniforme
       amount: 1
     - itemID: toca
@@ -142,7 +105,7 @@ MonoBehaviour:
       amount: 1
     - itemID: avental
       amount: 1
-    targetMinigameID: objetivo_01
+    targetMinigameID: higienizacao
   - questID: m5
     questTitle: Fale com a Supervisora
     questDescription: Utilize a Tecla 'E' para interagir com a Supervisora.
@@ -164,9 +127,8 @@ MonoBehaviour:
     targetMinigameID: 
   - questID: tapete_sanitizante
     questTitle: Interaja com o tapete
-    questDescription: 'vai
-
-'
+    questDescription: Diriga-se ao tapete sanitizante seguindo o corredor para a
+      direita.
     questType: 4
     targetAreaName: 
     requiredItems:
@@ -277,16 +239,6 @@ MonoBehaviour:
     questType: 4
     targetAreaName: 
     requiredItems:
-    - itemID: acucar
-      amount: 1
-    - itemID: agua
-      amount: 1
-    - itemID: farinha
-      amount: 1
-    - itemID: gordura
-      amount: 1
-    - itemID: gotas
-      amount: 1
     - itemID: uniforme
       amount: 1
     - itemID: toca
@@ -298,6 +250,16 @@ MonoBehaviour:
     - itemID: bota
       amount: 1
     - itemID: avental
+      amount: 1
+    - itemID: acucar
+      amount: 1
+    - itemID: gotas
+      amount: 1
+    - itemID: gordura
+      amount: 1
+    - itemID: farinha
+      amount: 1
+    - itemID: agua
       amount: 1
     targetMinigameID: producao
   - questID: m9
@@ -359,35 +321,6 @@ MonoBehaviour:
     - itemID: avental
       amount: 1
     targetMinigameID: Qualidade_1
-  - questID: Qualidade_2
-    questTitle: Empacote o Produto.
-    questDescription: "V\xE1 a mesa de empacotamento e termine seu trabalho."
-    questType: 4
-    targetAreaName: 
-    requiredItems:
-    - itemID: acucar
-      amount: 1
-    - itemID: agua
-      amount: 1
-    - itemID: farinha
-      amount: 1
-    - itemID: gordura
-      amount: 1
-    - itemID: gotas
-      amount: 1
-    - itemID: uniforme
-      amount: 1
-    - itemID: toca
-      amount: 1
-    - itemID: mascara
-      amount: 1
-    - itemID: luva
-      amount: 1
-    - itemID: bota
-      amount: 1
-    - itemID: avental
-      amount: 1
-    targetMinigameID: Qualidade_2
   - questID: m10
     questTitle: Fale com a Supervisora
     questDescription: Utilize a Tecla 'E' para interagir com a Supervisora.
@@ -417,3 +350,32 @@ MonoBehaviour:
     - itemID: avental
       amount: 1
     targetMinigameID: 
+  - questID: Qualidade_2
+    questTitle: Empacote o Produto.
+    questDescription: "V\xE1 a mesa de empacotamento e termine seu trabalho."
+    questType: 4
+    targetAreaName: 
+    requiredItems:
+    - itemID: acucar
+      amount: 1
+    - itemID: agua
+      amount: 1
+    - itemID: farinha
+      amount: 1
+    - itemID: gordura
+      amount: 1
+    - itemID: gotas
+      amount: 1
+    - itemID: uniforme
+      amount: 1
+    - itemID: toca
+      amount: 1
+    - itemID: mascara
+      amount: 1
+    - itemID: luva
+      amount: 1
+    - itemID: bota
+      amount: 1
+    - itemID: avental
+      amount: 1
+    targetMinigameID: Qualidade_2

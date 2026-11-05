@@ -17,12 +17,16 @@ public class QuestManager : MonoBehaviour
     public string activeQuestID = "";
     public bool isQuestCompleted = false;
 
+    [Header("Sistema de Pontuação Global")]
+    public int pontuacaoTotalAcumulada = 0;      // O que o jogador conseguiu
+    public int pontuacaoMaximaAcumulada = 0;     // O teto máximo perfeito de todos os minigames somados
+
     void Awake()
     {
         if (Instance == null)
         {
             Instance = this;
-            DontDestroyOnLoad(gameObject); // <--- Mantém o QuestManager ativo entre mudanças de cena
+            DontDestroyOnLoad(gameObject);
         }
         else
         {
@@ -32,7 +36,6 @@ public class QuestManager : MonoBehaviour
 
     void Start()
     {
-        // Garante que só reinicia se não houver já uma missão ativa guardada
         if (string.IsNullOrEmpty(activeQuestID))
         {
             ReiniciarProgressoMissoes();
@@ -43,10 +46,20 @@ public class QuestManager : MonoBehaviour
         }
     }
 
+    // Método universal para somar os pontos de qualquer minigame ao terminar
+    public void AdicionarPontosMinigame(int pontosObtidos, int pontosMaximosPossiveis)
+    {
+        pontuacaoTotalAcumulada += pontosObtidos;
+        pontuacaoMaximaAcumulada += pontosMaximosPossiveis;
+        Debug.Log($"[QuestManager] Pontos adicionados! Total: {pontuacaoTotalAcumulada} / Máximo: {pontuacaoMaximaAcumulada}");
+    }
+
     public void ReiniciarProgressoMissoes()
     {
         isQuestCompleted = false;
         activeQuestID = "";
+        pontuacaoTotalAcumulada = 0;
+        pontuacaoMaximaAcumulada = 0;
 
         if (questDatabase != null && questDatabase.quests != null && questDatabase.quests.Length > 0)
         {
